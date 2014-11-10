@@ -39,6 +39,7 @@
 			<Add option="-pedantic" />
 			<Add option="-Wall" />
 			<Add option="-std=c99" />
+			<Add directory="..\ucunit-master\v1.0.1" />
 		</Compiler>
 		<Unit filename="..\ucunit-master\v1.0.1\Testsuite.c">
 			<Option compilerVar="CC" />
@@ -55,6 +56,13 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="__list.h" />
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="tests.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="tests.h" />
 		<Extensions>
 			<DoxyBlocks>
 				<comment_style block="0" line="0" />
