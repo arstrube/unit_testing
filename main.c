@@ -6,7 +6,7 @@ int main(void)
 {
     UCUNIT_Init();
     UCUNIT_WriteString("\n**************************************\n\n");
-    Testsuite__list_h();
+    Testsuite_List();
     UCUNIT_Shutdown();
 
     return 0;

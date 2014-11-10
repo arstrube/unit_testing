@@ -3,14 +3,35 @@
 #include "__list.h"
 #include "tests.h"
 
-static void Test__list_init(void)
+static void Test_ListIsEmptyAfterInit(void)
 {
-  UCUNIT_TestcaseBegin("Test__list_init");
-  UCUNIT_CheckIsEqual(0, 1);
+  __list_t l;
+  UCUNIT_TestcaseBegin("Test_ListIsEmptyAfterInit");
+  __list_init(&l, sizeof(int));
+  UCUNIT_CheckIsEqual(0, __list_size(&l));
   UCUNIT_TestcaseEnd();
 }
 
-static void Test__list_index(void)
+static void Test_ListHeaderNextIsNullAfterInit(void)
+{
+  __list_t l;
+  UCUNIT_TestcaseBegin("Test_ListHeaderNextIsNullAfterInit");
+  __list_init(&l, sizeof(int));
+  UCUNIT_CheckIsNull((void*)l.header.next);
+  UCUNIT_TestcaseEnd();
+}
+
+static void Test_ListHasElementSizeAfterInit(void)
+{
+  #define ELEM_SIZE 357
+  __list_t l;
+  UCUNIT_TestcaseBegin("Test_ListIsEmptyAfterInit");
+  __list_init(&l, ELEM_SIZE);
+  UCUNIT_CheckIsEqual(ELEM_SIZE, l.elem_size);
+  UCUNIT_TestcaseEnd();
+}
+
+static void Test_VeryDenseTestInvolvingIndex(void)
 {
   int i;
   int sample[] = {  2, 11, 47,  2,  2 };
@@ -21,7 +42,7 @@ static void Test__list_index(void)
   __list_insert(&l, elements, 0);
   __list_insert(&l, elements+1, 1);
 
-  UCUNIT_TestcaseBegin("Test__list_index");
+  UCUNIT_TestcaseBegin("Test_VeryDenseTestInvolvingIndex");
   UCUNIT_ChecklistBegin(UCUNIT_ACTION_WARNING);
   for (i = 0; i < 5; i++)
   {
@@ -31,10 +52,12 @@ static void Test__list_index(void)
   UCUNIT_TestcaseEnd();
 }
 
-void Testsuite__list_h(void)
+void Testsuite_List(void)
 {
-    Test__list_init();
-    Test__list_index();
+  Test_ListIsEmptyAfterInit();
+  Test_ListHeaderNextIsNullAfterInit();
+  Test_ListHasElementSizeAfterInit();
+  Test_VeryDenseTestInvolvingIndex();
 
-    UCUNIT_WriteSummary();
+  UCUNIT_WriteSummary();
 }
