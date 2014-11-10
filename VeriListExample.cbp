@@ -40,6 +40,16 @@
 			<Add option="-Wall" />
 			<Add option="-std=c99" />
 		</Compiler>
+		<Unit filename="..\ucunit-master\v1.0.1\Testsuite.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="..\ucunit-master\v1.0.1\Testsuite.h">
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="..\ucunit-master\v1.0.1\i386\System.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="..\ucunit-master\v1.0.1\uCUnit-v1.0.h" />
 		<Unit filename="__list.c">
 			<Option compilerVar="CC" />
