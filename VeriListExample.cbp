@@ -52,6 +52,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="..\ucunit-master\v1.0.1\uCUnit-v1.0.h" />
+		<Unit filename=".gitignore">
+			<Option target="Debug" />
+		</Unit>
 		<Unit filename="__list.c">
 			<Option compilerVar="CC" />
 		</Unit>
