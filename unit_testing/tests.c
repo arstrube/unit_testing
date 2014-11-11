@@ -75,7 +75,7 @@ static void Test_ListElementIsInsertedBeforeAnother(void)
   __list_init(&l, sizeof(int));
   __list_insert(&l, &another, 0);
   __list_insert(&l, &before, 0);
-  UCUNIT_CheckIsEqual(7, __list_index(&l, &before));
+  UCUNIT_CheckIsEqual(0, __list_index(&l, &before));
   __list_cleanup(&l);
   UCUNIT_TestcaseEnd();
 }
@@ -88,7 +88,7 @@ static void Test_ListElementIsInsertedAfterAnother(void)
   UCUNIT_TestcaseBegin("List element is inserted before another");
   __list_insert(&l, &another, 0);
   __list_insert(&l, &after, 1);
-  UCUNIT_CheckIsEqual(9, __list_index(&l, &after));
+  UCUNIT_CheckIsEqual(1, __list_index(&l, &after));
   UCUNIT_TestcaseEnd();
 }
 
