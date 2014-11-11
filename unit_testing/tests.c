@@ -85,7 +85,7 @@ static void Test_ListElementIsInsertedAfterAnother(void)
   __list_t l;
   int after = 9;
   int another = 8;
-  UCUNIT_TestcaseBegin("List element is inserted before another");
+  UCUNIT_TestcaseBegin("List element is inserted after another");
   __list_insert(&l, &another, 0);
   __list_insert(&l, &after, 1);
   UCUNIT_CheckIsEqual(1, __list_index(&l, &after));
