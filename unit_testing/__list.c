@@ -104,6 +104,7 @@ int __list_cleanup(__list_t *list)
         free(current);
         current = next;
     }
+    list->header.next = 0;
     list->size = 0;
 
     return EXIT_SUCCESS;
