@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="VeriListExample" />
+		<Option pch_mode="2" />
+		<Option compiler="ctc_gnu_gcc_compiler" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin\Debug\VeriListExample" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Debug\" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin\Release\VeriListExample" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Release\" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+			<Target title="CTC">
+				<Option output="bin\CTC\VeriListExample" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="exec\CTC" />
+				<Option object_output="obj\CTC" />
+				<Option type="1" />
+				<Option compiler="ctc_gnu_gcc_compiler" />
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-pedantic" />
+			<Add option="-Wall" />
+			<Add option="-std=c99" />
+			<Add directory="..\ucunit-master\v1.0.1" />
+		</Compiler>
+		<Unit filename="..\ucunit-master\v1.0.1\Testsuite.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="..\ucunit-master\v1.0.1\Testsuite.h">
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="..\ucunit-master\v1.0.1\i386\System.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\ucunit-master\v1.0.1\uCUnit-v1.0.h" />
+		<Unit filename=".gitignore">
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="__list.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="__list.h" />
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="tests.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="tests.h" />
+		<Extensions>
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
