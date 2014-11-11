@@ -1,7 +1,7 @@
 CTC++ sym 7
-Tue Nov 11 09:37:32 2014
+Tue Nov 11 18:00:29 2014
 @D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\__list.c
-7 1415634101 0 0
+7 1415725025 1 0
 0 7 0 0 0 __list_init
 90 0 0 0 0 ( __list_t * list , unsigned int element_size )
 91 7 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing/__list.h
@@ -91,7 +91,15 @@ Tue Nov 11 09:37:32 2014
 3 85 41 0 1
 13 94 48 9 1 0
 2 95 48 0 0 __list_rem
-%95,6,10,5,9,0
+0 97 48 6 0 __list_cleanup
+90 0 0 0 0 ( __list_t * list )
+91 20 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing/__list.h
+92 97 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\__list.c
+22 100 49 5 1 current != 0
+3 106 54 0 1
+13 110 57 10 1 0
+2 111 57 0 0 __list_cleanup
+%111,7,11,6,9,0
 @D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\main.c
 7 1415634102 0 0
 0 5 0 0 0 main
@@ -102,174 +110,315 @@ Tue Nov 11 09:37:32 2014
 2 13 5 0 0 main
 %13,1,1,0,0,0
 @D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
-7 1415695052 14 0
+7 1415725229 16 0
 0 6 0 0 0 Test_ListIsEmptyAfterInit
 90 0 0 0 0 ( void )
 91 6 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
 92 6 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
 41 9 1 0 1
-34 9 5 0 1 0
-3 9 6 0 1
-20 11 7 1 1 ( ( 0 ) == ( __list_size ( & l ) ) )
-41 11 7 0 2
-41 11 7 0 3
-34 11 15 2 3 0
-3 11 16 0 3
-34 11 17 3 2 0
-3 11 18 0 2
-3 11 18 0 1
-40 11 18 0 1
-41 11 18 0 2
-20 11 18 4 3 2 == ucunit_action
-3 11 19 0 3
-41 11 19 0 3
-34 11 27 5 3 0
-3 11 28 0 3
-34 11 30 6 2 0
-3 11 31 0 2
-3 11 31 0 1
-41 12 32 0 1
-20 12 33 7 2 0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed )
-3 12 35 0 2
-40 12 35 0 2
-41 12 35 0 3
-34 12 43 8 3 0
-3 12 44 0 3
-3 12 45 0 2
-34 12 46 9 1 0
-3 12 47 0 1
-1 13 47 0 0 Test_ListIsEmptyAfterInit
-0 15 47 1 0 Test_ListHeaderNextIsNullAfterInit
+34 9 4 0 1 0
+3 9 5 0 1
+20 11 6 1 1 ( ( 0 ) == ( __list_size ( & l ) ) )
+41 11 6 0 2
+34 11 8 2 2 0
+3 11 9 0 2
+3 11 9 0 1
+40 11 9 0 1
+41 11 9 0 2
+20 11 9 3 3 2 == ucunit_action
+3 11 10 0 3
+41 11 10 0 3
+34 11 19 4 3 0
+3 11 20 0 3
+34 11 22 5 2 0
+3 11 23 0 2
+3 11 23 0 1
+41 12 24 0 1
+20 12 24 6 2 0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed )
+3 12 26 0 2
+40 12 26 0 2
+3 12 28 0 2
+34 12 28 7 1 0
+3 12 29 0 1
+1 13 29 0 0 Test_ListIsEmptyAfterInit
+0 15 29 1 0 Test_ListHeaderNextIsNullAfterInit
 90 0 0 0 0 ( void )
 91 15 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
 92 15 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
-41 18 48 0 1
-34 18 52 10 1 0
-3 18 53 0 1
-20 20 54 11 1 ( ( ( void * ) l . header . next ) == ( void * ) 0 )
-41 20 54 0 2
-41 20 54 0 3
-34 20 62 12 3 0
-3 20 63 0 3
-34 20 64 13 2 0
-3 20 65 0 2
-3 20 65 0 1
-40 20 65 0 1
-41 20 65 0 2
-20 20 65 14 3 2 == ucunit_action
-3 20 66 0 3
-41 20 66 0 3
-34 20 74 15 3 0
-3 20 75 0 3
-34 20 77 16 2 0
-3 20 78 0 2
-3 20 78 0 1
-41 21 79 0 1
-20 21 80 17 2 0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed )
-3 21 82 0 2
-40 21 82 0 2
-41 21 82 0 3
-34 21 90 18 3 0
-3 21 91 0 3
-3 21 92 0 2
-34 21 93 19 1 0
-3 21 94 0 1
-1 22 94 1 0 Test_ListHeaderNextIsNullAfterInit
-0 24 94 2 0 Test_ListHasElementSizeAfterInit
+41 18 30 0 1
+34 18 33 8 1 0
+3 18 34 0 1
+20 20 35 9 1 ( ( ( void * ) l . header . next ) == ( void * ) 0 )
+41 20 35 0 2
+34 20 37 10 2 0
+3 20 38 0 2
+3 20 38 0 1
+40 20 38 0 1
+41 20 38 0 2
+20 20 38 11 3 2 == ucunit_action
+3 20 39 0 3
+41 20 39 0 3
+34 20 48 12 3 0
+3 20 49 0 3
+34 20 51 13 2 0
+3 20 52 0 2
+3 20 52 0 1
+41 21 53 0 1
+20 21 53 14 2 0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed )
+3 21 55 0 2
+40 21 55 0 2
+3 21 57 0 2
+34 21 57 15 1 0
+3 21 58 0 1
+1 22 58 1 0 Test_ListHeaderNextIsNullAfterInit
+0 24 58 2 0 Test_ListHasCorrectElementSizeAfterInit
 90 0 0 0 0 ( void )
 91 24 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
 92 24 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
-41 28 95 0 1
-34 28 99 20 1 0
-3 28 100 0 1
-20 30 101 21 1 ( ( 357 ) == ( l . elem_size ) )
-41 30 101 0 2
-41 30 101 0 3
-34 30 109 22 3 0
-3 30 110 0 3
-34 30 111 23 2 0
-3 30 112 0 2
-3 30 112 0 1
-40 30 112 0 1
-41 30 112 0 2
-20 30 112 24 3 2 == ucunit_action
-3 30 113 0 3
-41 30 113 0 3
-34 30 121 25 3 0
-3 30 122 0 3
-34 30 124 26 2 0
-3 30 125 0 2
-3 30 125 0 1
-41 31 126 0 1
-20 31 127 27 2 0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed )
-3 31 129 0 2
-40 31 129 0 2
-41 31 129 0 3
-34 31 137 28 3 0
-3 31 138 0 3
-3 31 139 0 2
-34 31 140 29 1 0
-3 31 141 0 1
-1 32 141 2 0 Test_ListHasElementSizeAfterInit
-0 34 141 3 0 Test_VeryDenseTestInvolvingIndex
+41 28 59 0 1
+34 28 62 16 1 0
+3 28 63 0 1
+20 30 64 17 1 ( ( 357 ) == ( l . elem_size + 1 ) )
+41 30 64 0 2
+34 30 66 18 2 0
+3 30 67 0 2
+3 30 67 0 1
+40 30 67 0 1
+41 30 67 0 2
+20 30 67 19 3 2 == ucunit_action
+3 30 68 0 3
+41 30 68 0 3
+34 30 77 20 3 0
+3 30 78 0 3
+34 30 80 21 2 0
+3 30 81 0 2
+3 30 81 0 1
+41 31 82 0 1
+20 31 82 22 2 0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed )
+3 31 84 0 2
+40 31 84 0 2
+3 31 86 0 2
+34 31 86 23 1 0
+3 31 87 0 1
+1 32 87 2 0 Test_ListHasCorrectElementSizeAfterInit
+0 34 87 3 0 Test_ListSizeIsOneAfterInsertingAnElement
 90 0 0 0 0 ( void )
 91 34 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
 92 34 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
-41 45 149 0 1
-34 45 153 30 1 0
-3 45 154 0 1
-41 46 154 0 1
-34 46 156 31 1 0
-3 46 157 0 1
-23 47 159 32 1 i < 5
-20 49 159 33 2 ( ( result [ i ] ) == ( __list_index ( & l , sample + i ) ) )
-41 49 159 0 3
-41 49 159 0 4
-34 49 167 34 4 0
-3 49 168 0 4
-34 49 169 35 3 0
-3 49 170 0 3
-3 49 170 0 2
-40 49 170 0 2
-41 49 170 0 3
-20 49 170 36 4 2 == ucunit_action
-3 49 171 0 4
-41 49 171 0 4
-34 49 179 37 4 0
-3 49 180 0 4
-34 49 182 38 3 0
-3 49 183 0 3
-3 49 183 0 2
-3 50 184 0 1
-20 51 184 39 1 ucunit_checklist_failed_checks != 0
-41 51 184 0 2
-34 51 192 40 2 0
-3 51 193 0 2
-20 51 193 41 2 1 == ucunit_action
-3 51 194 0 2
-3 51 194 0 1
-40 51 194 0 1
-41 51 194 0 2
-34 51 202 42 2 0
-3 51 203 0 2
-3 51 203 0 1
-41 52 204 0 1
-20 52 205 43 2 0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed )
-3 52 207 0 2
-40 52 207 0 2
-41 52 207 0 3
-34 52 215 44 3 0
-3 52 216 0 3
-3 52 217 0 2
-34 52 218 45 1 0
-3 52 219 0 1
-1 53 219 3 0 Test_VeryDenseTestInvolvingIndex
-0 55 219 4 0 Testsuite_List
+41 38 89 0 1
+34 38 92 24 1 0
+3 38 93 0 1
+20 41 95 25 1 ( ( 1 ) == ( __list_size ( & l ) ) )
+41 41 95 0 2
+34 41 97 26 2 0
+3 41 98 0 2
+3 41 98 0 1
+40 41 98 0 1
+41 41 98 0 2
+20 41 98 27 3 2 == ucunit_action
+3 41 99 0 3
+41 41 99 0 3
+34 41 108 28 3 0
+3 41 109 0 3
+34 41 111 29 2 0
+3 41 112 0 2
+3 41 112 0 1
+41 43 114 0 1
+20 43 114 30 2 0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed )
+3 43 116 0 2
+40 43 116 0 2
+3 43 118 0 2
+34 43 118 31 1 0
+3 43 119 0 1
+1 44 119 3 0 Test_ListSizeIsOneAfterInsertingAnElement
+0 46 119 4 0 Test_CleanupOfEmptyListDoesNothing
+90 0 0 0 0 ( void )
+91 46 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+92 46 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+41 50 121 0 1
+34 50 124 32 1 0
+3 50 125 0 1
+41 53 127 0 1
+20 53 127 33 2 0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed )
+3 53 129 0 2
+40 53 129 0 2
+3 53 131 0 2
+34 53 131 34 1 0
+3 53 132 0 1
+1 54 132 4 0 Test_CleanupOfEmptyListDoesNothing
+0 56 132 5 0 Test_ListIsEmptyAfterCleanup
+90 0 0 0 0 ( void )
+91 56 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+92 56 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+41 60 134 0 1
+34 60 137 35 1 0
+3 60 138 0 1
+20 64 141 36 1 ( ( 0 ) == ( __list_size ( & l ) ) )
+41 64 141 0 2
+34 64 143 37 2 0
+3 64 144 0 2
+3 64 144 0 1
+40 64 144 0 1
+41 64 144 0 2
+20 64 144 38 3 2 == ucunit_action
+3 64 145 0 3
+41 64 145 0 3
+34 64 154 39 3 0
+3 64 155 0 3
+34 64 157 40 2 0
+3 64 158 0 2
+3 64 158 0 1
+20 65 159 41 1 ( ( l . header . next ) == ( void * ) 0 )
+41 65 159 0 2
+34 65 161 42 2 0
+3 65 162 0 2
+3 65 162 0 1
+40 65 162 0 1
+41 65 162 0 2
+20 65 162 43 3 2 == ucunit_action
+3 65 163 0 3
+41 65 163 0 3
+34 65 172 44 3 0
+3 65 173 0 3
+34 65 175 45 2 0
+3 65 176 0 2
+3 65 176 0 1
+41 66 177 0 1
+20 66 177 46 2 0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed )
+3 66 179 0 2
+40 66 179 0 2
+3 66 181 0 2
+34 66 181 47 1 0
+3 66 182 0 1
+1 67 182 5 0 Test_ListIsEmptyAfterCleanup
+0 69 182 6 0 Test_ListElementIsInsertedBeforeAnother
+90 0 0 0 0 ( void )
+91 69 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+92 69 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+41 74 185 0 1
+34 74 188 48 1 0
+3 74 189 0 1
+20 78 192 49 1 ( ( 0 ) == ( __list_index ( & l , & before ) ) )
+41 78 192 0 2
+34 78 194 50 2 0
+3 78 195 0 2
+3 78 195 0 1
+40 78 195 0 1
+41 78 195 0 2
+20 78 195 51 3 2 == ucunit_action
+3 78 196 0 3
+41 78 196 0 3
+34 78 205 52 3 0
+3 78 206 0 3
+34 78 208 53 2 0
+3 78 209 0 2
+3 78 209 0 1
+41 80 211 0 1
+20 80 211 54 2 0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed )
+3 80 213 0 2
+40 80 213 0 2
+3 80 215 0 2
+34 80 215 55 1 0
+3 80 216 0 1
+1 81 216 6 0 Test_ListElementIsInsertedBeforeAnother
+0 83 216 7 0 Test_ListElementIsInsertedAfterAnother
+90 0 0 0 0 ( void )
+91 83 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+92 83 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+41 88 219 0 1
+34 88 222 56 1 0
+3 88 223 0 1
+20 92 226 57 1 ( ( 1 ) == ( __list_index ( & l , & after ) ) )
+41 92 226 0 2
+34 92 228 58 2 0
+3 92 229 0 2
+3 92 229 0 1
+40 92 229 0 1
+41 92 229 0 2
+20 92 229 59 3 2 == ucunit_action
+3 92 230 0 3
+41 92 230 0 3
+34 92 239 60 3 0
+3 92 240 0 3
+34 92 242 61 2 0
+3 92 243 0 2
+3 92 243 0 1
+41 94 245 0 1
+20 94 245 62 2 0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed )
+3 94 247 0 2
+40 94 247 0 2
+3 94 249 0 2
+34 94 249 63 1 0
+3 94 250 0 1
+1 95 250 7 0 Test_ListElementIsInsertedAfterAnother
+0 97 250 8 0 Test_ListElementInsertedBeyondEndReturnsError
+90 0 0 0 0 ( void )
+91 97 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+92 97 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+41 103 254 0 1
+34 103 257 64 1 0
+3 103 258 0 1
+20 107 261 65 1 ( ( - 1 ) == ( __list_insert ( & l , & test , 4 ) ) )
+41 107 261 0 2
+34 107 263 66 2 0
+3 107 264 0 2
+3 107 264 0 1
+40 107 264 0 1
+41 107 264 0 2
+20 107 264 67 3 2 == ucunit_action
+3 107 265 0 3
+41 107 265 0 3
+34 107 274 68 3 0
+3 107 275 0 3
+34 107 277 69 2 0
+3 107 278 0 2
+3 107 278 0 1
+41 109 280 0 1
+20 109 280 70 2 0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed )
+3 109 282 0 2
+40 109 282 0 2
+3 109 284 0 2
+34 109 284 71 1 0
+3 109 285 0 1
+1 110 285 8 0 Test_ListElementInsertedBeyondEndReturnsError
+0 112 285 9 0 Test_VeryDenseTestInvolvingIndex
+90 0 0 0 0 ( void )
+91 112 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+92 112 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+41 123 293 0 1
+34 123 296 72 1 0
+3 123 297 0 1
+23 124 299 73 1 i < 5
+20 126 299 74 2 ( ( result [ i ] ) == ( __list_index ( & l , sample + i ) ) )
+41 126 299 0 3
+34 126 301 75 3 0
+3 126 302 0 3
+3 126 302 0 2
+40 126 302 0 2
+41 126 302 0 3
+20 126 302 76 4 2 == ucunit_action
+3 126 303 0 4
+41 126 303 0 4
+34 126 312 77 4 0
+3 126 313 0 4
+34 126 315 78 3 0
+3 126 316 0 3
+3 126 316 0 2
+3 127 317 0 1
+41 129 318 0 1
+20 129 318 79 2 0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed )
+3 129 320 0 2
+40 129 320 0 2
+3 129 322 0 2
+34 129 322 80 1 0
+3 129 323 0 1
+1 130 323 9 0 Test_VeryDenseTestInvolvingIndex
+0 132 323 10 0 Testsuite_List
 90 0 0 0 0 ( void )
 91 4 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing/tests.h
-92 55 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
-1 63 234 4 0 Testsuite_List
-%63,5,5,46,0,0
+92 132 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+1 146 344 10 0 Testsuite_List
+%146,11,11,81,0,0
 @D:\dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386\System.c
 7 1415634103 0 0
 0 41 0 0 0 System_Init
@@ -304,4 +453,3 @@ Tue Nov 11 09:37:32 2014
 1 91 9 5 0 System_WriteInt
 %91,6,6,0,0,0
 END OF SYMBOLFILE
-
