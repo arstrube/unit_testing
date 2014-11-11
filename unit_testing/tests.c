@@ -36,8 +36,19 @@ static void Test_ListSizeIsOneAfterInsertingAnElement(void)
   __list_t l;
   int element = 25;
   UCUNIT_TestcaseBegin("List size is 1 after inserting an element");
+  __list_init(&l, sizeof(int));
   __list_insert(&l, &element, 0);
   UCUNIT_CheckIsEqual(1, __list_size(&l));
+  UCUNIT_TestcaseEnd();
+}
+
+static void Test_CleanupOfEmptyListDoesNothing(void)
+{
+  __list_t l;
+  int element = 25;
+  UCUNIT_TestcaseBegin("Cleanup of empty list does nothing");
+  __list_init(&l, sizeof(int));
+  __list_cleanup(&l);
   UCUNIT_TestcaseEnd();
 }
 
@@ -47,6 +58,7 @@ static void Test_ListElementIsInsertedBeforeAnother(void)
   int before = 7;
   int another = 8;
   UCUNIT_TestcaseBegin("List element is inserted before another");
+  __list_init(&l, sizeof(int));
   __list_insert(&l, &another, 0);
   __list_insert(&l, &before, 0);
   UCUNIT_CheckIsEqual(7, __list_index(&l, &before));
@@ -89,6 +101,7 @@ void Testsuite_List(void)
   Test_ListIsEmptyAfterInit();
   Test_ListHeaderNextIsNullAfterInit();
   Test_ListHasCorrectElementSizeAfterInit();
+  Test_CleanupOfEmptyListDoesNothing();
   Test_ListSizeIsOneAfterInsertingAnElement();
   Test_ListElementIsInsertedBeforeAnother();
   Test_ListElementIsInsertedAfterAnother();

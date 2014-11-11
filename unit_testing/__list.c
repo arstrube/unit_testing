@@ -93,3 +93,18 @@ int __list_rem(__list_t *list, void* element, int index)
 
     return EXIT_SUCCESS;
 }
+// löscht die gesamte Liste und gibt den Speicher frei
+int __list_cleanup(__list_t *list)
+{
+    __item_t* current = list->header.next;
+    while(current != 0) {
+        __item_t* next = current->next;
+        current->data = 0;
+        current->next = 0;
+        free(current);
+        current = next;
+    }
+    list->size = 0;
+
+    return EXIT_SUCCESS;
+}

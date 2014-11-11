@@ -16,6 +16,8 @@ int __list_index(__list_t *list, void *element);
 int __list_get(__list_t *list, void* element, int index);
 // Wie get, löscht das Element jedoch aus der Liste.
 int __list_rem(__list_t *list, void* element, int index);
+// Die Liste wird gelöscht.
+int __list_cleanup(__list_t *list);
 
 
 typedef struct __item_struct __item_t;
