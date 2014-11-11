@@ -86,9 +86,26 @@ static void Test_ListElementIsInsertedAfterAnother(void)
   int after = 9;
   int another = 8;
   UCUNIT_TestcaseBegin("List element is inserted after another");
+  __list_init(&l, sizeof(int));
   __list_insert(&l, &another, 0);
   __list_insert(&l, &after, 1);
   UCUNIT_CheckIsEqual(1, __list_index(&l, &after));
+  __list_cleanup(&l);
+  UCUNIT_TestcaseEnd();
+}
+
+static void Test_ListElementIsInsertedAtInvalidPosition(void)
+{
+  __list_t l;
+  int first = 3;
+  int second = 0;
+  int test = 15;
+  UCUNIT_TestcaseBegin("List element is inserted at an invalid position");
+  __list_init(&l, sizeof(int));
+  __list_insert(&l, &first, 0);
+  __list_insert(&l, &second, 1);
+  UCUNIT_CheckIsEqual(-1, __list_insert(&l, &test, 4));
+  __list_cleanup(&l);
   UCUNIT_TestcaseEnd();
 }
 
@@ -108,6 +125,7 @@ static void Test_VeryDenseTestInvolvingIndex(void)
   {
     UCUNIT_CheckIsEqual(result[i], __list_index(&l, sample + i));
   }
+  __list_cleanup(&l);
   UCUNIT_TestcaseEnd();
 }
 
@@ -120,6 +138,7 @@ void Testsuite_List(void)
   Test_ListSizeIsOneAfterInsertingAnElement();
   Test_ListElementIsInsertedBeforeAnother();
   Test_ListElementIsInsertedAfterAnother();
+  Test_ListElementIsInsertedAtInvalidPosition();
   Test_ListIsEmptyAfterCleanup();
   Test_VeryDenseTestInvolvingIndex();
 
