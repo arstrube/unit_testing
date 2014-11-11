@@ -39,6 +39,7 @@ static void Test_ListSizeIsOneAfterInsertingAnElement(void)
   __list_init(&l, sizeof(int));
   __list_insert(&l, &element, 0);
   UCUNIT_CheckIsEqual(1, __list_size(&l));
+  __list_cleanup(&l);
   UCUNIT_TestcaseEnd();
 }
 
@@ -52,6 +53,19 @@ static void Test_CleanupOfEmptyListDoesNothing(void)
   UCUNIT_TestcaseEnd();
 }
 
+static void Test_ListIsEmptyAfterCleanup(void)
+{
+  __list_t l;
+  int element = 3;
+  UCUNIT_TestcaseBegin("List is empty after cleanup");
+  __list_init(&l, sizeof(int));
+  __list_insert(&l, &element, 0);
+  __list_cleanup(&l);
+  UCUNIT_CheckIsEqual(0, __list_size(&l));
+  UCUNIT_CheckIsNull(l.header.next);
+  UCUNIT_TestcaseEnd();
+}
+
 static void Test_ListElementIsInsertedBeforeAnother(void)
 {
   __list_t l;
@@ -62,6 +76,7 @@ static void Test_ListElementIsInsertedBeforeAnother(void)
   __list_insert(&l, &another, 0);
   __list_insert(&l, &before, 0);
   UCUNIT_CheckIsEqual(7, __list_index(&l, &before));
+  __list_cleanup(&l);
   UCUNIT_TestcaseEnd();
 }
 
@@ -105,6 +120,7 @@ void Testsuite_List(void)
   Test_ListSizeIsOneAfterInsertingAnElement();
   Test_ListElementIsInsertedBeforeAnother();
   Test_ListElementIsInsertedAfterAnother();
+  Test_ListIsEmptyAfterCleanup();
   Test_VeryDenseTestInvolvingIndex();
 
   UCUNIT_WriteSummary();
