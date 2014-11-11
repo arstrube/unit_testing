@@ -94,13 +94,13 @@ static void Test_ListElementIsInsertedAfterAnother(void)
   UCUNIT_TestcaseEnd();
 }
 
-static void Test_ListElementIsInsertedAtInvalidPosition(void)
+static void Test_ListElementInsertedBeyondEndReturnsError(void)
 {
   __list_t l;
   int first = 3;
   int second = 0;
   int test = 15;
-  UCUNIT_TestcaseBegin("List element is inserted at an invalid position");
+  UCUNIT_TestcaseBegin("List element inserted beyond the end of the list results in error");
   __list_init(&l, sizeof(int));
   __list_insert(&l, &first, 0);
   __list_insert(&l, &second, 1);
@@ -138,7 +138,7 @@ void Testsuite_List(void)
   Test_ListSizeIsOneAfterInsertingAnElement();
   Test_ListElementIsInsertedBeforeAnother();
   Test_ListElementIsInsertedAfterAnother();
-  Test_ListElementIsInsertedAtInvalidPosition();
+  Test_ListElementInsertedBeyondEndReturnsError();
   Test_ListIsEmptyAfterCleanup();
   Test_VeryDenseTestInvolvingIndex();
 
