@@ -3,3 +3,4 @@ bin/
 *.layout
 *.depend
 .DS_Store
+*.html
