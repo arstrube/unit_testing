@@ -149,8 +149,8 @@
  * UCUNIT_MODE_NORMAL: Only checks that fail are displayes
  * UCUNIT_MODE_VERBOSE: Passed and failed checks are displayed
  */
-//#define UCUNIT_MODE_NORMAL
-#define UCUNIT_MODE_VERBOSE
+#define UCUNIT_MODE_NORMAL
+//#define UCUNIT_MODE_VERBOSE
 
 /**
  * Max. number of checkpoints. This may depend on your application
@@ -283,6 +283,7 @@ static int ucunit_index = 0; /* Tracepoint index */
 #define UCUNIT_WriteFailedMsg(msg, args)                        \
     do                                                          \
     {                                                           \
+        UCUNIT_WriteString("\n  FAILED: ");                           \
         UCUNIT_WriteString(__FILE__);                           \
         UCUNIT_WriteString(":");                                \
         UCUNIT_WriteString(UCUNIT_DefineToString(__LINE__));    \
@@ -290,7 +291,7 @@ static int ucunit_index = 0; /* Tracepoint index */
         UCUNIT_WriteString(msg);                                \
         UCUNIT_WriteString("(");                                \
         UCUNIT_WriteString(args);                               \
-        UCUNIT_WriteString(")\n");                              \
+        UCUNIT_WriteString(")");                              \
     } while(0)
 #endif
 
@@ -554,9 +555,8 @@ static int ucunit_index = 0; /* Tracepoint index */
 #define UCUNIT_TestcaseBegin(name)                                        \
     do                                                                    \
     {                                                                     \
-        UCUNIT_WriteString("\n======================================\n"); \
         UCUNIT_WriteString(name);                                         \
-        UCUNIT_WriteString("\n======================================\n"); \
+        UCUNIT_WriteString(" -- ");                                          \
         ucunit_testcases_failed_checks = ucunit_checks_failed;            \
     }                                                                     \
     while(0)
@@ -573,18 +573,16 @@ static int ucunit_index = 0; /* Tracepoint index */
 #define UCUNIT_TestcaseEnd()                                         \
     do                                                               \
     {                                                                \
-        UCUNIT_WriteString("======================================\n");  \
         if( 0==(ucunit_testcases_failed_checks - ucunit_checks_failed) ) \
         {                                                            \
-            UCUNIT_WriteString("Testcase passed.\n");                \
+            UCUNIT_WriteString("OK\n");                              \
             ucunit_testcases_passed++;                               \
         }                                                            \
         else                                                         \
         {                                                            \
-            UCUNIT_WriteFailedMsg("EndTestcase","");                 \
+            UCUNIT_WriteString("\n");                              \
             ucunit_testcases_failed++;                               \
         }                                                            \
-        UCUNIT_WriteString("======================================\n"); \
     }                                                                \
     while(0)
 
