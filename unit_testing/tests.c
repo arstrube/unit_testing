@@ -6,7 +6,7 @@
 static void Test_ListIsEmptyAfterInit(void)
 {
   __list_t l;
-  UCUNIT_TestcaseBegin("Test_ListIsEmptyAfterInit");
+  UCUNIT_TestcaseBegin("List is empty after initialization");
   __list_init(&l, sizeof(int));
   UCUNIT_CheckIsEqual(0, __list_size(&l));
   UCUNIT_TestcaseEnd();
@@ -15,7 +15,7 @@ static void Test_ListIsEmptyAfterInit(void)
 static void Test_ListHeaderNextIsNullAfterInit(void)
 {
   __list_t l;
-  UCUNIT_TestcaseBegin("Test_ListHeaderNextIsNullAfterInit");
+  UCUNIT_TestcaseBegin("First elemenent is NULL after initialization");
   __list_init(&l, sizeof(int));
   UCUNIT_CheckIsNull((void*)l.header.next);
   UCUNIT_TestcaseEnd();
@@ -25,9 +25,9 @@ static void Test_ListHasElementSizeAfterInit(void)
 {
   #define ELEM_SIZE 357
   __list_t l;
-  UCUNIT_TestcaseBegin("Test_ListIsEmptyAfterInit");
+  UCUNIT_TestcaseBegin("List has correct element size after initialization");
   __list_init(&l, ELEM_SIZE);
-  UCUNIT_CheckIsEqual(ELEM_SIZE, l.elem_size);
+  UCUNIT_CheckIsEqual(ELEM_SIZE, l.elem_size+1);
   UCUNIT_TestcaseEnd();
 }
 
@@ -42,13 +42,11 @@ static void Test_VeryDenseTestInvolvingIndex(void)
   __list_insert(&l, elements, 0);
   __list_insert(&l, elements+1, 1);
 
-  UCUNIT_TestcaseBegin("Test_VeryDenseTestInvolvingIndex");
-  UCUNIT_ChecklistBegin(UCUNIT_ACTION_WARNING);
+  UCUNIT_TestcaseBegin("Very dense test involving index");
   for (i = 0; i < 5; i++)
   {
     UCUNIT_CheckIsEqual(result[i], __list_index(&l, sample + i));
   }
-  UCUNIT_ChecklistEnd();
   UCUNIT_TestcaseEnd();
 }
 
