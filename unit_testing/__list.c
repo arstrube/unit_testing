@@ -3,14 +3,32 @@
 #include <stdlib.h>
 #include <string.h>
 
-//Initialisiert eine Liste und gibt die Elementgroesse an!
-int __list_init(__list_t *list, unsigned int element_size)
+typedef struct __item_struct __item_t;
+
+// Details of __list_struct and __item_struct now private
+struct __item_struct
 {
+    void* data;
+    __item_t *next;
+};
+
+struct __list_struct
+{
+    int size;
+    int elem_size;
+    __item_t header;
+};
+//
+
+//Erzeugt eine neue Liste und gibt deren Adresse zurück
+__list_t* __list_create(unsigned int element_size)
+{
+    __list_t *list = malloc(sizeof(__list_t));
     list->elem_size = element_size;
     list->size = 0;
     list->header.next = NULL;
 
-    return EXIT_SUCCESS;
+    return list;
 }
 
 // Gibt die Anzahl der Element der Liste zurück
@@ -94,9 +112,9 @@ int __list_rem(__list_t *list, void* element, int index)
     return EXIT_SUCCESS;
 }
 // löscht die gesamte Liste und gibt den Speicher frei
-int __list_cleanup(__list_t *list)
+int __list_destroy(__list_t **list)
 {
-    __item_t* current = list->header.next;
+    __item_t* current = (*list)->header.next;
     while(current != 0) {
         __item_t* next = current->next;
         current->data = 0;
@@ -104,8 +122,8 @@ int __list_cleanup(__list_t *list)
         free(current);
         current = next;
     }
-    list->header.next = 0;
-    list->size = 0;
+    free(*list);
+    *list = 0;
 
     return EXIT_SUCCESS;
 }
