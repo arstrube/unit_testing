@@ -1,23 +1,23 @@
 CTC++ sym 7
-Tue Nov 11 18:00:29 2014
-@D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\__list.c
-7 1415725025 1 0
+Wed Nov 12 14:41:23 2014
+@C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\__list.c
+7 1415799682 0 0
 0 7 0 0 0 __list_init
 90 0 0 0 0 ( __list_t * list , unsigned int element_size )
-91 7 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing/__list.h
-92 7 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\__list.c
+91 7 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing/__list.h
+92 7 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\__list.c
 13 13 4 0 1 0
 2 14 4 0 0 __list_init
 0 17 4 1 0 __list_size
 90 0 0 0 0 ( __list_t * list )
-91 9 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing/__list.h
-92 17 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\__list.c
+91 9 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing/__list.h
+92 17 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\__list.c
 13 19 5 1 1 list -> size
 2 20 5 0 0 __list_size
 0 23 5 2 0 __list_insert
 90 0 0 0 0 ( __list_t * list , void * element , int index )
-91 11 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing/__list.h
-92 23 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\__list.c
+91 11 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing/__list.h
+92 23 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\__list.c
 78 0 0 0 0 1,2
 79 0 0 0 0 0
 70 29 8 0 1 index > list -> size || index < 0
@@ -38,8 +38,8 @@ Tue Nov 11 18:00:29 2014
 2 41 19 0 0 __list_insert
 0 44 19 3 0 __list_index
 90 0 0 0 0 ( __list_t * list , void * element )
-91 14 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing/__list.h
-92 44 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\__list.c
+91 14 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing/__list.h
+92 44 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\__list.c
 23 50 23 1 1 current_item != ( ( void * ) 0 )
 20 53 23 2 2 0 == memcmp ( element , current_item -> data , list -> size )
 13 53 24 4 3 i
@@ -49,8 +49,8 @@ Tue Nov 11 18:00:29 2014
 2 58 26 0 0 __list_index
 0 60 26 4 0 __list_get
 90 0 0 0 0 ( __list_t * list , void * element , int index )
-91 16 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing/__list.h
-92 60 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\__list.c
+91 16 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing/__list.h
+92 60 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\__list.c
 78 0 0 3 0 1,2
 79 0 0 3 0 0
 70 64 28 0 1 index > list -> size || index < 0
@@ -71,8 +71,8 @@ Tue Nov 11 18:00:29 2014
 2 74 34 0 0 __list_get
 0 76 34 5 0 __list_rem
 90 0 0 0 0 ( __list_t * list , void * element , int index )
-91 18 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing/__list.h
-92 76 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\__list.c
+91 18 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing/__list.h
+92 76 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\__list.c
 78 0 0 6 0 1,2
 79 0 0 6 0 0
 70 81 37 0 1 index > list -> size || index < 0
@@ -93,28 +93,28 @@ Tue Nov 11 18:00:29 2014
 2 95 48 0 0 __list_rem
 0 97 48 6 0 __list_cleanup
 90 0 0 0 0 ( __list_t * list )
-91 20 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing/__list.h
-92 97 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\__list.c
+91 20 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing/__list.h
+92 97 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\__list.c
 22 100 49 5 1 current != 0
 3 106 54 0 1
 13 110 57 10 1 0
 2 111 57 0 0 __list_cleanup
 %111,7,11,6,9,0
-@D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\main.c
-7 1415634102 0 0
+@C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\main.c
+7 1415799682 0 0
 0 5 0 0 0 main
 90 0 0 0 0 ( void )
-91 5 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\main.c
-92 5 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\main.c
+91 5 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\main.c
+92 5 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\main.c
 13 12 5 0 1 0
 2 13 5 0 0 main
 %13,1,1,0,0,0
-@D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
-7 1415725229 16 0
+@C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+7 1415799683 0 0
 0 6 0 0 0 Test_ListIsEmptyAfterInit
 90 0 0 0 0 ( void )
-91 6 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
-92 6 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+91 6 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+92 6 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
 41 9 1 0 1
 34 9 4 0 1 0
 3 9 5 0 1
@@ -143,8 +143,8 @@ Tue Nov 11 18:00:29 2014
 1 13 29 0 0 Test_ListIsEmptyAfterInit
 0 15 29 1 0 Test_ListHeaderNextIsNullAfterInit
 90 0 0 0 0 ( void )
-91 15 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
-92 15 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+91 15 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+92 15 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
 41 18 30 0 1
 34 18 33 8 1 0
 3 18 34 0 1
@@ -173,8 +173,8 @@ Tue Nov 11 18:00:29 2014
 1 22 58 1 0 Test_ListHeaderNextIsNullAfterInit
 0 24 58 2 0 Test_ListHasCorrectElementSizeAfterInit
 90 0 0 0 0 ( void )
-91 24 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
-92 24 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+91 24 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+92 24 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
 41 28 59 0 1
 34 28 62 16 1 0
 3 28 63 0 1
@@ -203,8 +203,8 @@ Tue Nov 11 18:00:29 2014
 1 32 87 2 0 Test_ListHasCorrectElementSizeAfterInit
 0 34 87 3 0 Test_ListSizeIsOneAfterInsertingAnElement
 90 0 0 0 0 ( void )
-91 34 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
-92 34 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+91 34 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+92 34 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
 41 38 89 0 1
 34 38 92 24 1 0
 3 38 93 0 1
@@ -233,8 +233,8 @@ Tue Nov 11 18:00:29 2014
 1 44 119 3 0 Test_ListSizeIsOneAfterInsertingAnElement
 0 46 119 4 0 Test_CleanupOfEmptyListDoesNothing
 90 0 0 0 0 ( void )
-91 46 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
-92 46 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+91 46 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+92 46 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
 41 50 121 0 1
 34 50 124 32 1 0
 3 50 125 0 1
@@ -248,8 +248,8 @@ Tue Nov 11 18:00:29 2014
 1 54 132 4 0 Test_CleanupOfEmptyListDoesNothing
 0 56 132 5 0 Test_ListIsEmptyAfterCleanup
 90 0 0 0 0 ( void )
-91 56 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
-92 56 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+91 56 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+92 56 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
 41 60 134 0 1
 34 60 137 35 1 0
 3 60 138 0 1
@@ -293,8 +293,8 @@ Tue Nov 11 18:00:29 2014
 1 67 182 5 0 Test_ListIsEmptyAfterCleanup
 0 69 182 6 0 Test_ListElementIsInsertedBeforeAnother
 90 0 0 0 0 ( void )
-91 69 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
-92 69 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+91 69 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+92 69 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
 41 74 185 0 1
 34 74 188 48 1 0
 3 74 189 0 1
@@ -323,8 +323,8 @@ Tue Nov 11 18:00:29 2014
 1 81 216 6 0 Test_ListElementIsInsertedBeforeAnother
 0 83 216 7 0 Test_ListElementIsInsertedAfterAnother
 90 0 0 0 0 ( void )
-91 83 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
-92 83 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+91 83 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+92 83 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
 41 88 219 0 1
 34 88 222 56 1 0
 3 88 223 0 1
@@ -353,8 +353,8 @@ Tue Nov 11 18:00:29 2014
 1 95 250 7 0 Test_ListElementIsInsertedAfterAnother
 0 97 250 8 0 Test_ListElementInsertedBeyondEndReturnsError
 90 0 0 0 0 ( void )
-91 97 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
-92 97 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+91 97 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+92 97 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
 41 103 254 0 1
 34 103 257 64 1 0
 3 103 258 0 1
@@ -381,75 +381,345 @@ Tue Nov 11 18:00:29 2014
 34 109 284 71 1 0
 3 109 285 0 1
 1 110 285 8 0 Test_ListElementInsertedBeyondEndReturnsError
-0 112 285 9 0 Test_VeryDenseTestInvolvingIndex
+0 112 285 9 0 Test_ListIsEmptyAfterRemovingTheLastElement
 90 0 0 0 0 ( void )
-91 112 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
-92 112 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
-41 123 293 0 1
-34 123 296 72 1 0
-3 123 297 0 1
-23 124 299 73 1 i < 5
-20 126 299 74 2 ( ( result [ i ] ) == ( __list_index ( & l , sample + i ) ) )
-41 126 299 0 3
-34 126 301 75 3 0
-3 126 302 0 3
-3 126 302 0 2
-40 126 302 0 2
-41 126 302 0 3
-20 126 302 76 4 2 == ucunit_action
-3 126 303 0 4
-41 126 303 0 4
-34 126 312 77 4 0
-3 126 313 0 4
-34 126 315 78 3 0
-3 126 316 0 3
-3 126 316 0 2
-3 127 317 0 1
-41 129 318 0 1
-20 129 318 79 2 0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed )
-3 129 320 0 2
-40 129 320 0 2
-3 129 322 0 2
-34 129 322 80 1 0
-3 129 323 0 1
-1 130 323 9 0 Test_VeryDenseTestInvolvingIndex
-0 132 323 10 0 Testsuite_List
+91 112 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+92 112 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+41 117 288 0 1
+34 117 291 72 1 0
+3 117 292 0 1
+20 121 295 73 1 ( ( 5 ) == ( input_elem ) )
+41 121 295 0 2
+34 121 297 74 2 0
+3 121 298 0 2
+3 121 298 0 1
+40 121 298 0 1
+41 121 298 0 2
+20 121 298 75 3 2 == ucunit_action
+3 121 299 0 3
+41 121 299 0 3
+34 121 308 76 3 0
+3 121 309 0 3
+34 121 311 77 2 0
+3 121 312 0 2
+3 121 312 0 1
+20 122 313 78 1 ( ( 5 ) == ( output_elem ) )
+41 122 313 0 2
+34 122 315 79 2 0
+3 122 316 0 2
+3 122 316 0 1
+40 122 316 0 1
+41 122 316 0 2
+20 122 316 80 3 2 == ucunit_action
+3 122 317 0 3
+41 122 317 0 3
+34 122 326 81 3 0
+3 122 327 0 3
+34 122 329 82 2 0
+3 122 330 0 2
+3 122 330 0 1
+20 123 331 83 1 ( ( l . header . next ) == ( void * ) 0 )
+41 123 331 0 2
+34 123 333 84 2 0
+3 123 334 0 2
+3 123 334 0 1
+40 123 334 0 1
+41 123 334 0 2
+20 123 334 85 3 2 == ucunit_action
+3 123 335 0 3
+41 123 335 0 3
+34 123 344 86 3 0
+3 123 345 0 3
+34 123 347 87 2 0
+3 123 348 0 2
+3 123 348 0 1
+41 124 349 0 1
+20 124 349 88 2 0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed )
+3 124 351 0 2
+40 124 351 0 2
+3 124 353 0 2
+34 124 353 89 1 0
+3 124 354 0 1
+1 125 354 9 0 Test_ListIsEmptyAfterRemovingTheLastElement
+0 127 354 10 0 Test_ListReturnsErrorForInsertingAtMinusOne
 90 0 0 0 0 ( void )
-91 4 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing/tests.h
-92 132 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
-1 146 344 10 0 Testsuite_List
-%146,11,11,81,0,0
-@D:\dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386\System.c
-7 1415634103 0 0
+91 127 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+92 127 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+41 132 357 0 1
+34 132 360 90 1 0
+3 132 361 0 1
+20 134 362 91 1 ( ( - 1 ) == ( __list_insert ( & l , & element , - 1 ) ) )
+41 134 362 0 2
+34 134 364 92 2 0
+3 134 365 0 2
+3 134 365 0 1
+40 134 365 0 1
+41 134 365 0 2
+20 134 365 93 3 2 == ucunit_action
+3 134 366 0 3
+41 134 366 0 3
+34 134 375 94 3 0
+3 134 376 0 3
+34 134 378 95 2 0
+3 134 379 0 2
+3 134 379 0 1
+41 135 380 0 1
+20 135 380 96 2 0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed )
+3 135 382 0 2
+40 135 382 0 2
+3 135 384 0 2
+34 135 384 97 1 0
+3 135 385 0 1
+1 136 385 10 0 Test_ListReturnsErrorForInsertingAtMinusOne
+0 138 385 11 0 Test_ListReturnsErrorForInsertingBeyondEnd
+90 0 0 0 0 ( void )
+91 138 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+92 138 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+41 142 387 0 1
+34 142 390 98 1 0
+3 142 391 0 1
+20 144 392 99 1 ( ( - 1 ) == ( __list_insert ( & l , & element , 1 ) ) )
+41 144 392 0 2
+34 144 394 100 2 0
+3 144 395 0 2
+3 144 395 0 1
+40 144 395 0 1
+41 144 395 0 2
+20 144 395 101 3 2 == ucunit_action
+3 144 396 0 3
+41 144 396 0 3
+34 144 405 102 3 0
+3 144 406 0 3
+34 144 408 103 2 0
+3 144 409 0 2
+3 144 409 0 1
+41 145 410 0 1
+20 145 410 104 2 0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed )
+3 145 412 0 2
+40 145 412 0 2
+3 145 414 0 2
+34 145 414 105 1 0
+3 145 415 0 1
+1 146 415 11 0 Test_ListReturnsErrorForInsertingBeyondEnd
+0 148 415 12 0 Test_ListCanGetFirstElement
+90 0 0 0 0 ( )
+91 148 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+92 148 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+41 152 417 0 1
+34 152 420 106 1 0
+3 152 421 0 1
+20 156 424 107 1 ( ( 3 ) == ( element ) )
+41 156 424 0 2
+34 156 426 108 2 0
+3 156 427 0 2
+3 156 427 0 1
+40 156 427 0 1
+41 156 427 0 2
+20 156 427 109 3 2 == ucunit_action
+3 156 428 0 3
+41 156 428 0 3
+34 156 437 110 3 0
+3 156 438 0 3
+34 156 440 111 2 0
+3 156 441 0 2
+3 156 441 0 1
+41 157 442 0 1
+20 157 442 112 2 0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed )
+3 157 444 0 2
+40 157 444 0 2
+3 157 446 0 2
+34 157 446 113 1 0
+3 157 447 0 1
+1 158 447 12 0 Test_ListCanGetFirstElement
+0 160 447 13 0 Test_ListReturnsErrorForTryingToGetAtIndexMinusOne
+90 0 0 0 0 ( )
+91 160 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+92 160 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+41 164 449 0 1
+34 164 452 114 1 0
+3 164 453 0 1
+20 166 454 115 1 ( ( - 1 ) == ( __list_get ( & l , & element , - 1 ) ) )
+41 166 454 0 2
+34 166 456 116 2 0
+3 166 457 0 2
+3 166 457 0 1
+40 166 457 0 1
+41 166 457 0 2
+20 166 457 117 3 2 == ucunit_action
+3 166 458 0 3
+41 166 458 0 3
+34 166 467 118 3 0
+3 166 468 0 3
+34 166 470 119 2 0
+3 166 471 0 2
+3 166 471 0 1
+41 167 472 0 1
+20 167 472 120 2 0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed )
+3 167 474 0 2
+40 167 474 0 2
+3 167 476 0 2
+34 167 476 121 1 0
+3 167 477 0 1
+1 168 477 13 0 Test_ListReturnsErrorForTryingToGetAtIndexMinusOne
+0 170 477 14 0 Test_ListReturnsErrorForTryingToGetBeyondEnd
+90 0 0 0 0 ( )
+91 170 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+92 170 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+41 174 479 0 1
+34 174 482 122 1 0
+3 174 483 0 1
+20 176 484 123 1 ( ( - 1 ) == ( __list_get ( & l , & element , 1 ) ) )
+41 176 484 0 2
+34 176 486 124 2 0
+3 176 487 0 2
+3 176 487 0 1
+40 176 487 0 1
+41 176 487 0 2
+20 176 487 125 3 2 == ucunit_action
+3 176 488 0 3
+41 176 488 0 3
+34 176 497 126 3 0
+3 176 498 0 3
+34 176 500 127 2 0
+3 176 501 0 2
+3 176 501 0 1
+41 177 502 0 1
+20 177 502 128 2 0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed )
+3 177 504 0 2
+40 177 504 0 2
+3 177 506 0 2
+34 177 506 129 1 0
+3 177 507 0 1
+1 178 507 14 0 Test_ListReturnsErrorForTryingToGetBeyondEnd
+0 180 507 15 0 Test_ListReturnsErrorForTryingToRemoveAtMinusOne
+90 0 0 0 0 ( )
+91 180 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+92 180 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+41 184 509 0 1
+34 184 512 130 1 0
+3 184 513 0 1
+20 186 514 131 1 ( ( - 1 ) == ( __list_rem ( & l , & element , 1 ) ) )
+41 186 514 0 2
+34 186 516 132 2 0
+3 186 517 0 2
+3 186 517 0 1
+40 186 517 0 1
+41 186 517 0 2
+20 186 517 133 3 2 == ucunit_action
+3 186 518 0 3
+41 186 518 0 3
+34 186 527 134 3 0
+3 186 528 0 3
+34 186 530 135 2 0
+3 186 531 0 2
+3 186 531 0 1
+41 187 532 0 1
+20 187 532 136 2 0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed )
+3 187 534 0 2
+40 187 534 0 2
+3 187 536 0 2
+34 187 536 137 1 0
+3 187 537 0 1
+1 188 537 15 0 Test_ListReturnsErrorForTryingToRemoveAtMinusOne
+0 190 537 16 0 Test_ListReturnsErrorForTryingToRemoveBeyondEnd
+90 0 0 0 0 ( )
+91 190 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+92 190 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+41 194 539 0 1
+34 194 542 138 1 0
+3 194 543 0 1
+20 196 544 139 1 ( ( - 1 ) == ( __list_rem ( & l , & element , 1 ) ) )
+41 196 544 0 2
+34 196 546 140 2 0
+3 196 547 0 2
+3 196 547 0 1
+40 196 547 0 1
+41 196 547 0 2
+20 196 547 141 3 2 == ucunit_action
+3 196 548 0 3
+41 196 548 0 3
+34 196 557 142 3 0
+3 196 558 0 3
+34 196 560 143 2 0
+3 196 561 0 2
+3 196 561 0 1
+41 197 562 0 1
+20 197 562 144 2 0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed )
+3 197 564 0 2
+40 197 564 0 2
+3 197 566 0 2
+34 197 566 145 1 0
+3 197 567 0 1
+1 198 567 16 0 Test_ListReturnsErrorForTryingToRemoveBeyondEnd
+0 200 567 17 0 Test_ThisTestCoversALotOfStuff
+90 0 0 0 0 ( void )
+91 200 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+92 200 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+41 211 575 0 1
+34 211 578 146 1 0
+3 211 579 0 1
+23 212 581 147 1 i < 5
+20 214 581 148 2 ( ( result [ i ] ) == ( __list_index ( & l , sample + i ) ) )
+41 214 581 0 3
+34 214 583 149 3 0
+3 214 584 0 3
+3 214 584 0 2
+40 214 584 0 2
+41 214 584 0 3
+20 214 584 150 4 2 == ucunit_action
+3 214 585 0 4
+41 214 585 0 4
+34 214 594 151 4 0
+3 214 595 0 4
+34 214 597 152 3 0
+3 214 598 0 3
+3 214 598 0 2
+3 215 599 0 1
+41 217 600 0 1
+20 217 600 153 2 0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed )
+3 217 602 0 2
+40 217 602 0 2
+3 217 604 0 2
+34 217 604 154 1 0
+3 217 605 0 1
+1 218 605 17 0 Test_ThisTestCoversALotOfStuff
+0 220 605 18 0 Testsuite_List
+90 0 0 0 0 ( void )
+91 4 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing/tests.h
+92 220 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+1 242 634 18 0 Testsuite_List
+%242,19,19,155,0,0
+@C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386\System.c
+7 1415799683 0 0
 0 41 0 0 0 System_Init
 90 0 0 0 0 ( void )
-91 40 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386/../System.h
-92 41 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386\System.c
+91 40 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386/../System.h
+92 41 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386\System.c
 1 45 1 0 0 System_Init
 0 48 1 1 0 System_Shutdown
 90 0 0 0 0 ( void )
-91 41 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386/../System.h
-92 48 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386\System.c
+91 41 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386/../System.h
+92 48 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386\System.c
 1 54 3 1 0 System_Shutdown
 0 57 3 2 0 System_Recover
 90 0 0 0 0 ( void )
-91 43 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386/../System.h
-92 57 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386\System.c
+91 43 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386/../System.h
+92 57 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386\System.c
 1 63 5 2 0 System_Recover
 0 66 5 3 0 System_Safestate
 90 0 0 0 0 ( void )
-91 42 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386/../System.h
-92 66 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386\System.c
+91 42 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386/../System.h
+92 66 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386\System.c
 1 80 7 3 0 System_Safestate
 0 83 7 4 0 System_WriteString
 90 0 0 0 0 ( char * msg )
-91 44 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386/../System.h
-92 83 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386\System.c
+91 44 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386/../System.h
+92 83 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386\System.c
 1 86 8 4 0 System_WriteString
 0 88 8 5 0 System_WriteInt
 90 0 0 0 0 ( int n )
-91 45 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386/../System.h
-92 88 0 0 0 D:\dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386\System.c
+91 45 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386/../System.h
+92 88 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386\System.c
 1 91 9 5 0 System_WriteInt
 %91,6,6,0,0,0
 END OF SYMBOLFILE

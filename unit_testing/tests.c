@@ -109,7 +109,95 @@ static void Test_ListElementInsertedBeyondEndReturnsError(void)
   UCUNIT_TestcaseEnd();
 }
 
-static void Test_VeryDenseTestInvolvingIndex(void)
+static void Test_ListIsEmptyAfterRemovingTheLastElement(void)
+{
+  __list_t l;
+  int input_elem = 5;
+  int output_elem = -1;
+  UCUNIT_TestcaseBegin("List is empty after removing the last element");
+  __list_init(&l, sizeof(int));
+  __list_insert(&l, &input_elem, 0);
+  __list_rem(&l, &output_elem, 0);
+  UCUNIT_CheckIsEqual(5, input_elem);
+  UCUNIT_CheckIsEqual(5, output_elem);
+  UCUNIT_CheckIsNull(l.header.next);
+  UCUNIT_TestcaseEnd();
+}
+
+static void Test_ListReturnsErrorForInsertingAtMinusOne(void)
+{
+  __list_t l;
+  __list_init(&l, sizeof(int));
+  int element = 5;
+  UCUNIT_TestcaseBegin("List returns an error for inserting at index -1");
+  __list_init(&l, sizeof(int));
+  UCUNIT_CheckIsEqual(-1, __list_insert(&l, &element, -1));
+  UCUNIT_TestcaseEnd();
+}
+
+static void Test_ListReturnsErrorForInsertingBeyondEnd(void)
+{
+  __list_t l;
+  int element = 5;
+  UCUNIT_TestcaseBegin("List returns an error for inserting beyond end");
+  __list_init(&l, sizeof(int));
+  UCUNIT_CheckIsEqual(-1, __list_insert(&l, &element, 1));
+  UCUNIT_TestcaseEnd();
+}
+
+static void Test_ListCanGetFirstElement()
+{
+  __list_t l;
+  int element = 3;
+  UCUNIT_TestcaseBegin("List can get the first element");
+  __list_init(&l, sizeof(int));
+  __list_insert(&l, &element, 0);
+  __list_get(&l, &element, 0);
+  UCUNIT_CheckIsEqual(3, element);
+  UCUNIT_TestcaseEnd();
+}
+
+static void Test_ListReturnsErrorForTryingToGetAtIndexMinusOne()
+{
+  __list_t l;
+  int element = 5;
+  UCUNIT_TestcaseBegin("List returns an error for trying to get at -1");
+  __list_init(&l, sizeof(int));
+  UCUNIT_CheckIsEqual(-1, __list_get(&l, &element, -1));
+  UCUNIT_TestcaseEnd();
+}
+
+static void Test_ListReturnsErrorForTryingToGetBeyondEnd()
+{
+  __list_t l;
+  int element = 5;
+  UCUNIT_TestcaseBegin("List returns an error for trying to get beyond end");
+  __list_init(&l, sizeof(int));
+  UCUNIT_CheckIsEqual(-1, __list_get(&l, &element, 1));
+  UCUNIT_TestcaseEnd();
+}
+
+static void Test_ListReturnsErrorForTryingToRemoveAtMinusOne()
+{
+  __list_t l;
+  int element = 5;
+  UCUNIT_TestcaseBegin("List returns an error for trying to remove at -1");
+  __list_init(&l, sizeof(int));
+  UCUNIT_CheckIsEqual(-1, __list_rem(&l, &element, 1));
+  UCUNIT_TestcaseEnd();
+}
+
+static void Test_ListReturnsErrorForTryingToRemoveBeyondEnd()
+{
+  __list_t l;
+  int element = 5;
+  UCUNIT_TestcaseBegin("List returns an error for trying to remove beyond end");
+  __list_init(&l, sizeof(int));
+  UCUNIT_CheckIsEqual(-1, __list_rem(&l, &element, 1));
+  UCUNIT_TestcaseEnd();
+}
+
+static void Test_ThisTestCoversALotOfStuff(void)
 {
   int i;
   int sample[] = {  2, 11, 47,  2,  2 };
@@ -120,7 +208,7 @@ static void Test_VeryDenseTestInvolvingIndex(void)
   __list_insert(&l, elements, 0);
   __list_insert(&l, elements+1, 1);
 
-  UCUNIT_TestcaseBegin("Very dense test involving index");
+  UCUNIT_TestcaseBegin("This test covers a lot of stuff");
   for (i = 0; i < 5; i++)
   {
     UCUNIT_CheckIsEqual(result[i], __list_index(&l, sample + i));
@@ -140,7 +228,15 @@ void Testsuite_List(void)
   Test_ListElementIsInsertedAfterAnother();
   Test_ListElementInsertedBeyondEndReturnsError();
   Test_ListIsEmptyAfterCleanup();
-  Test_VeryDenseTestInvolvingIndex();
+  Test_ListIsEmptyAfterRemovingTheLastElement();
+  Test_ThisTestCoversALotOfStuff();
+  Test_ListReturnsErrorForInsertingAtMinusOne();
+  Test_ListReturnsErrorForInsertingBeyondEnd();
+  Test_ListCanGetFirstElement();
+  Test_ListReturnsErrorForTryingToGetAtIndexMinusOne();
+  Test_ListReturnsErrorForTryingToGetBeyondEnd();
+  Test_ListReturnsErrorForTryingToRemoveAtMinusOne();
+  Test_ListReturnsErrorForTryingToRemoveBeyondEnd();
 
   UCUNIT_WriteSummary();
 }
