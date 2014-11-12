@@ -197,26 +197,6 @@ static void Test_ListReturnsErrorForTryingToRemoveBeyondEnd()
   UCUNIT_TestcaseEnd();
 }
 
-static void Test_ThisTestCoversALotOfStuff(void)
-{
-  int i;
-  int sample[] = {  2, 11, 47,  2,  2 };
-  int result[] = { -1,  0,  1, -1, -1 };
-  int elements[] = {11, 47 };
-  __list_t l;
-  __list_init(&l, sizeof(int));
-  __list_insert(&l, elements, 0);
-  __list_insert(&l, elements+1, 1);
-
-  UCUNIT_TestcaseBegin("This test covers a lot of stuff");
-  for (i = 0; i < 5; i++)
-  {
-    UCUNIT_CheckIsEqual(result[i], __list_index(&l, sample + i));
-  }
-  __list_cleanup(&l);
-  UCUNIT_TestcaseEnd();
-}
-
 void Testsuite_List(void)
 {
   Test_ListIsEmptyAfterInit();
@@ -229,7 +209,6 @@ void Testsuite_List(void)
   Test_ListElementInsertedBeyondEndReturnsError();
   Test_ListIsEmptyAfterCleanup();
   Test_ListIsEmptyAfterRemovingTheLastElement();
-  Test_ThisTestCoversALotOfStuff();
   Test_ListReturnsErrorForInsertingAtMinusOne();
   Test_ListReturnsErrorForInsertingBeyondEnd();
   Test_ListCanGetFirstElement();

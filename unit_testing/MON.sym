@@ -1,5 +1,5 @@
 CTC++ sym 7
-Wed Nov 12 14:41:23 2014
+Wed Nov 12 14:54:54 2014
 @C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\__list.c
 7 1415799682 0 0
 0 7 0 0 0 __list_init
@@ -110,7 +110,7 @@ Wed Nov 12 14:41:23 2014
 2 13 5 0 0 main
 %13,1,1,0,0,0
 @C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
-7 1415799683 0 0
+7 1415800494 3 0
 0 6 0 0 0 Test_ListIsEmptyAfterInit
 90 0 0 0 0 ( void )
 91 6 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
@@ -651,44 +651,12 @@ Wed Nov 12 14:41:23 2014
 34 197 566 145 1 0
 3 197 567 0 1
 1 198 567 16 0 Test_ListReturnsErrorForTryingToRemoveBeyondEnd
-0 200 567 17 0 Test_ThisTestCoversALotOfStuff
-90 0 0 0 0 ( void )
-91 200 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
-92 200 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
-41 211 575 0 1
-34 211 578 146 1 0
-3 211 579 0 1
-23 212 581 147 1 i < 5
-20 214 581 148 2 ( ( result [ i ] ) == ( __list_index ( & l , sample + i ) ) )
-41 214 581 0 3
-34 214 583 149 3 0
-3 214 584 0 3
-3 214 584 0 2
-40 214 584 0 2
-41 214 584 0 3
-20 214 584 150 4 2 == ucunit_action
-3 214 585 0 4
-41 214 585 0 4
-34 214 594 151 4 0
-3 214 595 0 4
-34 214 597 152 3 0
-3 214 598 0 3
-3 214 598 0 2
-3 215 599 0 1
-41 217 600 0 1
-20 217 600 153 2 0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed )
-3 217 602 0 2
-40 217 602 0 2
-3 217 604 0 2
-34 217 604 154 1 0
-3 217 605 0 1
-1 218 605 17 0 Test_ThisTestCoversALotOfStuff
-0 220 605 18 0 Testsuite_List
+0 200 567 17 0 Testsuite_List
 90 0 0 0 0 ( void )
 91 4 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing/tests.h
-92 220 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
-1 242 634 18 0 Testsuite_List
-%242,19,19,155,0,0
+92 200 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+1 221 595 17 0 Testsuite_List
+%221,18,18,146,0,0
 @C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386\System.c
 7 1415799683 0 0
 0 41 0 0 0 System_Init
@@ -705,6 +673,24 @@ Wed Nov 12 14:41:23 2014
 90 0 0 0 0 ( void )
 91 43 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386/../System.h
 92 57 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386\System.c
+1 63 5 2 0 System_Recover
+0 66 5 3 0 System_Safestate
+90 0 0 0 0 ( void )
+91 42 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386/../System.h
+92 66 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386\System.c
+1 80 7 3 0 System_Safestate
+0 83 7 4 0 System_WriteString
+90 0 0 0 0 ( char * msg )
+91 44 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386/../System.h
+92 83 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386\System.c
+1 86 8 4 0 System_WriteString
+0 88 8 5 0 System_WriteInt
+90 0 0 0 0 ( int n )
+91 45 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386/../System.h
+92 88 0 0 0 C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\ucunit-master\v1.0.1\i386\System.c
+1 91 9 5 0 System_WriteInt
+%91,6,6,0,0,0
+END OF SYMBOLFILE
 1 63 5 2 0 System_Recover
 0 66 5 3 0 System_Safestate
 90 0 0 0 0 ( void )

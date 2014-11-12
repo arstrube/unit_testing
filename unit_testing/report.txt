@@ -10,9 +10,9 @@
 
 License notice: This is a limited period evaluation copy license.
 
-Symbol file(s) used   : MON.sym (Wed Nov 12 14:41:23 2014)
-Data file(s) used     : MON.dat (Wed Nov 12 14:41:25 2014)
-Listing produced at   : Wed Nov 12 14:41:47 2014
+Symbol file(s) used   : MON.sym (Wed Nov 12 14:54:54 2014)
+Data file(s) used     : MON.dat (Wed Nov 12 14:54:56 2014)
+Listing produced at   : Wed Nov 12 14:55:00 2014
 Coverage view         : As instrumented
 
 
@@ -23,40 +23,40 @@ INSTRUMENTATION MODE  : multicondition
  HITS/TRUE      FALSE    LINE DESCRIPTION
 =============================================================================
 
-        19                  7 FUNCTION __list_init()
-        19                 13   return 0
+        55                  7 FUNCTION __list_init()
+        55                 13   return 0
                            14 }
 
 ***TER 100 % (  2/  2) of FUNCTION __list_init()
        100 % (  4/  4) statement
 -----------------------------------------------------------------------------
 
-         3                 17 FUNCTION __list_size()
-         3                 19   return list -> size
+         9                 17 FUNCTION __list_size()
+         9                 19   return list -> size
                            20 }
 
 ***TER 100 % (  2/  2) of FUNCTION __list_size()
        100 % (  1/  1) statement
 -----------------------------------------------------------------------------
 
-        15                 23 FUNCTION __list_insert()
-         3         12      29   if (index > list -> size || index < 0)
-         2                 29     1: T || _
-         1                 29     2: F || T
-                   12      29     3: F || F
-         3                 29     return - 1
-         3         12      30   for (;i < index;)
-        12                 40   return 0
+        41                 23 FUNCTION __list_insert()
+         9         32      29   if (index > list -> size || index < 0)
+         6                 29     1: T || _
+         3                 29     2: F || T
+                   32      29     3: F || F
+         9                 29     return - 1
+         7         32      30   for (;i < index;)
+        32                 40   return 0
                            41 }
 
 ***TER 100 % ( 10/ 10) of FUNCTION __list_insert()
        100 % ( 16/ 16) statement
 -----------------------------------------------------------------------------
 
-         7                 44 FUNCTION __list_index()
-        12          3      50   for (;current_item != ( ( void * ) 0 );)
-         4          8      53     if (0 == memcmp ( element , current_item -> data , list -> size ))
-         4                 53       return i
+        11                 44 FUNCTION __list_index()
+        18          3      50   for (;current_item != ( ( void * ) 0 );)
+         8         10      53     if (0 == memcmp ( element , current_item -> data , list -> size ))
+         8                 53       return i
          3                 57   return - 1
                            58 }
 
@@ -64,37 +64,37 @@ INSTRUMENTATION MODE  : multicondition
        100 % (  9/  9) statement
 -----------------------------------------------------------------------------
 
-         3                 60 FUNCTION __list_get()
-         2          1      64   if (index > list -> size || index < 0)
-         1                 64     1: T || _
-         1                 64     2: F || T
-                    1      64     3: F || F
-         2                 64     return - 1
-         0          1 -    65   for (;i < index;)
-         1                 73   return 0
+         9                 60 FUNCTION __list_get()
+         6          3      64   if (index > list -> size || index < 0)
+         3                 64     1: T || _
+         3                 64     2: F || T
+                    3      64     3: F || F
+         6                 64     return - 1
+         0          3 -    65   for (;i < index;)
+         3                 73   return 0
                            74 }
 
 ***TER  90 % (  9/ 10) of FUNCTION __list_get()
         90 % (  9/ 10) statement
 -----------------------------------------------------------------------------
 
-         3                 76 FUNCTION __list_rem()
-         2          1      81   if (index > list -> size || index < 0)
-         2                 81     1: T || _
+         9                 76 FUNCTION __list_rem()
+         6          3      81   if (index > list -> size || index < 0)
+         6                 81     1: T || _
          0            -    81     2: F || T
-                    1      81     3: F || F
-         2                 81     return - 1
-         0          1 -    82   for (;i < index;)
-         1                 94   return 0
+                    3      81     3: F || F
+         6                 81     return - 1
+         0          3 -    82   for (;i < index;)
+         3                 94   return 0
                            95 }
 
 ***TER  80 % (  8/ 10) of FUNCTION __list_rem()
         94 % ( 15/ 16) statement
 -----------------------------------------------------------------------------
 
-         7                 97 FUNCTION __list_cleanup()
-        10          7     100   while (current != 0)
-         7                110   return 0
+        19                 97 FUNCTION __list_cleanup()
+        26         19     100   while (current != 0)
+        19                110   return 0
                           111 }
 
 ***TER 100 % (  4/  4) of FUNCTION __list_cleanup()
@@ -114,7 +114,7 @@ INSTRUMENTATION MODE  : multicondition
  HITS/TRUE      FALSE    LINE DESCRIPTION
 =============================================================================
 
-         1                  5 FUNCTION main()
+         3                  5 FUNCTION main()
          0            -    12   return 0
                            13 }
 
@@ -527,39 +527,16 @@ INSTRUMENTATION MODE  : multicondition
         48 % ( 16/ 33) statement
 -----------------------------------------------------------------------------
 
-         1                200 FUNCTION Test_ThisTestCoversALotOfStuff()
-                          211   do
-                    1     211   const-do-while (0)
-         5          1     212   for (;i < 5;)
-         5          0 -   214     if (( ( result [ i ] ) == ( __list_index ( & l , sample + i ) ) ))
-                          214       do
-                    5     214       const-do-while (0)
-                          214     else
-                          214       do
-         0          0 -   214         if (2 == ucunit_action)
-                          214         do
-         0            -   214         const-do-while (0)
-         0            -   214       const-do-while (0)
-                          217   do
-         1          0 -   217     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                          217     else
-                    1     217   const-do-while (0)
-         1                218 }
-
-***TER  60 % (  9/ 15) of FUNCTION Test_ThisTestCoversALotOfStuff()
-        60 % ( 25/ 42) statement
------------------------------------------------------------------------------
-
-         1                220 FUNCTION Testsuite_List()
-         1                242 }
+         1                200 FUNCTION Testsuite_List()
+         1                221 }
 
 ***TER 100 % (  2/  2) of FUNCTION Testsuite_List()
-       100 % ( 29/ 29) statement
+       100 % ( 28/ 28) statement
 -----------------------------------------------------------------------------
 
 
-***TER  54 % (136/252) of FILE C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
-        53 % (368/693) statement
+***TER  54 % (127/237) of FILE C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+        53 % (342/650) statement
 -----------------------------------------------------------------------------
 
 
@@ -570,14 +547,14 @@ INSTRUMENTATION MODE  : multicondition
  HITS/TRUE      FALSE    LINE DESCRIPTION
 =============================================================================
 
-         1                 41 FUNCTION System_Init()
-         1                 45 }
+         3                 41 FUNCTION System_Init()
+         3                 45 }
 
 ***TER 100 % (  2/  2) of FUNCTION System_Init()
        100 % (  1/  1) statement
 -----------------------------------------------------------------------------
 
-         1                 48 FUNCTION System_Shutdown()
+         3                 48 FUNCTION System_Shutdown()
          0            -    54 }
 
 ***TER  50 % (  1/  2) of FUNCTION System_Shutdown()
@@ -598,15 +575,15 @@ INSTRUMENTATION MODE  : multicondition
          0 % (  0/  2) statement
 -----------------------------------------------------------------------------
 
-        70                 83 FUNCTION System_WriteString()
-        70                 86 }
+       204                 83 FUNCTION System_WriteString()
+       204                 86 }
 
 ***TER 100 % (  2/  2) of FUNCTION System_WriteString()
        100 % (  1/  1) statement
 -----------------------------------------------------------------------------
 
-         4                 88 FUNCTION System_WriteInt()
-         4                 91 }
+        12                 88 FUNCTION System_WriteInt()
+        12                 91 }
 
 ***TER 100 % (  2/  2) of FUNCTION System_WriteInt()
        100 % (  1/  1) statement
@@ -623,7 +600,7 @@ SUMMARY
 =======
 
 Source files       : 4
-Source lines       : 457
-Measurement points : 401
-TER                : 60 % (186/311) multicondition
-TER                : 56 % (435/773) statement
+Source lines       : 436
+Measurement points : 381
+TER                : 60 % (177/296) multicondition
+TER                : 56 % (409/730) statement
