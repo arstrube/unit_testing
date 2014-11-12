@@ -46,7 +46,6 @@ static void Test_ListSizeIsOneAfterInsertingAnElement(void)
 static void Test_CleanupOfEmptyListDoesNothing(void)
 {
   __list_t l;
-  int element = 25;
   UCUNIT_TestcaseBegin("Cleanup of empty list does nothing");
   __list_init(&l, sizeof(int));
   __list_cleanup(&l);
@@ -157,6 +156,20 @@ static void Test_ListCanGetFirstElement()
   UCUNIT_TestcaseEnd();
 }
 
+static void Test_ListCanGetSecondElement()
+{
+  __list_t l;
+  int elements[] = {4, 3};
+  int result;
+  UCUNIT_TestcaseBegin("List can get the second element");
+  __list_init(&l, sizeof(int));
+  __list_insert(&l, elements, 0);
+  __list_insert(&l, elements + 1, 1);
+  __list_get(&l, &result, 1);
+  UCUNIT_CheckIsEqual(3, result);
+  UCUNIT_TestcaseEnd();
+}
+
 static void Test_ListReturnsErrorForTryingToGetAtIndexMinusOne()
 {
   __list_t l;
@@ -177,13 +190,28 @@ static void Test_ListReturnsErrorForTryingToGetBeyondEnd()
   UCUNIT_TestcaseEnd();
 }
 
+static void Test_ListCanRemoveSecondElement()
+{
+  __list_t l;
+  int elements[] = {4, 3};
+  int result;
+  UCUNIT_TestcaseBegin("List can remove the second element");
+  __list_init(&l, sizeof(int));
+  __list_insert(&l, elements, 0);
+  __list_insert(&l, elements + 1, 1);
+  __list_rem(&l, &result, 1);
+  UCUNIT_CheckIsEqual(3, result);
+  UCUNIT_CheckIsEqual(1, __list_size(&l));
+  UCUNIT_TestcaseEnd();
+}
+
 static void Test_ListReturnsErrorForTryingToRemoveAtMinusOne()
 {
   __list_t l;
   int element = 5;
   UCUNIT_TestcaseBegin("List returns an error for trying to remove at -1");
   __list_init(&l, sizeof(int));
-  UCUNIT_CheckIsEqual(-1, __list_rem(&l, &element, 1));
+  UCUNIT_CheckIsEqual(-1, __list_rem(&l, &element, -1));
   UCUNIT_TestcaseEnd();
 }
 
@@ -212,8 +240,10 @@ void Testsuite_List(void)
   Test_ListReturnsErrorForInsertingAtMinusOne();
   Test_ListReturnsErrorForInsertingBeyondEnd();
   Test_ListCanGetFirstElement();
+  Test_ListCanGetSecondElement();
   Test_ListReturnsErrorForTryingToGetAtIndexMinusOne();
   Test_ListReturnsErrorForTryingToGetBeyondEnd();
+  Test_ListCanRemoveSecondElement();
   Test_ListReturnsErrorForTryingToRemoveAtMinusOne();
   Test_ListReturnsErrorForTryingToRemoveBeyondEnd();
 
