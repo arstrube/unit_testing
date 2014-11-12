@@ -202,6 +202,18 @@ static void Test_ListReturnsErrorForTryingToRemoveBeyondEnd()
   UCUNIT_TestcaseEnd();
 }
 
+static Test_ListCanFindAnElement(void)
+{
+  int elements[] = {4, 5};
+  UCUNIT_TestcaseBegin("List can find an element");
+  __list_t* l = __list_create(sizeof(int));
+  __list_insert(l, elements, 0);
+  __list_insert(l, elements+1, 1);
+  UCUNIT_CheckIsEqual(1, __list_index(l, &elements[1]));
+  __list_destroy(&l);
+  UCUNIT_TestcaseEnd();
+}
+
 void Testsuite_List(void)
 {
   Test_ListIsNotNullAfterCreation();
@@ -220,6 +232,7 @@ void Testsuite_List(void)
   Test_ListCanRemoveSecondElement();
   Test_ListReturnsErrorForTryingToRemoveAtMinusOne();
   Test_ListReturnsErrorForTryingToRemoveBeyondEnd();
+  Test_ListCanFindAnElement();
 
   UCUNIT_WriteSummary();
 }

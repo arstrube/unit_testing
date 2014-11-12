@@ -10,9 +10,9 @@
 
 License notice: This is a limited period evaluation copy license.
 
-Symbol file(s) used   : MON.sym (Wed Nov 12 16:06:11 2014)
-Data file(s) used     : MON.dat (Wed Nov 12 16:07:44 2014)
-Listing produced at   : Wed Nov 12 16:08:02 2014
+Symbol file(s) used   : MON.sym (Wed Nov 12 17:42:26 2014)
+Data file(s) used     : MON.dat (Wed Nov 12 17:42:44 2014)
+Listing produced at   : Wed Nov 12 17:42:51 2014
 Coverage view         : As instrumented
 
 
@@ -23,87 +23,87 @@ INSTRUMENTATION MODE  : multicondition
  HITS/TRUE      FALSE    LINE DESCRIPTION
 =============================================================================
 
-       302                  7 FUNCTION __list_init()
-       302                 13   return 0
-                           14 }
+        67                 24 FUNCTION __list_create()
+        67                 31   return list
+                           32 }
 
-***TER 100 % (  2/  2) of FUNCTION __list_init()
-       100 % (  4/  4) statement
+***TER 100 % (  2/  2) of FUNCTION __list_create()
+       100 % (  5/  5) statement
 -----------------------------------------------------------------------------
 
-        54                 17 FUNCTION __list_size()
-        54                 19   return list -> size
-                           20 }
+        12                 35 FUNCTION __list_size()
+        12                 37   return list -> size
+                           38 }
 
 ***TER 100 % (  2/  2) of FUNCTION __list_size()
        100 % (  1/  1) statement
 -----------------------------------------------------------------------------
 
-       236                 23 FUNCTION __list_insert()
-        48        188      29   if (index > list -> size || index < 0)
-        32                 29     1: T || _
-        16                 29     2: F || T
-                  188      29     3: F || F
-        48                 29     return - 1
-        46        188      30   for (;i < index;)
-       188                 40   return 0
-                           41 }
+        70                 41 FUNCTION __list_insert()
+        12         58      47   if (index > list -> size || index < 0)
+         8                 47     1: T || _
+         4                 47     2: F || T
+                   58      47     3: F || F
+        12                 47     return - 1
+        19         58      48   for (;i < index;)
+        58                 58   return 0
+                           59 }
 
 ***TER 100 % ( 10/ 10) of FUNCTION __list_insert()
        100 % ( 16/ 16) statement
 -----------------------------------------------------------------------------
 
-        37                 44 FUNCTION __list_index()
-        57          3      50   for (;current_item != ( ( void * ) 0 );)
-        34         23      53     if (0 == memcmp ( element , current_item -> data , list -> size ))
-        34                 53       return i
-         3                 57   return - 1
-                           58 }
+        11                 62 FUNCTION __list_index()
+        18          1      68   for (;current_item != ( ( void * ) 0 );)
+        10          8      71     if (0 == memcmp ( element , current_item -> data , list -> size ))
+        10                 71       return i
+         1                 75   return - 1
+                           76 }
 
 ***TER 100 % (  7/  7) of FUNCTION __list_index()
        100 % (  9/  9) statement
 -----------------------------------------------------------------------------
 
-        55                 60 FUNCTION __list_get()
-        32         23      64   if (index > list -> size || index < 0)
-        16                 64     1: T || _
-        16                 64     2: F || T
-                   23      64     3: F || F
-        32                 64     return - 1
-         7         23      65   for (;i < index;)
-        23                 73   return 0
-                           74 }
+        16                 78 FUNCTION __list_get()
+         8          8      82   if (index > list -> size || index < 0)
+         4                 82     1: T || _
+         4                 82     2: F || T
+                    8      82     3: F || F
+         8                 82     return - 1
+         4          8      83   for (;i < index;)
+         8                 91   return 0
+                           92 }
 
 ***TER 100 % ( 10/ 10) of FUNCTION __list_get()
        100 % ( 10/ 10) statement
 -----------------------------------------------------------------------------
 
-        54                 76 FUNCTION __list_rem()
-        32         22      81   if (index > list -> size || index < 0)
-        20                 81     1: T || _
-        12                 81     2: F || T
-                   22      81     3: F || F
-        32                 81     return - 1
-         6         22      82   for (;i < index;)
-        22                 94   return 0
-                           95 }
+        16                 94 FUNCTION __list_rem()
+         8          8      99   if (index > list -> size || index < 0)
+         4                 99     1: T || _
+         4                 99     2: F || T
+                    8      99     3: F || F
+         8                 99     return - 1
+         4          8     100   for (;i < index;)
+         8                112   return 0
+                          113 }
 
 ***TER 100 % ( 10/ 10) of FUNCTION __list_rem()
        100 % ( 16/ 16) statement
 -----------------------------------------------------------------------------
 
-        97                 97 FUNCTION __list_cleanup()
-       130         97     100   while (current != 0)
-        97                110   return 0
-                          111 }
+        67                115 FUNCTION __list_destroy()
+        50         67     118   while (current != 0)
+        67                128   return 0
+                          129 }
 
-***TER 100 % (  4/  4) of FUNCTION __list_cleanup()
+***TER 100 % (  4/  4) of FUNCTION __list_destroy()
        100 % ( 10/ 10) statement
 -----------------------------------------------------------------------------
 
 
 ***TER 100 % ( 45/ 45) of FILE C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\__list.c
-       100 % ( 66/ 66) statement
+       100 % ( 67/ 67) statement
 -----------------------------------------------------------------------------
 
 
@@ -114,7 +114,7 @@ INSTRUMENTATION MODE  : multicondition
  HITS/TRUE      FALSE    LINE DESCRIPTION
 =============================================================================
 
-        16                  5 FUNCTION main()
+        38                  5 FUNCTION main()
          0            -    12   return 0
                            13 }
 
@@ -135,461 +135,438 @@ INSTRUMENTATION MODE  : multicondition
  HITS/TRUE      FALSE    LINE DESCRIPTION
 =============================================================================
 
-         4                  6 FUNCTION Test_ListIsEmptyAfterInit()
-                            9   do
-                    4       9   const-do-while (0)
-         4          0 -    11   if (( ( 0 ) == ( __list_size ( & l ) ) ))
-                           11     do
-                    4      11     const-do-while (0)
-                           11   else
-                           11     do
-         0          0 -    11       if (2 == ucunit_action)
-                           11       do
-         0            -    11       const-do-while (0)
-         0            -    11     const-do-while (0)
+         2                  6 FUNCTION Test_ListIsNotNullAfterCreation()
+                            8   do
+                    2       8   const-do-while (0)
+         2          0 -    10   if (( ( l ) != ( void * ) 0 ))
+                           10     do
+                    2      10     const-do-while (0)
+                           10   else
+                           10     do
+         0          0 -    10       if (2 == ucunit_action)
+                           10       do
+         0            -    10       const-do-while (0)
+         0            -    10     const-do-while (0)
                            12   do
-         4          0 -    12     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+         2          0 -    12     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
                            12     else
-                    4      12   const-do-while (0)
-         4                 13 }
+                    2      12   const-do-while (0)
+         2                 13 }
 
-***TER  54 % (  7/ 13) of FUNCTION Test_ListIsEmptyAfterInit()
+***TER  54 % (  7/ 13) of FUNCTION Test_ListIsNotNullAfterCreation()
         47 % ( 15/ 32) statement
 -----------------------------------------------------------------------------
 
-         4                 15 FUNCTION Test_ListHeaderNextIsNullAfterInit()
-                           18   do
-                    4      18   const-do-while (0)
-         4          0 -    20   if (( ( ( void * ) l . header . next ) == ( void * ) 0 ))
-                           20     do
-                    4      20     const-do-while (0)
-                           20   else
-                           20     do
-         0          0 -    20       if (2 == ucunit_action)
-                           20       do
-         0            -    20       const-do-while (0)
-         0            -    20     const-do-while (0)
-                           21   do
-         4          0 -    21     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                           21     else
-                    4      21   const-do-while (0)
-         4                 22 }
+         0            -    15 FUNCTION Test_ListHeaderNextIsNullAfterCreation()
+         0            -    18 }
 
-***TER  54 % (  7/ 13) of FUNCTION Test_ListHeaderNextIsNullAfterInit()
-        47 % ( 15/ 32) statement
+***TER   0 % (  0/  2) of FUNCTION Test_ListHeaderNextIsNullAfterCreation()
+         0 % (  0/  1) statement
 -----------------------------------------------------------------------------
 
-         4                 24 FUNCTION Test_ListHasCorrectElementSizeAfterInit()
-                           28   do
-                    4      28   const-do-while (0)
-         0          4 -    30   if (( ( 357 ) == ( l . elem_size + 1 ) ))
-                           30     do
-         0            -    30     const-do-while (0)
-                           30   else
-                           30     do
-         0          4 -    30       if (2 == ucunit_action)
-                           30       do
-                    4      30       const-do-while (0)
-                    4      30     const-do-while (0)
-                           31   do
-         0          4 -    31     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                           31     else
-                    4      31   const-do-while (0)
-         4                 32 }
+         0            -    20 FUNCTION Test_ListHasCorrectElementSizeAfterInit()
+         0            -    23 }
 
-***TER  69 % (  9/ 13) of FUNCTION Test_ListHasCorrectElementSizeAfterInit()
-        81 % ( 26/ 32) statement
+***TER   0 % (  0/  2) of FUNCTION Test_ListHasCorrectElementSizeAfterInit()
+         0 % (  0/  1) statement
 -----------------------------------------------------------------------------
 
-         4                 34 FUNCTION Test_ListSizeIsOneAfterInsertingAnElement()
+         2                 25 FUNCTION Test_ListSizeIsOneAfterInsertingAnElement()
+                           27   do
+                    2      27   const-do-while (0)
+         0          2 -    31   if (( ( 1 ) == ( __list_size ( l ) + 1 ) ))
+                           31     do
+         0            -    31     const-do-while (0)
+                           31   else
+                           31     do
+         0          2 -    31       if (2 == ucunit_action)
+                           31       do
+                    2      31       const-do-while (0)
+                    2      31     const-do-while (0)
+                           33   do
+         0          2 -    33     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                           33     else
+                    2      33   const-do-while (0)
+         2                 34 }
+
+***TER  69 % (  9/ 13) of FUNCTION Test_ListSizeIsOneAfterInsertingAnElement()
+        82 % ( 28/ 34) statement
+-----------------------------------------------------------------------------
+
+         2                 36 FUNCTION Test_ListIsNullAfterDestruction()
                            38   do
-                    4      38   const-do-while (0)
-         4          0 -    41   if (( ( 1 ) == ( __list_size ( & l ) ) ))
+                    2      38   const-do-while (0)
+         2          0 -    41   if (( ( l ) == ( void * ) 0 ))
                            41     do
-                    4      41     const-do-while (0)
+                    2      41     const-do-while (0)
                            41   else
                            41     do
          0          0 -    41       if (2 == ucunit_action)
                            41       do
          0            -    41       const-do-while (0)
          0            -    41     const-do-while (0)
-                           43   do
-         4          0 -    43     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                           43     else
-                    4      43   const-do-while (0)
-         4                 44 }
+                           42   do
+         2          0 -    42     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                           42     else
+                    2      42   const-do-while (0)
+         2                 43 }
 
-***TER  54 % (  7/ 13) of FUNCTION Test_ListSizeIsOneAfterInsertingAnElement()
-        51 % ( 18/ 35) statement
+***TER  54 % (  7/ 13) of FUNCTION Test_ListIsNullAfterDestruction()
+        47 % ( 15/ 32) statement
 -----------------------------------------------------------------------------
 
-         4                 46 FUNCTION Test_CleanupOfEmptyListDoesNothing()
-                           49   do
-                    4      49   const-do-while (0)
-                           52   do
-         4          0 -    52     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                           52     else
-                    4      52   const-do-while (0)
-         4                 53 }
+         0            -    45 FUNCTION Test_ListIsEmptyAfterCleanup()
+         0            -    48 }
 
-***TER  83 % (  5/  6) of FUNCTION Test_CleanupOfEmptyListDoesNothing()
-        85 % ( 11/ 13) statement
+***TER   0 % (  0/  2) of FUNCTION Test_ListIsEmptyAfterCleanup()
+         0 % (  0/  1) statement
 -----------------------------------------------------------------------------
 
-         4                 55 FUNCTION Test_ListIsEmptyAfterCleanup()
-                           59   do
-                    4      59   const-do-while (0)
-         4          0 -    63   if (( ( 0 ) == ( __list_size ( & l ) ) ))
-                           63     do
-                    4      63     const-do-while (0)
-                           63   else
-                           63     do
-         0          0 -    63       if (2 == ucunit_action)
-                           63       do
-         0            -    63       const-do-while (0)
-         0            -    63     const-do-while (0)
-         4          0 -    64   if (( ( l . header . next ) == ( void * ) 0 ))
-                           64     do
-                    4      64     const-do-while (0)
-                           64   else
-                           64     do
-         0          0 -    64       if (2 == ucunit_action)
-                           64       do
-         0            -    64       const-do-while (0)
-         0            -    64     const-do-while (0)
-                           65   do
-         4          0 -    65     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                           65     else
-                    4      65   const-do-while (0)
-         4                 66 }
-
-***TER  45 % (  9/ 20) of FUNCTION Test_ListIsEmptyAfterCleanup()
-        42 % ( 23/ 55) statement
------------------------------------------------------------------------------
-
-         4                 68 FUNCTION Test_ListElementIsInsertedBeforeAnother()
-                           73   do
-                    4      73   const-do-while (0)
-         4          0 -    77   if (( ( 0 ) == ( __list_index ( & l , & before ) ) ))
-                           77     do
-                    4      77     const-do-while (0)
-                           77   else
-                           77     do
-         0          0 -    77       if (2 == ucunit_action)
-                           77       do
-         0            -    77       const-do-while (0)
-         0            -    77     const-do-while (0)
-                           79   do
-         4          0 -    79     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                           79     else
-                    4      79   const-do-while (0)
-         4                 80 }
+         2                 50 FUNCTION Test_ListElementIsInsertedBeforeAnother()
+                           54   do
+                    2      54   const-do-while (0)
+         2          0 -    58   if (( ( 0 ) == ( __list_index ( l , & before ) ) ))
+                           58     do
+                    2      58     const-do-while (0)
+                           58   else
+                           58     do
+         0          0 -    58       if (2 == ucunit_action)
+                           58       do
+         0            -    58       const-do-while (0)
+         0            -    58     const-do-while (0)
+                           60   do
+         2          0 -    60     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                           60     else
+                    2      60   const-do-while (0)
+         2                 61 }
 
 ***TER  54 % (  7/ 13) of FUNCTION Test_ListElementIsInsertedBeforeAnother()
-        54 % ( 20/ 37) statement
+        53 % ( 19/ 36) statement
 -----------------------------------------------------------------------------
 
-         4                 82 FUNCTION Test_ListElementIsInsertedAfterAnother()
-                           87   do
-                    4      87   const-do-while (0)
-         4          0 -    91   if (( ( 1 ) == ( __list_index ( & l , & after ) ) ))
-                           91     do
-                    4      91     const-do-while (0)
-                           91   else
-                           91     do
-         0          0 -    91       if (2 == ucunit_action)
-                           91       do
-         0            -    91       const-do-while (0)
-         0            -    91     const-do-while (0)
-                           93   do
-         4          0 -    93     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                           93     else
-                    4      93   const-do-while (0)
-         4                 94 }
+         2                 63 FUNCTION Test_ListElementIsInsertedAfterAnother()
+                           67   do
+                    2      67   const-do-while (0)
+         2          0 -    71   if (( ( 1 ) == ( __list_index ( l , & after ) ) ))
+                           71     do
+                    2      71     const-do-while (0)
+                           71   else
+                           71     do
+         0          0 -    71       if (2 == ucunit_action)
+                           71       do
+         0            -    71       const-do-while (0)
+         0            -    71     const-do-while (0)
+                           73   do
+         2          0 -    73     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                           73     else
+                    2      73   const-do-while (0)
+         2                 74 }
 
 ***TER  54 % (  7/ 13) of FUNCTION Test_ListElementIsInsertedAfterAnother()
+        53 % ( 19/ 36) statement
+-----------------------------------------------------------------------------
+
+         2                 75 FUNCTION Test_ListElementInsertedBeyondEndReturnsError()
+                           80   do
+                    2      80   const-do-while (0)
+         2          0 -    84   if (( ( - 1 ) == ( __list_insert ( l , & test , 4 ) ) ))
+                           84     do
+                    2      84     const-do-while (0)
+                           84   else
+                           84     do
+         0          0 -    84       if (2 == ucunit_action)
+                           84       do
+         0            -    84       const-do-while (0)
+         0            -    84     const-do-while (0)
+                           86   do
+         2          0 -    86     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                           86     else
+                    2      86   const-do-while (0)
+         2                 87 }
+
+***TER  54 % (  7/ 13) of FUNCTION Test_ListElementInsertedBeyondEndReturnsError()
         54 % ( 20/ 37) statement
 -----------------------------------------------------------------------------
 
-         4                 96 FUNCTION Test_ListElementInsertedBeyondEndReturnsError()
-                          102   do
-                    4     102   const-do-while (0)
-         4          0 -   106   if (( ( - 1 ) == ( __list_insert ( & l , & test , 4 ) ) ))
-                          106     do
-                    4     106     const-do-while (0)
-                          106   else
-                          106     do
-         0          0 -   106       if (2 == ucunit_action)
-                          106       do
-         0            -   106       const-do-while (0)
-         0            -   106     const-do-while (0)
-                          108   do
-         4          0 -   108     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                          108     else
-                    4     108   const-do-while (0)
-         4                109 }
-
-***TER  54 % (  7/ 13) of FUNCTION Test_ListElementInsertedBeyondEndReturnsError()
-        55 % ( 21/ 38) statement
------------------------------------------------------------------------------
-
-         4                111 FUNCTION Test_ListIsEmptyAfterRemovingTheLastElement()
-                          116   do
-                    4     116   const-do-while (0)
-         4          0 -   120   if (( ( 5 ) == ( input_elem ) ))
-                          120     do
-                    4     120     const-do-while (0)
-                          120   else
-                          120     do
-         0          0 -   120       if (2 == ucunit_action)
-                          120       do
-         0            -   120       const-do-while (0)
-         0            -   120     const-do-while (0)
-         4          0 -   121   if (( ( 5 ) == ( output_elem ) ))
-                          121     do
-                    4     121     const-do-while (0)
-                          121   else
-                          121     do
-         0          0 -   121       if (2 == ucunit_action)
-                          121       do
-         0            -   121       const-do-while (0)
-         0            -   121     const-do-while (0)
-         4          0 -   122   if (( ( l . header . next ) == ( void * ) 0 ))
-                          122     do
-                    4     122     const-do-while (0)
-                          122   else
-                          122     do
-         0          0 -   122       if (2 == ucunit_action)
-                          122       do
-         0            -   122       const-do-while (0)
-         0            -   122     const-do-while (0)
-                          123   do
-         4          0 -   123     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                          123     else
-                    4     123   const-do-while (0)
-         4                124 }
+         2                 89 FUNCTION Test_ListIsEmptyAfterRemovingTheLastElement()
+                           93   do
+                    2      93   const-do-while (0)
+         2          0 -    97   if (( ( 5 ) == ( input_elem ) ))
+                           97     do
+                    2      97     const-do-while (0)
+                           97   else
+                           97     do
+         0          0 -    97       if (2 == ucunit_action)
+                           97       do
+         0            -    97       const-do-while (0)
+         0            -    97     const-do-while (0)
+         2          0 -    98   if (( ( 5 ) == ( output_elem ) ))
+                           98     do
+                    2      98     const-do-while (0)
+                           98   else
+                           98     do
+         0          0 -    98       if (2 == ucunit_action)
+                           98       do
+         0            -    98       const-do-while (0)
+         0            -    98     const-do-while (0)
+         2          0 -    99   if (( ( 0 ) == ( __list_size ( l ) ) ))
+                           99     do
+                    2      99     const-do-while (0)
+                           99   else
+                           99     do
+         0          0 -    99       if (2 == ucunit_action)
+                           99       do
+         0            -    99       const-do-while (0)
+         0            -    99     const-do-while (0)
+                          101   do
+         2          0 -   101     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                          101     else
+                    2     101   const-do-while (0)
+         2                102 }
 
 ***TER  41 % ( 11/ 27) of FUNCTION Test_ListIsEmptyAfterRemovingTheLastElement()
         38 % ( 29/ 76) statement
 -----------------------------------------------------------------------------
 
-         4                126 FUNCTION Test_ListReturnsErrorForInsertingAtMinusOne()
-                          131   do
-                    4     131   const-do-while (0)
-         4          0 -   133   if (( ( - 1 ) == ( __list_insert ( & l , & element , - 1 ) ) ))
-                          133     do
-                    4     133     const-do-while (0)
-                          133   else
-                          133     do
-         0          0 -   133       if (2 == ucunit_action)
-                          133       do
-         0            -   133       const-do-while (0)
-         0            -   133     const-do-while (0)
-                          134   do
-         4          0 -   134     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                          134     else
-                    4     134   const-do-while (0)
-         4                135 }
+         2                104 FUNCTION Test_ListReturnsErrorForInsertingAtMinusOne()
+                          107   do
+                    2     107   const-do-while (0)
+         2          0 -   109   if (( ( - 1 ) == ( __list_insert ( l , & element , - 1 ) ) ))
+                          109     do
+                    2     109     const-do-while (0)
+                          109   else
+                          109     do
+         0          0 -   109       if (2 == ucunit_action)
+                          109       do
+         0            -   109       const-do-while (0)
+         0            -   109     const-do-while (0)
+                          111   do
+         2          0 -   111     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                          111     else
+                    2     111   const-do-while (0)
+         2                112 }
 
 ***TER  54 % (  7/ 13) of FUNCTION Test_ListReturnsErrorForInsertingAtMinusOne()
-        50 % ( 17/ 34) statement
+        48 % ( 16/ 33) statement
 -----------------------------------------------------------------------------
 
-         4                137 FUNCTION Test_ListReturnsErrorForInsertingBeyondEnd()
-                          141   do
-                    4     141   const-do-while (0)
-         4          0 -   143   if (( ( - 1 ) == ( __list_insert ( & l , & element , 1 ) ) ))
-                          143     do
-                    4     143     const-do-while (0)
-                          143   else
-                          143     do
-         0          0 -   143       if (2 == ucunit_action)
-                          143       do
-         0            -   143       const-do-while (0)
-         0            -   143     const-do-while (0)
-                          144   do
-         4          0 -   144     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                          144     else
-                    4     144   const-do-while (0)
-         4                145 }
+         2                114 FUNCTION Test_ListReturnsErrorForInsertingBeyondEnd()
+                          117   do
+                    2     117   const-do-while (0)
+         2          0 -   119   if (( ( - 1 ) == ( __list_insert ( l , & element , 1 ) ) ))
+                          119     do
+                    2     119     const-do-while (0)
+                          119   else
+                          119     do
+         0          0 -   119       if (2 == ucunit_action)
+                          119       do
+         0            -   119       const-do-while (0)
+         0            -   119     const-do-while (0)
+                          121   do
+         2          0 -   121     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                          121     else
+                    2     121   const-do-while (0)
+         2                122 }
 
 ***TER  54 % (  7/ 13) of FUNCTION Test_ListReturnsErrorForInsertingBeyondEnd()
         48 % ( 16/ 33) statement
 -----------------------------------------------------------------------------
 
-         4                147 FUNCTION Test_ListCanGetFirstElement()
-                          151   do
-                    4     151   const-do-while (0)
-         4          0 -   155   if (( ( 3 ) == ( element ) ))
+         2                124 FUNCTION Test_ListCanGetFirstElement()
+                          127   do
+                    2     127   const-do-while (0)
+         2          0 -   131   if (( ( 3 ) == ( element ) ))
+                          131     do
+                    2     131     const-do-while (0)
+                          131   else
+                          131     do
+         0          0 -   131       if (2 == ucunit_action)
+                          131       do
+         0            -   131       const-do-while (0)
+         0            -   131     const-do-while (0)
+                          133   do
+         2          0 -   133     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                          133     else
+                    2     133   const-do-while (0)
+         2                134 }
+
+***TER  54 % (  7/ 13) of FUNCTION Test_ListCanGetFirstElement()
+        51 % ( 18/ 35) statement
+-----------------------------------------------------------------------------
+
+         2                136 FUNCTION Test_ListCanGetSecondElement()
+                          140   do
+                    2     140   const-do-while (0)
+         2          0 -   145   if (( ( 3 ) == ( result ) ))
+                          145     do
+                    2     145     const-do-while (0)
+                          145   else
+                          145     do
+         0          0 -   145       if (2 == ucunit_action)
+                          145       do
+         0            -   145       const-do-while (0)
+         0            -   145     const-do-while (0)
+                          147   do
+         2          0 -   147     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                          147     else
+                    2     147   const-do-while (0)
+         2                148 }
+
+***TER  54 % (  7/ 13) of FUNCTION Test_ListCanGetSecondElement()
+        54 % ( 20/ 37) statement
+-----------------------------------------------------------------------------
+
+         2                150 FUNCTION Test_ListReturnsErrorForTryingToGetAtIndexMinusOne()
+                          153   do
+                    2     153   const-do-while (0)
+         2          0 -   155   if (( ( - 1 ) == ( __list_get ( l , & element , - 1 ) ) ))
                           155     do
-                    4     155     const-do-while (0)
+                    2     155     const-do-while (0)
                           155   else
                           155     do
          0          0 -   155       if (2 == ucunit_action)
                           155       do
          0            -   155       const-do-while (0)
          0            -   155     const-do-while (0)
-                          156   do
-         4          0 -   156     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                          156     else
-                    4     156   const-do-while (0)
-         4                157 }
+                          157   do
+         2          0 -   157     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                          157     else
+                    2     157   const-do-while (0)
+         2                158 }
 
-***TER  54 % (  7/ 13) of FUNCTION Test_ListCanGetFirstElement()
-        51 % ( 18/ 35) statement
+***TER  54 % (  7/ 13) of FUNCTION Test_ListReturnsErrorForTryingToGetAtIndexMinusOne()
+        48 % ( 16/ 33) statement
 -----------------------------------------------------------------------------
 
-         4                159 FUNCTION Test_ListCanGetSecondElement()
-                          164   do
-                    4     164   const-do-while (0)
-         4          0 -   169   if (( ( 3 ) == ( result ) ))
-                          169     do
-                    4     169     const-do-while (0)
-                          169   else
-                          169     do
-         0          0 -   169       if (2 == ucunit_action)
-                          169       do
-         0            -   169       const-do-while (0)
-         0            -   169     const-do-while (0)
-                          170   do
-         4          0 -   170     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                          170     else
-                    4     170   const-do-while (0)
-         4                171 }
+         2                160 FUNCTION Test_ListReturnsErrorForTryingToGetBeyondEnd()
+                          163   do
+                    2     163   const-do-while (0)
+         2          0 -   165   if (( ( - 1 ) == ( __list_get ( l , & element , 1 ) ) ))
+                          165     do
+                    2     165     const-do-while (0)
+                          165   else
+                          165     do
+         0          0 -   165       if (2 == ucunit_action)
+                          165       do
+         0            -   165       const-do-while (0)
+         0            -   165     const-do-while (0)
+                          167   do
+         2          0 -   167     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                          167     else
+                    2     167   const-do-while (0)
+         2                168 }
 
-***TER  54 % (  7/ 13) of FUNCTION Test_ListCanGetSecondElement()
-        54 % ( 20/ 37) statement
+***TER  54 % (  7/ 13) of FUNCTION Test_ListReturnsErrorForTryingToGetBeyondEnd()
+        48 % ( 16/ 33) statement
 -----------------------------------------------------------------------------
 
-         4                173 FUNCTION Test_ListReturnsErrorForTryingToGetAtIndexMinusOne()
-                          177   do
-                    4     177   const-do-while (0)
-         4          0 -   179   if (( ( - 1 ) == ( __list_get ( & l , & element , - 1 ) ) ))
+         2                170 FUNCTION Test_ListCanRemoveSecondElement()
+                          174   do
+                    2     174   const-do-while (0)
+         2          0 -   179   if (( ( 3 ) == ( result ) ))
                           179     do
-                    4     179     const-do-while (0)
+                    2     179     const-do-while (0)
                           179   else
                           179     do
          0          0 -   179       if (2 == ucunit_action)
                           179       do
          0            -   179       const-do-while (0)
          0            -   179     const-do-while (0)
-                          180   do
-         4          0 -   180     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                          180     else
-                    4     180   const-do-while (0)
-         4                181 }
-
-***TER  54 % (  7/ 13) of FUNCTION Test_ListReturnsErrorForTryingToGetAtIndexMinusOne()
-        48 % ( 16/ 33) statement
------------------------------------------------------------------------------
-
-         4                183 FUNCTION Test_ListReturnsErrorForTryingToGetBeyondEnd()
-                          187   do
-                    4     187   const-do-while (0)
-         4          0 -   189   if (( ( - 1 ) == ( __list_get ( & l , & element , 1 ) ) ))
-                          189     do
-                    4     189     const-do-while (0)
-                          189   else
-                          189     do
-         0          0 -   189       if (2 == ucunit_action)
-                          189       do
-         0            -   189       const-do-while (0)
-         0            -   189     const-do-while (0)
-                          190   do
-         4          0 -   190     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                          190     else
-                    4     190   const-do-while (0)
-         4                191 }
-
-***TER  54 % (  7/ 13) of FUNCTION Test_ListReturnsErrorForTryingToGetBeyondEnd()
-        48 % ( 16/ 33) statement
------------------------------------------------------------------------------
-
-         4                193 FUNCTION Test_ListCanRemoveSecondElement()
-                          198   do
-                    4     198   const-do-while (0)
-         4          0 -   203   if (( ( 3 ) == ( result ) ))
-                          203     do
-                    4     203     const-do-while (0)
-                          203   else
-                          203     do
-         0          0 -   203       if (2 == ucunit_action)
-                          203       do
-         0            -   203       const-do-while (0)
-         0            -   203     const-do-while (0)
-         4          0 -   204   if (( ( 1 ) == ( __list_size ( & l ) ) ))
-                          204     do
-                    4     204     const-do-while (0)
-                          204   else
-                          204     do
-         0          0 -   204       if (2 == ucunit_action)
-                          204       do
-         0            -   204       const-do-while (0)
-         0            -   204     const-do-while (0)
-                          205   do
-         4          0 -   205     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                          205     else
-                    4     205   const-do-while (0)
-         4                206 }
+         2          0 -   180   if (( ( 1 ) == ( __list_size ( l ) ) ))
+                          180     do
+                    2     180     const-do-while (0)
+                          180   else
+                          180     do
+         0          0 -   180       if (2 == ucunit_action)
+                          180       do
+         0            -   180       const-do-while (0)
+         0            -   180     const-do-while (0)
+                          182   do
+         2          0 -   182     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                          182     else
+                    2     182   const-do-while (0)
+         2                183 }
 
 ***TER  45 % (  9/ 20) of FUNCTION Test_ListCanRemoveSecondElement()
         44 % ( 25/ 57) statement
 -----------------------------------------------------------------------------
 
-         4                208 FUNCTION Test_ListReturnsErrorForTryingToRemoveAtMinusOne()
-                          212   do
-                    4     212   const-do-while (0)
-         4          0 -   214   if (( ( - 1 ) == ( __list_rem ( & l , & element , - 1 ) ) ))
-                          214     do
-                    4     214     const-do-while (0)
-                          214   else
-                          214     do
-         0          0 -   214       if (2 == ucunit_action)
-                          214       do
-         0            -   214       const-do-while (0)
-         0            -   214     const-do-while (0)
-                          215   do
-         4          0 -   215     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                          215     else
-                    4     215   const-do-while (0)
-         4                216 }
+         2                185 FUNCTION Test_ListReturnsErrorForTryingToRemoveAtMinusOne()
+                          188   do
+                    2     188   const-do-while (0)
+         2          0 -   190   if (( ( - 1 ) == ( __list_rem ( l , & element , - 1 ) ) ))
+                          190     do
+                    2     190     const-do-while (0)
+                          190   else
+                          190     do
+         0          0 -   190       if (2 == ucunit_action)
+                          190       do
+         0            -   190       const-do-while (0)
+         0            -   190     const-do-while (0)
+                          192   do
+         2          0 -   192     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                          192     else
+                    2     192   const-do-while (0)
+         2                193 }
 
 ***TER  54 % (  7/ 13) of FUNCTION Test_ListReturnsErrorForTryingToRemoveAtMinusOne()
         48 % ( 16/ 33) statement
 -----------------------------------------------------------------------------
 
-         4                218 FUNCTION Test_ListReturnsErrorForTryingToRemoveBeyondEnd()
-                          222   do
-                    4     222   const-do-while (0)
-         4          0 -   224   if (( ( - 1 ) == ( __list_rem ( & l , & element , 1 ) ) ))
-                          224     do
-                    4     224     const-do-while (0)
-                          224   else
-                          224     do
-         0          0 -   224       if (2 == ucunit_action)
-                          224       do
-         0            -   224       const-do-while (0)
-         0            -   224     const-do-while (0)
-                          225   do
-         4          0 -   225     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                          225     else
-                    4     225   const-do-while (0)
-         4                226 }
+         2                195 FUNCTION Test_ListReturnsErrorForTryingToRemoveBeyondEnd()
+                          198   do
+                    2     198   const-do-while (0)
+         2          0 -   200   if (( ( - 1 ) == ( __list_rem ( l , & element , 1 ) ) ))
+                          200     do
+                    2     200     const-do-while (0)
+                          200   else
+                          200     do
+         0          0 -   200       if (2 == ucunit_action)
+                          200       do
+         0            -   200       const-do-while (0)
+         0            -   200     const-do-while (0)
+                          202   do
+         2          0 -   202     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                          202     else
+                    2     202   const-do-while (0)
+         2                203 }
 
 ***TER  54 % (  7/ 13) of FUNCTION Test_ListReturnsErrorForTryingToRemoveBeyondEnd()
         48 % ( 16/ 33) statement
 -----------------------------------------------------------------------------
 
-         4                228 FUNCTION Testsuite_List()
-         4                251 }
+         2                205 FUNCTION Test_ListCanFindAnElement()
+                          208   do
+                    2     208   const-do-while (0)
+         2          0 -   212   if (( ( 1 ) == ( __list_index ( l , & elements [ 1 ] ) ) ))
+                          212     do
+                    2     212     const-do-while (0)
+                          212   else
+                          212     do
+         0          0 -   212       if (2 == ucunit_action)
+                          212       do
+         0            -   212       const-do-while (0)
+         0            -   212     const-do-while (0)
+                          214   do
+         2          0 -   214     if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                          214     else
+                    2     214   const-do-while (0)
+         2                215 }
+
+***TER  54 % (  7/ 13) of FUNCTION Test_ListCanFindAnElement()
+        51 % ( 18/ 35) statement
+-----------------------------------------------------------------------------
+
+         2                218 FUNCTION Testsuite_List()
+         2                239 }
 
 ***TER 100 % (  2/  2) of FUNCTION Testsuite_List()
-       100 % ( 30/ 30) statement
+       100 % ( 28/ 28) statement
 -----------------------------------------------------------------------------
 
 
-***TER  53 % (143/270) of FILE C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
-        52 % (388/745) statement
+***TER  52 % (129/250) of FILE C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+        52 % (350/676) statement
 -----------------------------------------------------------------------------
 
 
@@ -600,14 +577,14 @@ INSTRUMENTATION MODE  : multicondition
  HITS/TRUE      FALSE    LINE DESCRIPTION
 =============================================================================
 
-        16                 41 FUNCTION System_Init()
-        16                 45 }
+        38                 41 FUNCTION System_Init()
+        38                 45 }
 
 ***TER 100 % (  2/  2) of FUNCTION System_Init()
        100 % (  1/  1) statement
 -----------------------------------------------------------------------------
 
-        16                 48 FUNCTION System_Shutdown()
+        38                 48 FUNCTION System_Shutdown()
          0            -    54 }
 
 ***TER  50 % (  1/  2) of FUNCTION System_Shutdown()
@@ -628,15 +605,15 @@ INSTRUMENTATION MODE  : multicondition
          0 % (  0/  2) statement
 -----------------------------------------------------------------------------
 
-      1114                 83 FUNCTION System_WriteString()
-      1114                 86 }
+      1970                 83 FUNCTION System_WriteString()
+      1970                 86 }
 
 ***TER 100 % (  2/  2) of FUNCTION System_WriteString()
        100 % (  1/  1) statement
 -----------------------------------------------------------------------------
 
-        64                 88 FUNCTION System_WriteInt()
-        64                 91 }
+       152                 88 FUNCTION System_WriteInt()
+       152                 91 }
 
 ***TER 100 % (  2/  2) of FUNCTION System_WriteInt()
        100 % (  1/  1) statement
@@ -653,7 +630,7 @@ SUMMARY
 =======
 
 Source files       : 4
-Source lines       : 466
-Measurement points : 427
-TER                : 60 % (196/329) multicondition
-TER                : 55 % (457/825) statement
+Source lines       : 472
+Measurement points : 397
+TER                : 59 % (182/309) multicondition
+TER                : 55 % (420/757) statement
