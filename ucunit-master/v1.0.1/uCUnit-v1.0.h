@@ -588,6 +588,63 @@ static int ucunit_index = 0; /* Tracepoint index */
     while(0)
 
 /*****************************************************************************/
+/* Support for code coverage */
+/*****************************************************************************/
+
+/**
+ * @Macro:       UCUNIT_Tracepoint(index)
+ *
+ * @Description: Marks a trace point.
+ *               If a trace point is executed, its coverage state switches
+ *               from 0 to the line number.
+  *              If a trace point was never executed, the state
+ *               remains 0.
+ *
+ * @Param index: Index of the tracepoint.
+ *
+ * @Remarks:     This macro fails if index>UCUNIT_MAX_TRACEPOINTS.
+ *
+ */
+#define UCUNIT_Tracepoint(index)                         \
+    if(index<UCUNIT_MAX_TRACEPOINTS)                     \
+    {                                                    \
+        ucunit_checkpoints[index] = __LINE__;            \
+    }                                                    \
+    else                                                 \
+    {                                                    \
+        UCUNIT_WriteFailedMsg("Tracepoint index", #index);     \
+    }
+
+/**
+ * @Macro:       UCUNIT_ResetTracepointCoverage()
+ *
+ * @Description: Resets the trace point coverage state to 0.
+ *
+ * @Param index: Index of the trace point.
+ *
+ * @Remarks:     This macro fails if index>UCUNIT_MAX_TRACEPOINTS.
+ *
+ */
+#define UCUNIT_ResetTracepointCoverage()                    \
+    for (ucunit_index=0; ucunit_index<UCUNIT_MAX_TRACEPOINTS; ucunit_index++) \
+    {                                                \
+        ucunit_checkpoints[ucunit_index]=0;          \
+    }
+
+/**
+ * @Macro:       UCUNIT_CheckTracepointCoverage(index)
+ *
+ * @Description: Checks if a trace point was covered.
+ *
+ * @Param index: Index of the trace point.
+ *
+ * @Remarks:     This macro fails if index>UCUNIT_MAX_TRACEPOINTS.
+ *
+ */
+#define UCUNIT_CheckTracepointCoverage(index)    \
+    UCUNIT_Check( (ucunit_checkpoints[index]!=0), "TracepointCoverage", #index);
+
+/*****************************************************************************/
 /* Support behavior-driven development (specification by example             */
 /*****************************************************************************/
 
@@ -655,63 +712,6 @@ static int ucunit_line = 0;
         }                                                            \
         else UCUNIT_TestcaseEnd();                                   \
     }
-
-/*****************************************************************************/
-/* Support for code coverage */
-/*****************************************************************************/
-
-/**
- * @Macro:       UCUNIT_Tracepoint(index)
- *
- * @Description: Marks a trace point.
- *               If a trace point is executed, its coverage state switches
- *               from 0 to the line number.
-  *              If a trace point was never executed, the state
- *               remains 0.
- *
- * @Param index: Index of the tracepoint.
- *
- * @Remarks:     This macro fails if index>UCUNIT_MAX_TRACEPOINTS.
- *
- */
-#define UCUNIT_Tracepoint(index)                         \
-    if(index<UCUNIT_MAX_TRACEPOINTS)                     \
-    {                                                    \
-        ucunit_checkpoints[index] = __LINE__;            \
-    }                                                    \
-    else                                                 \
-    {                                                    \
-        UCUNIT_WriteFailedMsg("Tracepoint index", #index);     \
-    }
-
-/**
- * @Macro:       UCUNIT_ResetTracepointCoverage()
- *
- * @Description: Resets the trace point coverage state to 0.
- *
- * @Param index: Index of the trace point.
- *
- * @Remarks:     This macro fails if index>UCUNIT_MAX_TRACEPOINTS.
- *
- */
-#define UCUNIT_ResetTracepointCoverage()                    \
-    for (ucunit_index=0; ucunit_index<UCUNIT_MAX_TRACEPOINTS; ucunit_index++) \
-    {                                                \
-        ucunit_checkpoints[ucunit_index]=0;          \
-    }
-
-/**
- * @Macro:       UCUNIT_CheckTracepointCoverage(index)
- *
- * @Description: Checks if a trace point was covered.
- *
- * @Param index: Index of the trace point.
- *
- * @Remarks:     This macro fails if index>UCUNIT_MAX_TRACEPOINTS.
- *
- */
-#define UCUNIT_CheckTracepointCoverage(index)    \
-    UCUNIT_Check( (ucunit_checkpoints[index]!=0), "TracepointCoverage", #index);
 
 /*****************************************************************************/
 /* Testsuite Summary                                                         */
