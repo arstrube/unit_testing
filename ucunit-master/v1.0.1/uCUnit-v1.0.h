@@ -538,8 +538,6 @@ static int ucunit_index = 0; /* Tracepoint index */
 #define UCUNIT_CheckIsBitClear(value, bitno) \
     UCUNIT_Check( (0==(((value)>>(bitno)) & 0x01) ), "IsBitClear", #value "," #bitno)
 
-#define DESCRIPTION(id) id##_describe()
-
 /*****************************************************************************/
 /* Testcases */
 /*****************************************************************************/
@@ -589,6 +587,13 @@ static int ucunit_index = 0; /* Tracepoint index */
     }                                                                \
     while(0)
 
+/*****************************************************************************/
+/* Support behavior-driven development (specification by example             */
+/*****************************************************************************/
+
+/* Variable to detect empty specifications */
+static int ucunit_line = 0;
+
 /**
  * @Macro:       DESCRIBE()
  *
@@ -601,8 +606,7 @@ static int ucunit_index = 0; /* Tracepoint index */
  */
 #define DESCRIBE(caption)                                            \
     UCUNIT_WriteString("Describe: " caption "\n");                    \
-    {                                                                \
-        static int ln;
+    {
 
 /**
  * @Macro:       DESCRIBE_END
@@ -629,7 +633,7 @@ static int ucunit_index = 0; /* Tracepoint index */
  */
 #define IT(caption)                                                  \
     {                                                                \
-        ln=__LINE__;                                                 \
+        ucunit_line = __LINE__;                                      \
         UCUNIT_TestcaseBegin(caption);                               \
         {
 
@@ -645,7 +649,7 @@ static int ucunit_index = 0; /* Tracepoint index */
  */
 #define IT_END                                                       \
         }                                                            \
-        if(ln+1 >= __LINE__) { /* may be on following line */        \
+        if(ucunit_line + 1 >= __LINE__) { /* allow on following line */ \
             ucunit_testcases_todo++;                                 \
             UCUNIT_WriteString(" N O T   I M P L E M E N T E D\n");  \
         }                                                            \

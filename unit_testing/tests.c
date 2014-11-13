@@ -7,19 +7,19 @@ static void Specifications(void)
 {
   DESCRIBE("__list_create(sizeof(int))")
 
-    IT("does not return NULL");
+    IT("should not return NULL");
       __list_t* l = __list_create(sizeof(int));
       UCUNIT_CheckIsNotNull(l);
       __list_destroy(&l);
     IT_END
 
-    IT("creates an empty list");
+    IT("should create an empty list");
       __list_t* l = __list_create(sizeof(int));
       UCUNIT_CheckIsEqual(0, __list_size(l));
       __list_destroy(&l);
     IT_END
 
-    IT("can do marvelleous things") IT_END
+    IT("should do all kinds of marvelleous things") IT_END
 
   DESCRIBE_END
 
@@ -35,9 +35,9 @@ static void Specifications(void)
     IT("is NULL after destruction");
       __list_t* l = __list_create(sizeof(int));
       __list_destroy(&l);
-    UCUNIT_CheckIsNull(l);
+      UCUNIT_CheckIsNull(l);
     IT_END;
-    
+
     IT("element is inserted before another");
       int before = 7;
       int another = 8;
@@ -47,7 +47,7 @@ static void Specifications(void)
       UCUNIT_CheckIsEqual(0, __list_index(l, &before));
       __list_destroy(&l);
     IT_END;
-    
+
     IT("element is inserted after another");
       int after = 9;
       int another = 8;
@@ -57,7 +57,7 @@ static void Specifications(void)
       UCUNIT_CheckIsEqual(1, __list_index(l, &after));
       __list_destroy(&l);
     IT_END;
-    
+
     IT("element inserted beyond the end of the list results in error");
       int first = 3;
       int second = 0;
@@ -68,7 +68,7 @@ static void Specifications(void)
       UCUNIT_CheckIsEqual(-1, __list_insert(l, &test, 4));
       __list_destroy(&l);
     IT_END;
-    
+
     IT("is empty after removing the last element");
       int input_elem = 5;
       int output_elem = -1;
@@ -80,21 +80,21 @@ static void Specifications(void)
       UCUNIT_CheckIsEqual(0, __list_size(l));
       __list_destroy(&l);
     IT_END;
-    
+
     IT("returns an error for inserting at index -1");
       int element = 5;
       __list_t* l = __list_create(sizeof(int));
       UCUNIT_CheckIsEqual(-1, __list_insert(l, &element, -1));
       __list_destroy(&l);
     IT_END;
-    
+
     IT("List returns an error for inserting beyond end");
       int element = 5;
       __list_t* l = __list_create(sizeof(int));
       UCUNIT_CheckIsEqual(-1, __list_insert(l, &element, 1));
       __list_destroy(&l);
     IT_END;
-    
+
     IT("can get the first element");
       int element = 3;
       __list_t* l = __list_create(sizeof(int));
@@ -103,7 +103,7 @@ static void Specifications(void)
       UCUNIT_CheckIsEqual(3, element);
       __list_destroy(&l);
     IT_END;
-    
+
     IT("can get the second element");
       int elements[] = {4, 3};
       int result;
@@ -114,21 +114,21 @@ static void Specifications(void)
       UCUNIT_CheckIsEqual(3, result);
       __list_destroy(&l);
     IT_END;
-    
+
     IT("returns an error for trying to get at -1");
       int element = 5;
       __list_t* l = __list_create(sizeof(int));
       UCUNIT_CheckIsEqual(-1, __list_get(l, &element, -1));
       __list_destroy(&l);
     IT_END;
-    
+
     IT("returns an error for trying to get beyond end");
       int element = 5;
       __list_t* l = __list_create(sizeof(int));
       UCUNIT_CheckIsEqual(-1, __list_get(l, &element, 1));
       __list_destroy(&l);
     IT_END;
-    
+
     IT("can remove the second element");
       int elements[] = {4, 3};
       int result;
@@ -140,21 +140,21 @@ static void Specifications(void)
       UCUNIT_CheckIsEqual(1, __list_size(l));
       __list_destroy(&l);
     IT_END;
-    
+
     IT("returns an error for trying to remove at -1");
       int element = 5;
       __list_t* l = __list_create(sizeof(int));
       UCUNIT_CheckIsEqual(-1, __list_rem(l, &element, -1));
       __list_destroy(&l);
     IT_END;
-    
+
     IT("returns an error for trying to remove beyond end");
       int element = 5;
       __list_t* l = __list_create(sizeof(int));
       UCUNIT_CheckIsEqual(-1, __list_rem(l, &element, 1));
       __list_destroy(&l);
     IT_END;
-    
+
     IT("can find an element");
       int elements[] = {4, 5};
       __list_t* l = __list_create(sizeof(int));
@@ -165,7 +165,6 @@ static void Specifications(void)
     IT_END;
   DESCRIBE_END
 }
-
 
 void Testsuite_List(void)
 {
