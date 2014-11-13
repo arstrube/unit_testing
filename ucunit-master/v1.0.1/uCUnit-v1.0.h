@@ -586,6 +586,52 @@ static int ucunit_index = 0; /* Tracepoint index */
     }                                                                \
     while(0)
 
+/**
+ * @Macro:       DESCRIBE()
+ *
+ * @Description: Macro to support behavior-driven test description
+ *               (to a certain degree).
+ *
+ * @Remarks:     This is gleaned from CSpec. It does not use the UCUNIT
+ *               prefix, because - well that would kind of spoil it.
+ *
+ */
+#define DESCRIBE(foo, caption) static void foo ## _describe () { UCUNIT_WriteString(caption " "); {
+
+/**
+ * @Macro:       DESCRIBE_END()
+ *
+ * @Description: Macro to support behavior-driven test description
+ *               (to a certain degree).
+ *
+ * @Remarks:     This is gleaned from CSpec. It does not use the UCUNIT
+ *               prefix, because - well that would kind of spoil it.
+ *
+ */
+#define DESCRIBE_END                    } /* a function could go here */ ; }
+
+/**
+ * @Macro:       IT()
+ *
+ * @Description: Macro to support behavior-driven test description
+ *               (to a certain degree).
+ *
+ * @Remarks:     Syntactic sugar - wraps UCUNIT_TestcaseBegin(name)
+ *
+ */
+#define IT(caption)                     { UCUNIT_TestcaseBegin(caption); {
+
+/**
+ * @Macro:       IT()
+ *
+ * @Description: Macro to support behavior-driven test description
+ *               (to a certain degree).
+ *
+ * @Remarks:     Syntactic sugar - wraps UCUNIT_TestcaseBegin(name)
+ *
+ */
+#define IT_END                          } UCUNIT_TestcaseEnd() ; }
+
 /*****************************************************************************/
 /* Support for code coverage */
 /*****************************************************************************/
