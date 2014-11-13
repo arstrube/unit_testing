@@ -283,7 +283,7 @@ static int ucunit_index = 0; /* Tracepoint index */
 #define UCUNIT_WriteFailedMsg(msg, args)                        \
     do                                                          \
     {                                                           \
-        UCUNIT_WriteString("\n  FAILED: ");                           \
+        UCUNIT_WriteString("\n      FAILED: ");                 \
         UCUNIT_WriteString(__FILE__);                           \
         UCUNIT_WriteString(":");                                \
         UCUNIT_WriteString(UCUNIT_DefineToString(__LINE__));    \
@@ -537,6 +537,8 @@ static int ucunit_index = 0; /* Tracepoint index */
 #define UCUNIT_CheckIsBitClear(value, bitno) \
     UCUNIT_Check( (0==(((value)>>(bitno)) & 0x01) ), "IsBitClear", #value "," #bitno)
 
+#define DESCRIPTION(id) id##_describe()
+
 /*****************************************************************************/
 /* Testcases */
 /*****************************************************************************/
@@ -552,11 +554,11 @@ static int ucunit_index = 0; /* Tracepoint index */
  * @Remarks:     This macro uses UCUNIT_WriteString(msg) to print the name.
  *
  */
-#define UCUNIT_TestcaseBegin(name)                                        \
+#define UCUNIT_TestcaseBegin(name)                                    \
     do                                                                    \
     {                                                                     \
-        UCUNIT_WriteString(name);                                         \
-        UCUNIT_WriteString(" -- ");                                          \
+        UCUNIT_WriteString("   " name);                                   \
+        UCUNIT_WriteString(" -- ");                                       \
         ucunit_testcases_failed_checks = ucunit_checks_failed;            \
     }                                                                     \
     while(0)
@@ -596,7 +598,7 @@ static int ucunit_index = 0; /* Tracepoint index */
  *               prefix, because - well that would kind of spoil it.
  *
  */
-#define DESCRIBE(foo, caption) static void foo ## _describe () { UCUNIT_WriteString(caption " "); {
+#define DESCRIBE(caption) UCUNIT_WriteString("Describe: " caption "\n"); {
 
 /**
  * @Macro:       DESCRIBE_END()
@@ -608,7 +610,7 @@ static int ucunit_index = 0; /* Tracepoint index */
  *               prefix, because - well that would kind of spoil it.
  *
  */
-#define DESCRIBE_END                    } /* a function could go here */ ; }
+#define DESCRIBE_END UCUNIT_WriteString("\n");  }
 
 /**
  * @Macro:       IT()
@@ -616,10 +618,10 @@ static int ucunit_index = 0; /* Tracepoint index */
  * @Description: Macro to support behavior-driven test description
  *               (to a certain degree).
  *
- * @Remarks:     Syntactic sugar - wraps UCUNIT_TestcaseBegin(name)
+ * @Remarks:     Wraps UCUNIT_TestcaseBegin(name)
  *
  */
-#define IT(caption)                     { UCUNIT_TestcaseBegin(caption); {
+#define IT(caption)              { UCUNIT_TestcaseBegin(caption); {
 
 /**
  * @Macro:       IT()
