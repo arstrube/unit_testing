@@ -195,6 +195,7 @@
 static int ucunit_checks_failed = 0; /* Numer of failed checks */
 static int ucunit_checks_passed = 0; /* Number of passed checks */
 
+static int ucunit_testcases_todo = 0; /* Number specifications not implemented */
 static int ucunit_testcases_failed = 0; /* Number of failed test cases */
 static int ucunit_testcases_passed = 0; /* Number of passed test cases */
 static int ucunit_testcases_failed_checks = 0; /* Number of failed checks in a testcase */
@@ -283,7 +284,7 @@ static int ucunit_index = 0; /* Tracepoint index */
 #define UCUNIT_WriteFailedMsg(msg, args)                        \
     do                                                          \
     {                                                           \
-        UCUNIT_WriteString("\n      FAILED: ");                 \
+        UCUNIT_WriteString("\n      F A I L E D : ");           \
         UCUNIT_WriteString(__FILE__);                           \
         UCUNIT_WriteString(":");                                \
         UCUNIT_WriteString(UCUNIT_DefineToString(__LINE__));    \
@@ -554,7 +555,7 @@ static int ucunit_index = 0; /* Tracepoint index */
  * @Remarks:     This macro uses UCUNIT_WriteString(msg) to print the name.
  *
  */
-#define UCUNIT_TestcaseBegin(name)                                    \
+#define UCUNIT_TestcaseBegin(name)                                        \
     do                                                                    \
     {                                                                     \
         UCUNIT_WriteString("   " name);                                   \
@@ -582,7 +583,7 @@ static int ucunit_index = 0; /* Tracepoint index */
         }                                                            \
         else                                                         \
         {                                                            \
-            UCUNIT_WriteString("\n");                              \
+            UCUNIT_WriteString("\n");                                \
             ucunit_testcases_failed++;                               \
         }                                                            \
     }                                                                \
@@ -598,10 +599,13 @@ static int ucunit_index = 0; /* Tracepoint index */
  *               prefix, because - well that would kind of spoil it.
  *
  */
-#define DESCRIBE(caption) UCUNIT_WriteString("Describe: " caption "\n"); {
+#define DESCRIBE(caption)                                            \
+    UCUNIT_WriteString("Describe: " caption "\n");                    \
+    {                                                                \
+        static int ln;
 
 /**
- * @Macro:       DESCRIBE_END()
+ * @Macro:       DESCRIBE_END
  *
  * @Description: Macro to support behavior-driven test description
  *               (to a certain degree).
@@ -610,29 +614,43 @@ static int ucunit_index = 0; /* Tracepoint index */
  *               prefix, because - well that would kind of spoil it.
  *
  */
-#define DESCRIBE_END UCUNIT_WriteString("\n");  }
+#define DESCRIBE_END                                                 \
+        UCUNIT_WriteString("\n");                                    \
+    }
 
 /**
  * @Macro:       IT()
  *
- * @Description: Macro to support behavior-driven test description
- *               (to a certain degree).
+ * @Description: Macro to mark the beginning of a specification in
+ *               behavior-driven development (specification by example).
  *
  * @Remarks:     Wraps UCUNIT_TestcaseBegin(name)
  *
  */
-#define IT(caption)              { UCUNIT_TestcaseBegin(caption); {
+#define IT(caption)                                                  \
+    {                                                                \
+        ln=__LINE__;                                                 \
+        UCUNIT_TestcaseBegin(caption);                               \
+        {
 
 /**
- * @Macro:       IT()
+ * @Macro:       IT_END
  *
- * @Description: Macro to support behavior-driven test description
- *               (to a certain degree).
+ * @Description: Macro to mark the end of a specification
+ *               If no code is specified for the specification, then
+ *               it will automatically be treated as NOT IMPLEMENTED.
  *
  * @Remarks:     Syntactic sugar - wraps UCUNIT_TestcaseBegin(name)
  *
  */
-#define IT_END                          } UCUNIT_TestcaseEnd() ; }
+#define IT_END                                                       \
+        }                                                            \
+        if(ln+1 >= __LINE__) { /* may be on following line */        \
+            ucunit_testcases_todo++;                                 \
+            UCUNIT_WriteString(" N O T   I M P L E M E N T E D\n");  \
+        }                                                            \
+        else UCUNIT_TestcaseEnd();                                   \
+    }
 
 /*****************************************************************************/
 /* Support for code coverage */
@@ -707,13 +725,15 @@ static int ucunit_index = 0; /* Tracepoint index */
 #define UCUNIT_WriteSummary()                                         \
 {                                                                     \
     UCUNIT_WriteString("\n**************************************");   \
-    UCUNIT_WriteString("\nTestcases: failed: ");                      \
+    UCUNIT_WriteString("\nTestcases: Not implemented: ");             \
+    UCUNIT_WriteInt(ucunit_testcases_todo);                           \
+    UCUNIT_WriteString("\n                    Failed: ");             \
     UCUNIT_WriteInt(ucunit_testcases_failed);                         \
-    UCUNIT_WriteString("\n           passed: ");                      \
+    UCUNIT_WriteString("\n                    Passed: ");             \
     UCUNIT_WriteInt(ucunit_testcases_passed);                         \
-    UCUNIT_WriteString("\nChecks:    failed: ");                      \
+    UCUNIT_WriteString("\nChecks:             Failed: ");             \
     UCUNIT_WriteInt(ucunit_checks_failed);                            \
-    UCUNIT_WriteString("\n           passed: ");                      \
+    UCUNIT_WriteString("\n                    Passed: ");             \
     UCUNIT_WriteInt(ucunit_checks_passed);                            \
     UCUNIT_WriteString("\n**************************************\n"); \
 }
