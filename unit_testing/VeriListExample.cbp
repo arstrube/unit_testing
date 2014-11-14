@@ -42,9 +42,11 @@
 			<Add directory="..\ucunit-master\v1.0.1" />
 		</Compiler>
 		<Unit filename="..\.gitignore" />
+		<Unit filename="..\ucunit-master\v1.0.1\System.h" />
 		<Unit filename="..\ucunit-master\v1.0.1\Testsuite.c">
 			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
+			<Option link="0" />
+			<Option target="Debug" />
 		</Unit>
 		<Unit filename="..\ucunit-master\v1.0.1\Testsuite.h">
 			<Option target="Debug" />
