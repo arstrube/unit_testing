@@ -61,21 +61,10 @@ static void Specifications(void)
       __list_destroy(&l);
     IT_END;
 
-    IT("should return an error when passed an invalid positive index 1");
+    IT("should return an error when passed an invalid positive index");
       int element = 5;
       __list_t* l = __list_create(sizeof(int));
       SHOULD_EQ(-1, __list_insert(l, &element, 1));
-      __list_destroy(&l);
-    IT_END;
-
-    IT("should return an error when passed an invalid positive index 2");
-      int first = 3;
-      int second = 0;
-      int test = 15;
-      __list_t* l = __list_create(sizeof(int));
-      __list_insert(l, &first, 0);
-      __list_insert(l, &second, 1);
-      SHOULD_EQ(-1, __list_insert(l, &test, 4));
       __list_destroy(&l);
     IT_END;
 
