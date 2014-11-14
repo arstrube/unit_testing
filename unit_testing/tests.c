@@ -24,6 +24,7 @@ static void Specifications(void)
     IT_END
 
     IT("should do all kinds of marvelleous things") IT_END
+
     IT("should self-destruct after 10 minutes") IT_END
 
     __list_destroy(&l);
@@ -158,21 +159,9 @@ static void Specifications(void)
 
   DESCRIBE_END
 
-  DESCRIBE("List")
+  DESCRIBE("__list_rem(list*, element*, index")
 
-    IT("is empty after removing the last element");
-      int input_elem = 5;
-      int output_elem = -1;
-      __list_t* l = __list_create(sizeof(int));
-      __list_insert(l, &input_elem, 0);
-      __list_rem(l, &output_elem, 0);
-      SHOULD_EQ(5, input_elem);
-      SHOULD_EQ(5, output_elem);
-      SHOULD_EQ(0, __list_size(l));
-      __list_destroy(&l);
-    IT_END;
-
-    IT("can remove the second element");
+    IT("should be able to remove the second element");
       int elements[] = {4, 3};
       int result;
       __list_t* l = __list_create(sizeof(int));
@@ -184,14 +173,26 @@ static void Specifications(void)
       __list_destroy(&l);
     IT_END;
 
-    IT("returns an error for trying to remove at -1");
+    IT("should leave the list empty after removing the last element");
+      int input_elem = 5;
+      int output_elem = -1;
+      __list_t* l = __list_create(sizeof(int));
+      __list_insert(l, &input_elem, 0);
+      __list_rem(l, &output_elem, 0);
+      SHOULD_EQ(5, input_elem);
+      SHOULD_EQ(5, output_elem);
+      SHOULD_EQ(0, __list_size(l));
+      __list_destroy(&l);
+    IT_END;
+
+    IT("should return an error when passed a negative index");
       int element = 5;
       __list_t* l = __list_create(sizeof(int));
       SHOULD_EQ(-1, __list_rem(l, &element, -1));
       __list_destroy(&l);
     IT_END;
 
-    IT("returns an error for trying to remove beyond end");
+    IT("should return an error when passed an invalid positive index");
       int element = 5;
       __list_t* l = __list_create(sizeof(int));
       SHOULD_EQ(-1, __list_rem(l, &element, 1));
