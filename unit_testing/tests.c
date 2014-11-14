@@ -4,6 +4,10 @@
 #include "__list.h"
 #include "tests.h"
 
+#ifdef UCUNIT_MODE_SILENT
+#undef UCUNIT_MODE_SILENT
+#endif
+
 static void Specifications(void)
 {
   DESCRIBE("__list_create(sizeof(int))")
@@ -55,14 +59,14 @@ static void Specifications(void)
       __list_destroy(&l);
     IT_END;
 
-    IT("should return an error when passed an invalid index 1");
+    IT("should return an error when passed an invalid positive index 1");
       int element = 5;
       __list_t* l = __list_create(sizeof(int));
       SHOULD_EQ(-1, __list_insert(l, &element, 1));
       __list_destroy(&l);
     IT_END;
 
-    IT("should return an error when passed an invalid index 2");
+    IT("should return an error when passed an invalid positive index 2");
       int first = 3;
       int second = 0;
       int test = 15;
@@ -82,13 +86,78 @@ static void Specifications(void)
 
   DESCRIBE_END
 
-  DESCRIBE("List")
+  DESCRIBE("__list_index(list*, element*")
 
-    IT("is NULL after destruction");
+    IT("should be able to find an element");
+      int elements[] = {4, 5};
+      __list_t* l = __list_create(sizeof(int));
+      __list_insert(l, elements, 0);
+      __list_insert(l, elements+1, 1);
+      SHOULD_EQ(1, __list_index(l, &elements[1]));
+      __list_destroy(&l);
+    IT_END;
+
+    IT("should should return an error for a non-existent element");
+      int elements[] = {4, 5};
+      int non_existent = 7;
+      __list_t* l = __list_create(sizeof(int));
+      __list_insert(l, elements, 0);
+      __list_insert(l, elements+1, 1);
+      SHOULD_EQ(1, __list_index(l, &non_existent));
+      __list_destroy(&l);
+    IT_END;
+
+  DESCRIBE_END
+
+  DESCRIBE("__list_get(list*, element*, index)")
+
+    IT("should be able to get the first element");
+      int element = 3;
+      __list_t* l = __list_create(sizeof(int));
+      __list_insert(l, &element, 0);
+      __list_get(l, &element, 0);
+      SHOULD_EQ(3, element);
+      __list_destroy(&l);
+    IT_END;
+
+    IT("should be able to get the second element");
+      int elements[] = {4, 3};
+      int result = 7;
+      __list_t* l = __list_create(sizeof(int));
+      __list_insert(l, elements, 0);
+      __list_insert(l, elements + 1, 1);
+      __list_get(l, &result, 1);
+      SHOULD_EQ(3, result);
+      __list_destroy(&l);
+    IT_END;
+
+    IT("should return an error when passed an invalid positive index");
+      int element = 5;
+      __list_t* l = __list_create(sizeof(int));
+      SHOULD_EQ(-1, __list_get(l, &element, 1));
+      __list_destroy(&l);
+    IT_END;
+
+    IT("should return an error when passed a negative index");
+      int element = 5;
+      __list_t* l = __list_create(sizeof(int));
+      SHOULD_EQ(-1, __list_get(l, &element, -1));
+      __list_destroy(&l);
+    IT_END;
+
+  DESCRIBE_END
+
+  DESCRIBE("__list_destroy(list**)")
+
+    IT("should set the list pointer to NULL after destruction");
       __list_t* l = __list_create(sizeof(int));
       __list_destroy(&l);
       SHOULD_BE_NULL(l);
     IT_END;
+
+  DESCRIBE_END
+
+  DESCRIBE("List")
 
     IT("is empty after removing the last element");
       int input_elem = 5;
@@ -99,40 +168,6 @@ static void Specifications(void)
       SHOULD_EQ(5, input_elem);
       SHOULD_EQ(5, output_elem);
       SHOULD_EQ(0, __list_size(l));
-      __list_destroy(&l);
-    IT_END;
-
-    IT("can get the first element");
-      int element = 3;
-      __list_t* l = __list_create(sizeof(int));
-      __list_insert(l, &element, 0);
-      __list_get(l, &element, 0);
-      SHOULD_EQ(3, element);
-      __list_destroy(&l);
-    IT_END;
-
-    IT("can get the second element");
-      int elements[] = {4, 3};
-      int result;
-      __list_t* l = __list_create(sizeof(int));
-      __list_insert(l, elements, 0);
-      __list_insert(l, elements + 1, 1);
-      __list_get(l, &result, 1);
-      SHOULD_EQ(3, result);
-      __list_destroy(&l);
-    IT_END;
-
-    IT("returns an error for trying to get at -1");
-      int element = 5;
-      __list_t* l = __list_create(sizeof(int));
-      SHOULD_EQ(-1, __list_get(l, &element, -1));
-      __list_destroy(&l);
-    IT_END;
-
-    IT("returns an error for trying to get beyond end");
-      int element = 5;
-      __list_t* l = __list_create(sizeof(int));
-      SHOULD_EQ(-1, __list_get(l, &element, 1));
       __list_destroy(&l);
     IT_END;
 
@@ -159,15 +194,6 @@ static void Specifications(void)
       int element = 5;
       __list_t* l = __list_create(sizeof(int));
       SHOULD_EQ(-1, __list_rem(l, &element, 1));
-      __list_destroy(&l);
-    IT_END;
-
-    IT("can find an element");
-      int elements[] = {4, 5};
-      __list_t* l = __list_create(sizeof(int));
-      __list_insert(l, elements, 0);
-      __list_insert(l, elements+1, 1);
-      SHOULD_EQ(1, __list_index(l, &elements[1]));
       __list_destroy(&l);
     IT_END;
 
