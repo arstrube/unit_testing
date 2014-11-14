@@ -8,23 +8,25 @@ static void Specifications(void)
 {
   DESCRIBE("__list_create(sizeof(int))")
 
-    IT("should not return NULL");
       __list_t* l = __list_create(sizeof(int));
+
+    IT("should not return NULL");
       SHOULD_NOT_BE_NULL(l);
-      __list_destroy(&l);
     IT_END
 
     IT("should create an empty list");
-      __list_t* l = __list_create(sizeof(int));
       SHOULD_EQ(0, __list_size(l));
-      __list_destroy(&l);
     IT_END
 
     IT("should do all kinds of marvelleous things") IT_END
+    IT("should self-destruct after 10 minutes") IT_END
+
+    __list_destroy(&l);
 
   DESCRIBE_END
 
   DESCRIBE("List")
+
     IT("size is 1 after inserting an element");
       __list_t* l = __list_create(sizeof(int));
       int element = 25;
@@ -164,6 +166,7 @@ static void Specifications(void)
       SHOULD_EQ(1, __list_index(l, &elements[1]));
       __list_destroy(&l);
     IT_END;
+
   DESCRIBE_END
 }
 
