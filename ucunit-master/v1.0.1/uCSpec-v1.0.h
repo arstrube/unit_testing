@@ -111,7 +111,10 @@ static int ucunit_line = 0;           /* Used to detect empty specifications */
         else UCUNIT_TestcaseEnd();                                   \
     }
 
-/* Syntactic sugar ***********************************************************/
+/*****************************************************************************/
+/* Syntactic sugar                                                           */
+/*****************************************************************************/
+
 #define SHOULD(condition, msg, args) UCUNIT_Check(condition, msg, args)
 #define SHOULD_EQ(expected, actual) UCUNIT_CheckIsEqual(expected, actual)
 #define SHOULD_BE_NULL(pointer) UCUNIT_CheckIsNull(pointer)
@@ -124,19 +127,98 @@ static int ucunit_line = 0;           /* Used to detect empty specifications */
 #define SHOULD_BE_BITCLEAR(value, bitno) UCUNIT_CheckIsBitClear(value, bitno)
 
 /*****************************************************************************/
-/* uCSpec Replacement Testsuite Summary                                      */
+/* uCSpec Replacement Macros                                                 */
 /*****************************************************************************/
 
+#undef UCUNIT_WriteFailedMsg
 /**
- * @Macro:       UCUNIT_WriteSummary()
+ * @Macro:       uCSpec replacement for UCUNIT_WriteFailedMsg(msg, args)
  *
- * @Description: Writes the test suite summary.
+ * @Description: Writes a message that check has failed.
+ *
+ * @Param msg:   Message to write. This is the name of the called
+ *               Check, without the substring UCUNIT_Check.
+ * @Param args:  Argument list as string.
+ *
+ * @Remarks:     This macro is used by UCUNIT_Check(). A message will
+ *               only be written if verbose mode is set
+ *               to UCUNIT_MODE_NORMAL and UCUNIT_MODE_VERBOSE.
+ *
+ */
+#ifdef  UCUNIT_MODE_SILENT
+#define UCUNIT_WriteFailedMsg(msg, args)                        \
+        UCUNIT_WriteString(" F A I L E D");
+#else
+#define UCUNIT_WriteFailedMsg(msg, args)                        \
+        UCUNIT_WriteString(" F A I L E D :\n");          \
+        UCUNIT_WriteString("        " __FILE__);            \
+        UCUNIT_WriteString(":");                                \
+        UCUNIT_WriteString(UCUNIT_DefineToString(__LINE__));    \
+        UCUNIT_WriteString(": failed:");                        \
+        UCUNIT_WriteString(msg);                                \
+        UCUNIT_WriteString("(");                                \
+        UCUNIT_WriteString(args);                               \
+        UCUNIT_WriteString(")");
+#endif
+
+/**
+ * @Macro:       uCSpec replacement for UCUNIT_TestcaseBegin(name)
+ *
+ * @Description: Marks the beginning of a test case and resets
+ *               the test case statistic.
+ *
+ * @Param name:  Name of the test case.
+ *
+ * @Remarks:     This macro uses UCUNIT_WriteString(msg) to print the name.
+ *
+ */
+#undef  UCUNIT_TestcaseBegin
+#define UCUNIT_TestcaseBegin(name)                                        \
+    do                                                                    \
+    {                                                                     \
+        UCUNIT_WriteString("   " name);                                   \
+        UCUNIT_WriteString(" -- ");                                       \
+        ucunit_testcases_failed_checks = ucunit_checks_failed;            \
+    }                                                                     \
+    while(0)
+
+/**
+ * @Macro:       uCSpec replacement for UCUNIT_TestcaseEnd()
+ *
+ * @Description: Marks the end of a test case and calculates
+ *               the test case statistics.
+ *
+ * @Remarks:     This macro uses UCUNIT_WriteString(msg) to print the result.
+ *
+ */
+#undef UCUNIT_TestcaseEnd
+#define UCUNIT_TestcaseEnd()                                         \
+    do                                                               \
+    {                                                                \
+        if( 0==(ucunit_testcases_failed_checks - ucunit_checks_failed) ) \
+        {                                                            \
+            UCUNIT_WriteString("OK\n");                              \
+            ucunit_testcases_passed++;                               \
+        }                                                            \
+        else                                                         \
+        {                                                            \
+            UCUNIT_WriteString("\n");                                \
+            ucunit_testcases_failed++;                               \
+        }                                                            \
+    }                                                                \
+    while(0)
+
+/**
+ * @Macro:       UCSPEC_WriteSummary()
+ *
+ * @Description: Writes the the number of specs not iplemented,
+ *               then calls UCUNIT_WriteSummary to write the
+ *               remainder of the test suite summary.
  *
  * @Remarks:     This macro uses UCUNIT_WriteString(msg) and
  *               UCUNIT_WriteInt(n) to write the summary.
  *
  */
-//#undef UCUNIT_WriteSummary()
 #define UCSPEC_WriteSummary()                                       \
 {                                                                   \
     UCUNIT_WriteString("\n**************************************"); \
