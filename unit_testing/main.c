@@ -5,6 +5,7 @@
 int main(void)
 {
     UCUNIT_Init();
+    UCSPEC_UseStaticsAtLeastOnce();
     UCUNIT_WriteString("\n**************************************\n\n");
     Testsuite_List();
     UCUNIT_Shutdown();

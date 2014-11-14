@@ -169,7 +169,7 @@ static void Specifications(void)
 
 void Testsuite_List(void)
 {
+  UCSPEC_UseStaticsAtLeastOnce();
   Specifications();
-
   UCSPEC_WriteSummary();
 }

@@ -645,6 +645,25 @@ static int ucunit_index = 0; /* Tracepoint index */
 #define UCUNIT_CheckTracepointCoverage(index)    \
     UCUNIT_Check( (ucunit_checkpoints[index]!=0), "TracepointCoverage", #index);
 
+/**
+ * @Macro:       UCSPEC_UseStaticsAtLeastOnce()
+ *
+ * @Description: Silences "defined but not used"-Warnings.
+ *
+ * @Remarks:     This is really a hack - any better ideas?
+ *
+ */
+#define UCSPEC_UseStaticsAtLeastOnce()                                \
+    (void)ucunit_checks_failed;                                       \
+    (void)ucunit_checks_passed;                                       \
+    (void)ucunit_testcases_failed;                                    \
+    (void)ucunit_testcases_passed;                                    \
+    (void)ucunit_testcases_failed_checks;                             \
+    (void)ucunit_checklist_failed_checks;                             \
+    (void)ucunit_action;                                              \
+    (void)ucunit_checkpoints;                                         \
+    (void)ucunit_index;
+
 /*****************************************************************************/
 /* Testsuite Summary                                                         */
 /*****************************************************************************/
