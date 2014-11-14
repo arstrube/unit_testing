@@ -1,5 +1,6 @@
 #include "System.h"
 #include "uCUnit-v1.0.h"
+#include "uCSpec-v1.0.h"
 #include "__list.h"
 #include "tests.h"
 
@@ -9,13 +10,13 @@ static void Specifications(void)
 
     IT("should not return NULL");
       __list_t* l = __list_create(sizeof(int));
-      UCUNIT_CheckIsNotNull(l);
+      SHOULD_NOT_BE_NULL(l);
       __list_destroy(&l);
     IT_END
 
     IT("should create an empty list");
       __list_t* l = __list_create(sizeof(int));
-      UCUNIT_CheckIsEqual(0, __list_size(l));
+      SHOULD_EQ(0, __list_size(l));
       __list_destroy(&l);
     IT_END
 
@@ -28,14 +29,14 @@ static void Specifications(void)
       __list_t* l = __list_create(sizeof(int));
       int element = 25;
       __list_insert(l, &element, 0);
-      UCUNIT_CheckIsEqual(1, __list_size(l)+1); // provoke failure
+      SHOULD_EQ(1, __list_size(l)+1); // provoke failure
       __list_destroy(&l);
     IT_END;
 
     IT("is NULL after destruction");
       __list_t* l = __list_create(sizeof(int));
       __list_destroy(&l);
-      UCUNIT_CheckIsNull(l);
+      SHOULD_BE_NULL(l);
     IT_END;
 
     IT("element is inserted before another");
@@ -44,7 +45,7 @@ static void Specifications(void)
       __list_t* l = __list_create(sizeof(int));
       __list_insert(l, &another, 0);
       __list_insert(l, &before, 0);
-      UCUNIT_CheckIsEqual(0, __list_index(l, &before));
+      SHOULD_EQ(0, __list_index(l, &before));
       __list_destroy(&l);
     IT_END;
 
@@ -54,7 +55,7 @@ static void Specifications(void)
       __list_t* l = __list_create(sizeof(int));
       __list_insert(l, &another, 0);
       __list_insert(l, &after, 1);
-      UCUNIT_CheckIsEqual(1, __list_index(l, &after));
+      SHOULD_EQ(1, __list_index(l, &after));
       __list_destroy(&l);
     IT_END;
 
@@ -65,7 +66,7 @@ static void Specifications(void)
       __list_t* l = __list_create(sizeof(int));
       __list_insert(l, &first, 0);
       __list_insert(l, &second, 1);
-      UCUNIT_CheckIsEqual(-1, __list_insert(l, &test, 4));
+      SHOULD_EQ(-1, __list_insert(l, &test, 4));
       __list_destroy(&l);
     IT_END;
 
@@ -75,23 +76,23 @@ static void Specifications(void)
       __list_t* l = __list_create(sizeof(int));
       __list_insert(l, &input_elem, 0);
       __list_rem(l, &output_elem, 0);
-      UCUNIT_CheckIsEqual(5, input_elem);
-      UCUNIT_CheckIsEqual(5, output_elem);
-      UCUNIT_CheckIsEqual(0, __list_size(l));
+      SHOULD_EQ(5, input_elem);
+      SHOULD_EQ(5, output_elem);
+      SHOULD_EQ(0, __list_size(l));
       __list_destroy(&l);
     IT_END;
 
     IT("returns an error for inserting at index -1");
       int element = 5;
       __list_t* l = __list_create(sizeof(int));
-      UCUNIT_CheckIsEqual(-1, __list_insert(l, &element, -1));
+      SHOULD_EQ(-1, __list_insert(l, &element, -1));
       __list_destroy(&l);
     IT_END;
 
     IT("List returns an error for inserting beyond end");
       int element = 5;
       __list_t* l = __list_create(sizeof(int));
-      UCUNIT_CheckIsEqual(-1, __list_insert(l, &element, 1));
+      SHOULD_EQ(-1, __list_insert(l, &element, 1));
       __list_destroy(&l);
     IT_END;
 
@@ -100,7 +101,7 @@ static void Specifications(void)
       __list_t* l = __list_create(sizeof(int));
       __list_insert(l, &element, 0);
       __list_get(l, &element, 0);
-      UCUNIT_CheckIsEqual(3, element);
+      SHOULD_EQ(3, element);
       __list_destroy(&l);
     IT_END;
 
@@ -111,21 +112,21 @@ static void Specifications(void)
       __list_insert(l, elements, 0);
       __list_insert(l, elements + 1, 1);
       __list_get(l, &result, 1);
-      UCUNIT_CheckIsEqual(3, result);
+      SHOULD_EQ(3, result);
       __list_destroy(&l);
     IT_END;
 
     IT("returns an error for trying to get at -1");
       int element = 5;
       __list_t* l = __list_create(sizeof(int));
-      UCUNIT_CheckIsEqual(-1, __list_get(l, &element, -1));
+      SHOULD_EQ(-1, __list_get(l, &element, -1));
       __list_destroy(&l);
     IT_END;
 
     IT("returns an error for trying to get beyond end");
       int element = 5;
       __list_t* l = __list_create(sizeof(int));
-      UCUNIT_CheckIsEqual(-1, __list_get(l, &element, 1));
+      SHOULD_EQ(-1, __list_get(l, &element, 1));
       __list_destroy(&l);
     IT_END;
 
@@ -136,22 +137,22 @@ static void Specifications(void)
       __list_insert(l, elements, 0);
       __list_insert(l, elements + 1, 1);
       __list_rem(l, &result, 1);
-      UCUNIT_CheckIsEqual(3, result);
-      UCUNIT_CheckIsEqual(1, __list_size(l));
+      SHOULD_EQ(3, result);
+      SHOULD_EQ(1, __list_size(l));
       __list_destroy(&l);
     IT_END;
 
     IT("returns an error for trying to remove at -1");
       int element = 5;
       __list_t* l = __list_create(sizeof(int));
-      UCUNIT_CheckIsEqual(-1, __list_rem(l, &element, -1));
+      SHOULD_EQ(-1, __list_rem(l, &element, -1));
       __list_destroy(&l);
     IT_END;
 
     IT("returns an error for trying to remove beyond end");
       int element = 5;
       __list_t* l = __list_create(sizeof(int));
-      UCUNIT_CheckIsEqual(-1, __list_rem(l, &element, 1));
+      SHOULD_EQ(-1, __list_rem(l, &element, 1));
       __list_destroy(&l);
     IT_END;
 
@@ -160,7 +161,7 @@ static void Specifications(void)
       __list_t* l = __list_create(sizeof(int));
       __list_insert(l, elements, 0);
       __list_insert(l, elements+1, 1);
-      UCUNIT_CheckIsEqual(1, __list_index(l, &elements[1]));
+      SHOULD_EQ(1, __list_index(l, &elements[1]));
       __list_destroy(&l);
     IT_END;
   DESCRIBE_END
@@ -170,5 +171,5 @@ void Testsuite_List(void)
 {
   Specifications();
 
-  UCUNIT_WriteSummary();
+  UCSPEC_WriteSummary();
 }
