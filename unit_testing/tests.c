@@ -1,12 +1,13 @@
 #include "System.h"
+
+#ifndef UCUNIT_MODE_SILENT
+#define UCUNIT_MODE_SILENT
+#endif
+
 #include "uCUnit-v1.0.h"
 #include "uCSpec-v1.0.h"
 #include "__list.h"
 #include "tests.h"
-
-#ifdef UCUNIT_MODE_SILENT
-#undef UCUNIT_MODE_SILENT
-#endif
 
 static void Specifications(void)
 {
@@ -103,7 +104,7 @@ static void Specifications(void)
       __list_t* l = __list_create(sizeof(int));
       __list_insert(l, elements, 0);
       __list_insert(l, elements+1, 1);
-      SHOULD_EQ(1, __list_index(l, &non_existent));
+      SHOULD_EQ(-1, __list_index(l, &non_existent));
       __list_destroy(&l);
     IT_END;
 
