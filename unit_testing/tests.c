@@ -47,9 +47,6 @@ static void Specifications(void)
       __list_destroy(&l);
     IT_END
 
-    IT("should be able to insert an element after another")
-    IT_END
-
     IT("should return an error when passed an invalid positive index")
       int element = 5;
       __list_t* l = __list_create(sizeof(int));
@@ -72,7 +69,7 @@ static void Specifications(void)
       int element = 6;
       __list_t* l = __list_create(sizeof(int));
       __list_insert(l, &element, 0);
-      SHOULD_EQ(1, __list_index(l, &element));
+      SHOULD_EQ(0, __list_index(l, &element));
       __list_destroy(&l);
     IT_END
 
@@ -89,9 +86,6 @@ static void Specifications(void)
   DESCRIBE_END
 
   DESCRIBE("__list_get(list*, element*, index)")
-
-    IT("should be able to get the first element")
-    IT_END
 
     IT("should be able to get an element")
       int elements[] = {4, 3};
@@ -120,13 +114,6 @@ static void Specifications(void)
 
   DESCRIBE_END
 
-  DESCRIBE("__list_destroy(list**)")
-
-    IT("should set the list pointer to NULL after destruction")
-    IT_END;
-
-  DESCRIBE_END
-
   DESCRIBE("__list_rem(list*, element*, index")
 
     IT("should be able to remove an element")
@@ -139,9 +126,6 @@ static void Specifications(void)
       SHOULD_EQ(3, result);
       SHOULD_EQ(1, __list_size(l));
       __list_destroy(&l);
-    IT_END
-
-    IT("should leave the list empty after removing the last element")
     IT_END
 
     IT("should return an error when passed a negative index")
