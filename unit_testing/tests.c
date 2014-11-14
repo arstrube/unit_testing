@@ -25,9 +25,9 @@ static void Specifications(void)
 
   DESCRIBE_END
 
-  DESCRIBE("List")
+  DESCRIBE("__list_insert(list*, element*, index)")
 
-    IT("size is 1 after inserting an element");
+    IT("should increment list size when inserting an element");
       __list_t* l = __list_create(sizeof(int));
       int element = 25;
       __list_insert(l, &element, 0);
@@ -35,13 +35,7 @@ static void Specifications(void)
       __list_destroy(&l);
     IT_END;
 
-    IT("is NULL after destruction");
-      __list_t* l = __list_create(sizeof(int));
-      __list_destroy(&l);
-      SHOULD_BE_NULL(l);
-    IT_END;
-
-    IT("element is inserted before another");
+    IT("should be able to insert an element before another");
       int before = 7;
       int another = 8;
       __list_t* l = __list_create(sizeof(int));
@@ -51,7 +45,7 @@ static void Specifications(void)
       __list_destroy(&l);
     IT_END;
 
-    IT("element is inserted after another");
+    IT("should be able to insert an element after another");
       int after = 9;
       int another = 8;
       __list_t* l = __list_create(sizeof(int));
@@ -61,7 +55,14 @@ static void Specifications(void)
       __list_destroy(&l);
     IT_END;
 
-    IT("element inserted beyond the end of the list results in error");
+    IT("should return an error when passed an invalid index 1");
+      int element = 5;
+      __list_t* l = __list_create(sizeof(int));
+      SHOULD_EQ(-1, __list_insert(l, &element, 1));
+      __list_destroy(&l);
+    IT_END;
+
+    IT("should return an error when passed an invalid index 2");
       int first = 3;
       int second = 0;
       int test = 15;
@@ -70,6 +71,23 @@ static void Specifications(void)
       __list_insert(l, &second, 1);
       SHOULD_EQ(-1, __list_insert(l, &test, 4));
       __list_destroy(&l);
+    IT_END;
+
+    IT("should return an error when passed a negative index");
+      int element = 5;
+      __list_t* l = __list_create(sizeof(int));
+      SHOULD_EQ(-1, __list_insert(l, &element, -1));
+      __list_destroy(&l);
+    IT_END;
+
+  DESCRIBE_END
+
+  DESCRIBE("List")
+
+    IT("is NULL after destruction");
+      __list_t* l = __list_create(sizeof(int));
+      __list_destroy(&l);
+      SHOULD_BE_NULL(l);
     IT_END;
 
     IT("is empty after removing the last element");
@@ -81,20 +99,6 @@ static void Specifications(void)
       SHOULD_EQ(5, input_elem);
       SHOULD_EQ(5, output_elem);
       SHOULD_EQ(0, __list_size(l));
-      __list_destroy(&l);
-    IT_END;
-
-    IT("returns an error for inserting at index -1");
-      int element = 5;
-      __list_t* l = __list_create(sizeof(int));
-      SHOULD_EQ(-1, __list_insert(l, &element, -1));
-      __list_destroy(&l);
-    IT_END;
-
-    IT("List returns an error for inserting beyond end");
-      int element = 5;
-      __list_t* l = __list_create(sizeof(int));
-      SHOULD_EQ(-1, __list_insert(l, &element, 1));
       __list_destroy(&l);
     IT_END;
 
