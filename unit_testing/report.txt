@@ -10,9 +10,9 @@
 
 License notice: This is a limited period evaluation copy license.
 
-Symbol file(s) used   : MON.sym (Fri Nov 14 13:37:29 2014)
-Data file(s) used     : MON.dat (Fri Nov 14 13:37:31 2014)
-Listing produced at   : Fri Nov 14 13:37:36 2014
+Symbol file(s) used   : MON.sym (Fri Nov 14 13:52:42 2014)
+Data file(s) used     : MON.dat (Fri Nov 14 13:52:43 2014)
+Listing produced at   : Fri Nov 14 13:52:48 2014
 Coverage view         : Reduced to MC/DC coverage
 
 
@@ -23,47 +23,47 @@ INSTRUMENTATION MODE  : multicondition
  HITS/TRUE      FALSE    LINE DESCRIPTION
 =============================================================================
 
-         1                 24 FUNCTION __list_create()
-         1                 31   return list
+         7                 24 FUNCTION __list_create()
+         7                 31   return list
                            32 }
 
 ***TER 100 % (  2/  2) of FUNCTION __list_create()
        100 % (  5/  5) statement
 -----------------------------------------------------------------------------
 
-         1                 35 FUNCTION __list_size()
-         1                 37   return list -> size
+         2                 35 FUNCTION __list_size()
+         2                 37   return list -> size
                            38 }
 
 ***TER 100 % (  2/  2) of FUNCTION __list_size()
        100 % (  1/  1) statement
 -----------------------------------------------------------------------------
 
-         0            -    41 FUNCTION __list_insert()
-         0          0 -    47   if (index > list -> size || index < 0)
-         0                 47     1: T || _
-         0                 47     2: F || T
-                    0      47     3: F || F
-                      -    47     MC/DC (cond 1): 1 - 3
-                      -    47     MC/DC (cond 2): 2 - 3
-         0            -    47     return - 1
-         0          0 -    48   for (;i < index;)
-         0            -    58   return 0
+         8                 41 FUNCTION __list_insert()
+         2          6      47   if (index > list -> size || index < 0)
+         1                 47     1: T || _
+         1                 47     2: F || T
+                    6      47     3: F || F
+                           47     MC/DC (cond 1): 1 + 3
+                           47     MC/DC (cond 2): 2 + 3
+         2                 47     return - 1
+         1          6      48   for (;i < index;)
+         6                 58   return 0
                            59 }
 
-***TER   0 % (  0/  9) of FUNCTION __list_insert()
-         0 % (  0/ 16) statement
+***TER 100 % (  9/  9) of FUNCTION __list_insert()
+       100 % ( 16/ 16) statement
 -----------------------------------------------------------------------------
 
-         0            -    62 FUNCTION __list_index()
-         0          0 -    68   for (;current_item != ( ( void * ) 0 );)
-         0          0 -    71     if (0 == memcmp ( element , current_item -> data , list -> size ))
-         0            -    71       return i
-         0            -    75   return - 1
+         3                 62 FUNCTION __list_index()
+         4          1      68   for (;current_item != ( ( void * ) 0 );)
+         2          2      71     if (0 == memcmp ( element , current_item -> data , list -> size ))
+         2                 71       return i
+         1                 75   return - 1
                            76 }
 
-***TER   0 % (  0/  7) of FUNCTION __list_index()
-         0 % (  0/  9) statement
+***TER 100 % (  7/  7) of FUNCTION __list_index()
+       100 % (  9/  9) statement
 -----------------------------------------------------------------------------
 
          0            -    78 FUNCTION __list_get()
@@ -98,18 +98,18 @@ INSTRUMENTATION MODE  : multicondition
          0 % (  0/ 16) statement
 -----------------------------------------------------------------------------
 
-         1                115 FUNCTION __list_destroy()
-         0          1 -   118   while (current != 0)
-         1                128   return 0
+         7                115 FUNCTION __list_destroy()
+         6          7     118   while (current != 0)
+         7                128   return 0
                           129 }
 
-***TER  75 % (  3/  4) of FUNCTION __list_destroy()
-        50 % (  5/ 10) statement
+***TER 100 % (  4/  4) of FUNCTION __list_destroy()
+       100 % ( 10/ 10) statement
 -----------------------------------------------------------------------------
 
 
-***TER  17 % (  7/ 42) of FILE C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\__list.c
-        16 % ( 11/ 67) statement
+***TER  57 % ( 24/ 42) of FILE C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\__list.c
+        61 % ( 41/ 67) statement
 -----------------------------------------------------------------------------
 
 
@@ -174,124 +174,102 @@ INSTRUMENTATION MODE  : multicondition
                     1      24     const-do-while (0)
                            32   do
                     1      32   const-do-while (0)
-         1          0 -    33   if (ucunit_line + 1 >= 33)
-                           33   else
-                           33     do
-         0          0 -    33       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                           33       else
-         0            -    33     const-do-while (0)
-                           35   do
-                    1      35   const-do-while (0)
-         1          0 -    36   if (ucunit_line + 1 >= 36)
+         0          1 -    36   if (( ( 1 ) == ( __list_size ( l ) + 1 ) ))
+                           36     do
+         0            -    36     const-do-while (0)
                            36   else
                            36     do
-         0          0 -    36       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                           36       else
-         0            -    36     const-do-while (0)
-                           38   do
-                    1      38   const-do-while (0)
-         1          0 -    39   if (ucunit_line + 1 >= 39)
-                           39   else
-                           39     do
-         0          0 -    39       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                           39       else
-         0            -    39     const-do-while (0)
-                           41   do
-                    1      41   const-do-while (0)
-         1          0 -    42   if (ucunit_line + 1 >= 42)
-                           42   else
-                           42     do
-         0          0 -    42       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                           42       else
-         0            -    42     const-do-while (0)
-                           44   do
-                    1      44   const-do-while (0)
-         1          0 -    45   if (ucunit_line + 1 >= 45)
-                           45   else
-                           45     do
-         0          0 -    45       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                           45       else
-         0            -    45     const-do-while (0)
-                           51   do
-                    1      51   const-do-while (0)
-         1          0 -    52   if (ucunit_line + 1 >= 52)
-                           52   else
-                           52     do
-         0          0 -    52       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                           52       else
-         0            -    52     const-do-while (0)
-                           54   do
-                    1      54   const-do-while (0)
-         1          0 -    55   if (ucunit_line + 1 >= 55)
-                           55   else
-                           55     do
-         0          0 -    55       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                           55       else
-         0            -    55     const-do-while (0)
-                           61   do
-                    1      61   const-do-while (0)
-         1          0 -    62   if (ucunit_line + 1 >= 62)
-                           62   else
-                           62     do
-         0          0 -    62       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                           62       else
-         0            -    62     const-do-while (0)
-                           64   do
-                    1      64   const-do-while (0)
-         1          0 -    65   if (ucunit_line + 1 >= 65)
+         0          1 -    36       if (2 == ucunit_action)
+                    1      36     const-do-while (0)
+         0          1 -    38   if (ucunit_line + 1 >= 38)
+                           38   else
+                           38     do
+         0          1 -    38       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                           38       else
+                    1      38     const-do-while (0)
+                           40   do
+                    1      40   const-do-while (0)
+         1          0 -    46   if (( ( 0 ) == ( __list_index ( l , & before ) ) ))
+                           46     do
+                    1      46     const-do-while (0)
+                           46   else
+                           46     do
+         0          0 -    46       if (2 == ucunit_action)
+         0            -    46     const-do-while (0)
+         0          1 -    48   if (ucunit_line + 1 >= 48)
+                           48   else
+                           48     do
+         1          0 -    48       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                           48       else
+                    1      48     const-do-while (0)
+                           50   do
+                    1      50   const-do-while (0)
+         1          0 -    51   if (ucunit_line + 1 >= 51)
+                           51   else
+                           51     do
+         0          0 -    51       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                           51       else
+         0            -    51     const-do-while (0)
+                           53   do
+                    1      53   const-do-while (0)
+         1          0 -    56   if (( ( - 1 ) == ( __list_insert ( l , & element , 1 ) ) ))
+                           56     do
+                    1      56     const-do-while (0)
+                           56   else
+                           56     do
+         0          0 -    56       if (2 == ucunit_action)
+         0            -    56     const-do-while (0)
+         0          1 -    58   if (ucunit_line + 1 >= 58)
+                           58   else
+                           58     do
+         1          0 -    58       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                           58       else
+                    1      58     const-do-while (0)
+                           60   do
+                    1      60   const-do-while (0)
+         1          0 -    63   if (( ( - 1 ) == ( __list_insert ( l , & element , - 1 ) ) ))
+                           63     do
+                    1      63     const-do-while (0)
+                           63   else
+                           63     do
+         0          0 -    63       if (2 == ucunit_action)
+         0            -    63     const-do-while (0)
+         0          1 -    65   if (ucunit_line + 1 >= 65)
                            65   else
                            65     do
-         0          0 -    65       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+         1          0 -    65       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
                            65       else
-         0            -    65     const-do-while (0)
-                           67   do
-                    1      67   const-do-while (0)
-         1          0 -    68   if (ucunit_line + 1 >= 68)
-                           68   else
-                           68     do
-         0          0 -    68       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                           68       else
-         0            -    68     const-do-while (0)
-                           70   do
-                    1      70   const-do-while (0)
-         1          0 -    71   if (ucunit_line + 1 >= 71)
-                           71   else
-                           71     do
-         0          0 -    71       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                           71       else
-         0            -    71     const-do-while (0)
-                           77   do
-                    1      77   const-do-while (0)
-         1          0 -    78   if (ucunit_line + 1 >= 78)
-                           78   else
-                           78     do
-         0          0 -    78       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                           78       else
-         0            -    78     const-do-while (0)
-                           84   do
-                    1      84   const-do-while (0)
-         1          0 -    85   if (ucunit_line + 1 >= 85)
+                    1      65     const-do-while (0)
+                           71   do
+                    1      71   const-do-while (0)
+         0          1 -    75   if (( ( 1 ) == ( __list_index ( l , & element ) ) ))
+                           75     do
+         0            -    75     const-do-while (0)
+                           75   else
+                           75     do
+         0          1 -    75       if (2 == ucunit_action)
+                    1      75     const-do-while (0)
+         0          1 -    77   if (ucunit_line + 1 >= 77)
+                           77   else
+                           77     do
+         0          1 -    77       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                           77       else
+                    1      77     const-do-while (0)
+                           79   do
+                    1      79   const-do-while (0)
+         1          0 -    85   if (( ( - 1 ) == ( __list_index ( l , & non_existent ) ) ))
+                           85     do
+                    1      85     const-do-while (0)
                            85   else
                            85     do
-         0          0 -    85       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                           85       else
+         0          0 -    85       if (2 == ucunit_action)
          0            -    85     const-do-while (0)
-                           87   do
-                    1      87   const-do-while (0)
-         1          0 -    88   if (ucunit_line + 1 >= 88)
-                           88   else
-                           88     do
-         0          0 -    88       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                           88       else
-         0            -    88     const-do-while (0)
-                           90   do
-                    1      90   const-do-while (0)
-         1          0 -    91   if (ucunit_line + 1 >= 91)
-                           91   else
-                           91     do
-         0          0 -    91       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                           91       else
-         0            -    91     const-do-while (0)
+         0          1 -    87   if (ucunit_line + 1 >= 87)
+                           87   else
+                           87     do
+         1          0 -    87       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                           87       else
+                    1      87     const-do-while (0)
                            93   do
                     1      93   const-do-while (0)
          1          0 -    94   if (ucunit_line + 1 >= 94)
@@ -300,22 +278,86 @@ INSTRUMENTATION MODE  : multicondition
          0          0 -    94       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
                            94       else
          0            -    94     const-do-while (0)
-         1                 97 }
+                           96   do
+                    1      96   const-do-while (0)
+         1          0 -    97   if (ucunit_line + 1 >= 97)
+                           97   else
+                           97     do
+         0          0 -    97       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                           97       else
+         0            -    97     const-do-while (0)
+                           99   do
+                    1      99   const-do-while (0)
+         1          0 -   100   if (ucunit_line + 1 >= 100)
+                          100   else
+                          100     do
+         0          0 -   100       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                          100       else
+         0            -   100     const-do-while (0)
+                          102   do
+                    1     102   const-do-while (0)
+         1          0 -   103   if (ucunit_line + 1 >= 103)
+                          103   else
+                          103     do
+         0          0 -   103       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                          103       else
+         0            -   103     const-do-while (0)
+                          109   do
+                    1     109   const-do-while (0)
+         1          0 -   110   if (ucunit_line + 1 >= 110)
+                          110   else
+                          110     do
+         0          0 -   110       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                          110       else
+         0            -   110     const-do-while (0)
+                          116   do
+                    1     116   const-do-while (0)
+         1          0 -   117   if (ucunit_line + 1 >= 117)
+                          117   else
+                          117     do
+         0          0 -   117       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                          117       else
+         0            -   117     const-do-while (0)
+                          119   do
+                    1     119   const-do-while (0)
+         1          0 -   120   if (ucunit_line + 1 >= 120)
+                          120   else
+                          120     do
+         0          0 -   120       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                          120       else
+         0            -   120     const-do-while (0)
+                          122   do
+                    1     122   const-do-while (0)
+         1          0 -   123   if (ucunit_line + 1 >= 123)
+                          123   else
+                          123     do
+         0          0 -   123       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                          123       else
+         0            -   123     const-do-while (0)
+                          125   do
+                    1     125   const-do-while (0)
+         1          0 -   126   if (ucunit_line + 1 >= 126)
+                          126   else
+                          126     do
+         0          0 -   126       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                          126       else
+         0            -   126     const-do-while (0)
+         1                129 }
 
-***TER  38 % ( 46/122) of FUNCTION Specifications()
-        62 % (192/310) statement
+***TER  46 % ( 72/158) of FUNCTION Specifications()
+        65 % (260/402) statement
 -----------------------------------------------------------------------------
 
-         1                 99 FUNCTION Testsuite_List()
-         1                104 }
+         1                131 FUNCTION Testsuite_List()
+         1                136 }
 
 ***TER 100 % (  2/  2) of FUNCTION Testsuite_List()
        100 % ( 26/ 26) statement
 -----------------------------------------------------------------------------
 
 
-***TER  39 % ( 48/124) of FILE C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
-        65 % (218/336) statement
+***TER  46 % ( 74/160) of FILE C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+        67 % (286/428) statement
 -----------------------------------------------------------------------------
 
 
@@ -354,8 +396,8 @@ INSTRUMENTATION MODE  : multicondition
          0 % (  0/  2) statement
 -----------------------------------------------------------------------------
 
-        75                 83 FUNCTION System_WriteString()
-        75                 86 }
+        77                 83 FUNCTION System_WriteString()
+        77                 86 }
 
 ***TER 100 % (  2/  2) of FUNCTION System_WriteString()
        100 % (  1/  1) statement
@@ -379,7 +421,7 @@ SUMMARY
 =======
 
 Source files       : 4
-Source lines       : 338
-Measurement points : 217
-TER                : 35 % (63/180) MC/DC
-TER                : 54 % (232/427) statement
+Source lines       : 370
+Measurement points : 265
+TER                : 49 % (106/216) MC/DC
+TER                : 64 % (330/519) statement

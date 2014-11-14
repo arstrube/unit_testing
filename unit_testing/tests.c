@@ -30,18 +30,38 @@ static void Specifications(void)
   DESCRIBE("__list_insert(list*, element*, index)")
 
     IT("should increment list size when inserting an element")
+      __list_t* l = __list_create(sizeof(int));
+      int element = 25;
+      __list_insert(l, &element, 0);
+      SHOULD_EQ(1, __list_size(l)+1); // provoke failure
+      __list_destroy(&l);
     IT_END
 
     IT("should be able to insert an element before another")
+      int before = 7;
+      int another = 8;
+      __list_t* l = __list_create(sizeof(int));
+      __list_insert(l, &another, 0);
+      __list_insert(l, &before, 0);
+      SHOULD_EQ(0, __list_index(l, &before));
+      __list_destroy(&l);
     IT_END
 
     IT("should be able to insert an element after another")
     IT_END
 
     IT("should return an error when passed an invalid positive index")
+      int element = 5;
+      __list_t* l = __list_create(sizeof(int));
+      SHOULD_EQ(-1, __list_insert(l, &element, 1));
+      __list_destroy(&l);
     IT_END
 
     IT("should return an error when passed a negative index")
+      int element = 5;
+      __list_t* l = __list_create(sizeof(int));
+      SHOULD_EQ(-1, __list_insert(l, &element, -1));
+      __list_destroy(&l);
     IT_END
 
   DESCRIBE_END
@@ -49,9 +69,21 @@ static void Specifications(void)
   DESCRIBE("__list_index(list*, element*)")
 
     IT("should be able to find an element")
+      int element = 6;
+      __list_t* l = __list_create(sizeof(int));
+      __list_insert(l, &element, 0);
+      SHOULD_EQ(1, __list_index(l, &element));
+      __list_destroy(&l);
     IT_END
 
     IT("should should return an error for a non-existent element")
+      int elements[] = {4, 5};
+      int non_existent = 7;
+      __list_t* l = __list_create(sizeof(int));
+      __list_insert(l, elements, 0);
+      __list_insert(l, elements+1, 1);
+      SHOULD_EQ(-1, __list_index(l, &non_existent));
+      __list_destroy(&l);
     IT_END
 
   DESCRIBE_END
