@@ -10,9 +10,9 @@
 
 License notice: This is a limited period evaluation copy license.
 
-Symbol file(s) used   : MON.sym (Fri Nov 14 13:52:42 2014)
-Data file(s) used     : MON.dat (Fri Nov 14 13:52:43 2014)
-Listing produced at   : Fri Nov 14 13:52:48 2014
+Symbol file(s) used   : MON.sym (Fri Nov 14 14:03:07 2014)
+Data file(s) used     : MON.dat (Fri Nov 14 14:03:09 2014)
+Listing produced at   : Fri Nov 14 14:03:13 2014
 Coverage view         : Reduced to MC/DC coverage
 
 
@@ -23,8 +23,8 @@ INSTRUMENTATION MODE  : multicondition
  HITS/TRUE      FALSE    LINE DESCRIPTION
 =============================================================================
 
-         7                 24 FUNCTION __list_create()
-         7                 31   return list
+        10                 24 FUNCTION __list_create()
+        10                 31   return list
                            32 }
 
 ***TER 100 % (  2/  2) of FUNCTION __list_create()
@@ -39,16 +39,16 @@ INSTRUMENTATION MODE  : multicondition
        100 % (  1/  1) statement
 -----------------------------------------------------------------------------
 
-         8                 41 FUNCTION __list_insert()
-         2          6      47   if (index > list -> size || index < 0)
+        10                 41 FUNCTION __list_insert()
+         2          8      47   if (index > list -> size || index < 0)
          1                 47     1: T || _
          1                 47     2: F || T
-                    6      47     3: F || F
+                    8      47     3: F || F
                            47     MC/DC (cond 1): 1 + 3
                            47     MC/DC (cond 2): 2 + 3
          2                 47     return - 1
-         1          6      48   for (;i < index;)
-         6                 58   return 0
+         2          8      48   for (;i < index;)
+         8                 58   return 0
                            59 }
 
 ***TER 100 % (  9/  9) of FUNCTION __list_insert()
@@ -66,20 +66,20 @@ INSTRUMENTATION MODE  : multicondition
        100 % (  9/  9) statement
 -----------------------------------------------------------------------------
 
-         0            -    78 FUNCTION __list_get()
-         0          0 -    82   if (index > list -> size || index < 0)
-         0                 82     1: T || _
-         0                 82     2: F || T
-                    0      82     3: F || F
-                      -    82     MC/DC (cond 1): 1 - 3
-                      -    82     MC/DC (cond 2): 2 - 3
-         0            -    82     return - 1
-         0          0 -    83   for (;i < index;)
-         0            -    91   return 0
+         3                 78 FUNCTION __list_get()
+         2          1      82   if (index > list -> size || index < 0)
+         1                 82     1: T || _
+         1                 82     2: F || T
+                    1      82     3: F || F
+                           82     MC/DC (cond 1): 1 + 3
+                           82     MC/DC (cond 2): 2 + 3
+         2                 82     return - 1
+         1          1      83   for (;i < index;)
+         1                 91   return 0
                            92 }
 
-***TER   0 % (  0/  9) of FUNCTION __list_get()
-         0 % (  0/ 10) statement
+***TER 100 % (  9/  9) of FUNCTION __list_get()
+       100 % ( 10/ 10) statement
 -----------------------------------------------------------------------------
 
          0            -    94 FUNCTION __list_rem()
@@ -98,9 +98,9 @@ INSTRUMENTATION MODE  : multicondition
          0 % (  0/ 16) statement
 -----------------------------------------------------------------------------
 
-         7                115 FUNCTION __list_destroy()
-         6          7     118   while (current != 0)
-         7                128   return 0
+        10                115 FUNCTION __list_destroy()
+         8         10     118   while (current != 0)
+        10                128   return 0
                           129 }
 
 ***TER 100 % (  4/  4) of FUNCTION __list_destroy()
@@ -108,8 +108,8 @@ INSTRUMENTATION MODE  : multicondition
 -----------------------------------------------------------------------------
 
 
-***TER  57 % ( 24/ 42) of FILE C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\__list.c
-        61 % ( 41/ 67) statement
+***TER  79 % ( 33/ 42) of FILE C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\__list.c
+        76 % ( 51/ 67) statement
 -----------------------------------------------------------------------------
 
 
@@ -280,60 +280,49 @@ INSTRUMENTATION MODE  : multicondition
          0            -    94     const-do-while (0)
                            96   do
                     1      96   const-do-while (0)
-         1          0 -    97   if (ucunit_line + 1 >= 97)
-                           97   else
-                           97     do
-         0          0 -    97       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                           97       else
-         0            -    97     const-do-while (0)
-                           99   do
-                    1      99   const-do-while (0)
-         1          0 -   100   if (ucunit_line + 1 >= 100)
-                          100   else
-                          100     do
-         0          0 -   100       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                          100       else
-         0            -   100     const-do-while (0)
-                          102   do
-                    1     102   const-do-while (0)
-         1          0 -   103   if (ucunit_line + 1 >= 103)
+         1          0 -   103   if (( ( 3 ) == ( result ) ))
+                          103     do
+                    1     103     const-do-while (0)
                           103   else
                           103     do
-         0          0 -   103       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                          103       else
+         0          0 -   103       if (2 == ucunit_action)
          0            -   103     const-do-while (0)
-                          109   do
-                    1     109   const-do-while (0)
-         1          0 -   110   if (ucunit_line + 1 >= 110)
+         0          1 -   105   if (ucunit_line + 1 >= 105)
+                          105   else
+                          105     do
+         1          0 -   105       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                          105       else
+                    1     105     const-do-while (0)
+                          107   do
+                    1     107   const-do-while (0)
+         1          0 -   110   if (( ( - 1 ) == ( __list_get ( l , & element , 1 ) ) ))
+                          110     do
+                    1     110     const-do-while (0)
                           110   else
                           110     do
-         0          0 -   110       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                          110       else
+         0          0 -   110       if (2 == ucunit_action)
          0            -   110     const-do-while (0)
-                          116   do
-                    1     116   const-do-while (0)
-         1          0 -   117   if (ucunit_line + 1 >= 117)
+         0          1 -   112   if (ucunit_line + 1 >= 112)
+                          112   else
+                          112     do
+         1          0 -   112       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                          112       else
+                    1     112     const-do-while (0)
+                          114   do
+                    1     114   const-do-while (0)
+         1          0 -   117   if (( ( - 1 ) == ( __list_get ( l , & element , - 1 ) ) ))
+                          117     do
+                    1     117     const-do-while (0)
                           117   else
                           117     do
-         0          0 -   117       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                          117       else
+         0          0 -   117       if (2 == ucunit_action)
          0            -   117     const-do-while (0)
-                          119   do
-                    1     119   const-do-while (0)
-         1          0 -   120   if (ucunit_line + 1 >= 120)
-                          120   else
-                          120     do
-         0          0 -   120       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                          120       else
-         0            -   120     const-do-while (0)
-                          122   do
-                    1     122   const-do-while (0)
-         1          0 -   123   if (ucunit_line + 1 >= 123)
-                          123   else
-                          123     do
-         0          0 -   123       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
-                          123       else
-         0            -   123     const-do-while (0)
+         0          1 -   119   if (ucunit_line + 1 >= 119)
+                          119   else
+                          119     do
+         1          0 -   119       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                          119       else
+                    1     119     const-do-while (0)
                           125   do
                     1     125   const-do-while (0)
          1          0 -   126   if (ucunit_line + 1 >= 126)
@@ -342,22 +331,54 @@ INSTRUMENTATION MODE  : multicondition
          0          0 -   126       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
                           126       else
          0            -   126     const-do-while (0)
-         1                129 }
+                          132   do
+                    1     132   const-do-while (0)
+         1          0 -   133   if (ucunit_line + 1 >= 133)
+                          133   else
+                          133     do
+         0          0 -   133       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                          133       else
+         0            -   133     const-do-while (0)
+                          135   do
+                    1     135   const-do-while (0)
+         1          0 -   136   if (ucunit_line + 1 >= 136)
+                          136   else
+                          136     do
+         0          0 -   136       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                          136       else
+         0            -   136     const-do-while (0)
+                          138   do
+                    1     138   const-do-while (0)
+         1          0 -   139   if (ucunit_line + 1 >= 139)
+                          139   else
+                          139     do
+         0          0 -   139       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                          139       else
+         0            -   139     const-do-while (0)
+                          141   do
+                    1     141   const-do-while (0)
+         1          0 -   142   if (ucunit_line + 1 >= 142)
+                          142   else
+                          142     do
+         0          0 -   142       if (0 == ( ucunit_testcases_failed_checks - ucunit_checks_failed ))
+                          142       else
+         0            -   142     const-do-while (0)
+         1                145 }
 
-***TER  46 % ( 72/158) of FUNCTION Specifications()
-        65 % (260/402) statement
+***TER  48 % ( 84/176) of FUNCTION Specifications()
+        65 % (292/449) statement
 -----------------------------------------------------------------------------
 
-         1                131 FUNCTION Testsuite_List()
-         1                136 }
+         1                147 FUNCTION Testsuite_List()
+         1                152 }
 
 ***TER 100 % (  2/  2) of FUNCTION Testsuite_List()
        100 % ( 26/ 26) statement
 -----------------------------------------------------------------------------
 
 
-***TER  46 % ( 74/160) of FILE C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
-        67 % (286/428) statement
+***TER  48 % ( 86/178) of FILE C:\data\00_Dev\30_CTC\CodeBlocks-EP\projects\unit_testing\tests.c
+        67 % (318/475) statement
 -----------------------------------------------------------------------------
 
 
@@ -421,7 +442,7 @@ SUMMARY
 =======
 
 Source files       : 4
-Source lines       : 370
-Measurement points : 265
-TER                : 49 % (106/216) MC/DC
-TER                : 64 % (330/519) statement
+Source lines       : 386
+Measurement points : 289
+TER                : 54 % (127/234) MC/DC
+TER                : 66 % (372/566) statement

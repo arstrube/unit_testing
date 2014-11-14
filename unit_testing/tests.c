@@ -93,13 +93,29 @@ static void Specifications(void)
     IT("should be able to get the first element")
     IT_END
 
-    IT("should be able to get the second element")
+    IT("should be able to get an element")
+      int elements[] = {4, 3};
+      int result = 7;
+      __list_t* l = __list_create(sizeof(int));
+      __list_insert(l, elements, 0);
+      __list_insert(l, elements + 1, 1);
+      __list_get(l, &result, 1);
+      SHOULD_EQ(3, result);
+      __list_destroy(&l);
     IT_END
 
     IT("should return an error when passed an invalid positive index");
+      int element = 5;
+      __list_t* l = __list_create(sizeof(int));
+      SHOULD_EQ(-1, __list_get(l, &element, 1));
+      __list_destroy(&l);
     IT_END;
 
     IT("should return an error when passed a negative index")
+      int element = 5;
+      __list_t* l = __list_create(sizeof(int));
+      SHOULD_EQ(-1, __list_get(l, &element, -1));
+      __list_destroy(&l);
     IT_END
 
   DESCRIBE_END
