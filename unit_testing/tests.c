@@ -129,16 +129,33 @@ static void Specifications(void)
 
   DESCRIBE("__list_rem(list*, element*, index")
 
-    IT("should be able to remove the second element")
+    IT("should be able to remove an element")
+      int elements[] = {4, 3};
+      int result;
+      __list_t* l = __list_create(sizeof(int));
+      __list_insert(l, elements, 0);
+      __list_insert(l, elements + 1, 1);
+      __list_rem(l, &result, 1);
+      SHOULD_EQ(3, result);
+      SHOULD_EQ(1, __list_size(l));
+      __list_destroy(&l);
     IT_END
 
     IT("should leave the list empty after removing the last element")
     IT_END
 
     IT("should return an error when passed a negative index")
+      int element = 5;
+      __list_t* l = __list_create(sizeof(int));
+      SHOULD_EQ(-1, __list_rem(l, &element, -1));
+      __list_destroy(&l);
     IT_END
 
     IT("should return an error when passed an invalid positive index")
+      int element = 5;
+      __list_t* l = __list_create(sizeof(int));
+      SHOULD_EQ(-1, __list_rem(l, &element, 1));
+      __list_destroy(&l);
     IT_END
 
   DESCRIBE_END
