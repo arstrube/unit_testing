@@ -88,7 +88,7 @@ static void Specifications(void)
 
   DESCRIBE_END
 
-  DESCRIBE("__list_index(list*, element*")
+  DESCRIBE("__list_index(list*, element*)")
 
     IT("should be able to find an element");
       int elements[] = {4, 5};
