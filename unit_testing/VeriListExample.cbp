@@ -34,6 +34,27 @@
 				<Option type="1" />
 				<Option compiler="ctc_gnu_gcc_compiler" />
 			</Target>
+			<Target title="Gcov">
+				<Option output="bin\Gcov\VeriListExample" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Gcov\" />
+				<Option type="1" />
+				<Option compiler="cygwin" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-fprofile-arcs" />
+					<Add option="-ftest-coverage" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-fprofile-arcs" />
+					<Add option="-ftest-coverage" />
+					<Add library="gcov" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="bin\Gcov\VeriListExample.exe" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-pedantic" />
