@@ -15,11 +15,11 @@ static void Specifications(void)
 
       __list_t* l = __list_create(sizeof(int));
 
-    IT("should not return NULL");
+    IT("should not return NULL")
       SHOULD_NOT_BE_NULL(l);
     IT_END
 
-    IT("should create an empty list");
+    IT("should create an empty list")
       SHOULD_EQ(0, __list_size(l));
     IT_END
 
