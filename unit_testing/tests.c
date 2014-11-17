@@ -114,7 +114,7 @@ static void Specifications(void)
 
   DESCRIBE_END
 
-  DESCRIBE("__list_rem(list*, element*, index")
+  DESCRIBE("__list_rem(list*, element*, index)")
 
     IT("should be able to remove an element")
       int elements[] = {4, 3};
