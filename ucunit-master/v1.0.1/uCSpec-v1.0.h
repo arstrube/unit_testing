@@ -60,9 +60,9 @@ static int ucunit_line = 0;           /* Used to detect empty specifications */
  *                 kind of spoil it.
  *
  */
-#define DESCRIBE(caption)                                            \
-    UCUNIT_WriteString("Describe: " caption "\n");                   \
-    {
+#define DESCRIBE(caption)                                           \
+    {                                                               \
+        UCUNIT_WriteString("Describe: " caption "\n");              \
 
 /**
  * @Macro:       DESCRIBE_END
@@ -73,8 +73,8 @@ static int ucunit_line = 0;           /* Used to detect empty specifications */
  *               kind of spoil it.
  *
  */
-#define DESCRIBE_END                                                 \
-        UCUNIT_WriteString("\n");                                    \
+#define DESCRIBE_END                                                \
+        UCUNIT_WriteString("\n");                                   \
     }
 
 /**
@@ -88,16 +88,12 @@ static int ucunit_line = 0;           /* Used to detect empty specifications */
  * @Remarks:       Wraps UCUNIT_TestcaseBegin(name)
  *
  */
-#define IT(caption)                                               \
-     {                                                                 \
-         ucunit_line = __LINE__;                                      \
-         do                                                           \
-         {                                                            \
-             UCUNIT_WriteString("   " caption);                      \
-             UCUNIT_WriteString(" -- ");                             \
-             ucunit_testcases_failed_checks = ucunit_checks_failed;  \
-         }                                                            \
-         while(0);
+#define IT(caption)                                                 \
+    {                                                               \
+        ucunit_line = __LINE__;                                     \
+        UCUNIT_WriteString("   " caption);                          \
+        UCUNIT_WriteString(" -- ");                                 \
+        ucunit_testcases_failed_checks = ucunit_checks_failed;
 
 /**
  * @Macro:       IT_END
@@ -109,26 +105,22 @@ static int ucunit_line = 0;           /* Used to detect empty specifications */
  * @Remarks:     wraps UCUNIT_TestcaseBegin(name)
  *
  */
-#define IT_END    \
-    do                                                               \
-    {                                                          \
-        if(ucunit_line + 1 >= __LINE__) {                            \
-            ucspec_testcases_todo++;                                 \
-            UCUNIT_WriteString(" N O T   I M P L E M E N T E D\n");  \
-        }                                                            \
+#define IT_END                                                      \
+        if(ucunit_line + 1 >= __LINE__) {                           \
+            UCUNIT_WriteString(" N O T   I M P L E M E N T E D\n"); \
+            ucspec_testcases_todo++;                                \
+        }                                                           \
         else if( 0==(ucunit_testcases_failed_checks - ucunit_checks_failed) ) \
-        {                                                            \
-            UCUNIT_WriteString("OK\n");                              \
-            ucunit_testcases_passed++;                               \
-        }                                                            \
-        else                                                         \
-        {                                                            \
-            UCUNIT_WriteString("\n");                                \
-            ucunit_testcases_failed++;                               \
-        }                                                            \
-    }                                                                \
-    while(0);                                                        \
-}
+        {                                                           \
+            UCUNIT_WriteString("OK\n");                             \
+            ucunit_testcases_passed++;                              \
+        }                                                           \
+        else                                                        \
+        {                                                           \
+            UCUNIT_WriteString("\n");                               \
+            ucunit_testcases_failed++;                              \
+        }                                                           \
+    }
 
 /*****************************************************************************/
 /* Support for "SHOULD"-style assertions                                     */
@@ -164,19 +156,19 @@ static int ucunit_line = 0;           /* Used to detect empty specifications */
  */
 #undef  UCUNIT_WriteFailedMsg
 #ifdef  UCUNIT_MODE_SILENT
-#define UCUNIT_WriteFailedMsg(msg, args)                        \
-        UCUNIT_WriteString(" F A I L E D");
+#define UCUNIT_WriteFailedMsg(msg, args)                            \
+    UCUNIT_WriteString(" F A I L E D");
 #else
-#define UCUNIT_WriteFailedMsg(msg, args)                        \
-        UCUNIT_WriteString(" F A I L E D :\n");          \
-        UCUNIT_WriteString("        " __FILE__);            \
-        UCUNIT_WriteString(":");                                \
-        UCUNIT_WriteString(UCUNIT_DefineToString(__LINE__));    \
-        UCUNIT_WriteString(": failed:");                        \
-        UCUNIT_WriteString(msg);                                \
-        UCUNIT_WriteString("(");                                \
-        UCUNIT_WriteString(args);                               \
-        UCUNIT_WriteString(")");
+#define UCUNIT_WriteFailedMsg(msg, args)                            \
+    UCUNIT_WriteString(" F A I L E D :\n");                         \
+    UCUNIT_WriteString("        " __FILE__);                        \
+    UCUNIT_WriteString(":");                                        \
+    UCUNIT_WriteString(UCUNIT_DefineToString(__LINE__));            \
+    UCUNIT_WriteString(": failed:");                                \
+    UCUNIT_WriteString(msg);                                        \
+    UCUNIT_WriteString("(");                                        \
+    UCUNIT_WriteString(args);                                       \
+    UCUNIT_WriteString(")");
 #endif
 
 /**
