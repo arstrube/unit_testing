@@ -23,6 +23,8 @@ static void Specifications(void)
       SHOULD_EQ(0, __list_size(l));
     IT_END
 
+    IT("should return an error when out of memory") IT_END
+
     __list_destroy(&l);
 
   DESCRIBE_END
