@@ -39,7 +39,7 @@
 #define UCSPEC_0101_H_
 
 /*****************************************************************************/
-/* Variables */
+/* Variables                                                                 */
 /*****************************************************************************/
 
 static int ucspec_testcases_todo = 0; /* Number of specs not yet implemented */
@@ -50,27 +50,27 @@ static int ucunit_line = 0;           /* Used to detect empty specifications */
 /*****************************************************************************/
 
 /**
- * @Macro:       DESCRIBE()
+ * @Macro:         DESCRIBE(caption)
  *
- * @Description: Macro to support behavior-driven test description
- *               (to a certain degree).
+ * @Description:   Macro to mark the beginning of a set of specifications.
  *
- * @Remarks:     This is gleaned from CSpec. It does not use the UCUNIT
- *               prefix, because - well that would kind of spoil it.
+ * @Param caption: The object to be described as string.
+ *
+ * @Remarks:       Does not use the UCUNIT prefix, because - well that would
+ *                 kind of spoil it.
  *
  */
 #define DESCRIBE(caption)                                            \
-    UCUNIT_WriteString("Describe: " caption "\n");                    \
+    UCUNIT_WriteString("Describe: " caption "\n");                   \
     {
 
 /**
  * @Macro:       DESCRIBE_END
  *
- * @Description: Macro to support behavior-driven test description
- *               (to a certain degree).
+ * @Description: Marks the end of a set of specifications.
  *
- * @Remarks:     This is gleaned from CSpec. It does not use the UCUNIT
- *               prefix, because - well that would kind of spoil it.
+ * @Remarks:     Does not use the UCUNIT prefix, because - well that would
+ *               kind of spoil it.
  *
  */
 #define DESCRIBE_END                                                 \
@@ -78,12 +78,14 @@ static int ucunit_line = 0;           /* Used to detect empty specifications */
     }
 
 /**
- * @Macro:       IT()
+ * @Macro:         IT(caption)
  *
- * @Description: Macro to mark the beginning of a specification in
- *               behavior-driven development (specification by example).
+ * @Description:   Macro to mark the beginning of a specification in
+ *                 behavior-driven development (BDD).
  *
- * @Remarks:     Wraps UCUNIT_TestcaseBegin(name)
+ * @Param caption: The behavior that the object should exhibit as string.
+ *
+ * @Remarks:       Wraps UCUNIT_TestcaseBegin(name)
  *
  */
 #define IT(caption)                                                  \
@@ -95,16 +97,16 @@ static int ucunit_line = 0;           /* Used to detect empty specifications */
 /**
  * @Macro:       IT_END
  *
- * @Description: Macro to mark the end of a specification
+ * @Description: Macro to mark the end of a specification.
  *               If no code is specified for the specification, then
- *               it will automatically be treated as NOT IMPLEMENTED.
+ *               it is automatically treated as NOT IMPLEMENTED.
  *
- * @Remarks:     Syntactic sugar - wraps UCUNIT_TestcaseBegin(name)
+ * @Remarks:     wraps UCUNIT_TestcaseBegin(name)
  *
  */
 #define IT_END                                                       \
         }                                                            \
-        if(ucunit_line + 1 >= __LINE__) { /* allow on following line */ \
+        if(ucunit_line + 1 >= __LINE__) {                            \
             ucspec_testcases_todo++;                                 \
             UCUNIT_WriteString(" N O T   I M P L E M E N T E D\n");  \
         }                                                            \
@@ -112,7 +114,7 @@ static int ucunit_line = 0;           /* Used to detect empty specifications */
     }
 
 /*****************************************************************************/
-/* Syntactic sugar                                                           */
+/* Support for "SHOULD"-style assertions                                     */
 /*****************************************************************************/
 
 #define SHOULD(condition, msg, args) UCUNIT_Check(condition, msg, args)
@@ -130,7 +132,6 @@ static int ucunit_line = 0;           /* Used to detect empty specifications */
 /* uCSpec Replacement Macros                                                 */
 /*****************************************************************************/
 
-#undef UCUNIT_WriteFailedMsg
 /**
  * @Macro:       uCSpec replacement for UCUNIT_WriteFailedMsg(msg, args)
  *
@@ -140,11 +141,11 @@ static int ucunit_line = 0;           /* Used to detect empty specifications */
  *               Check, without the substring UCUNIT_Check.
  * @Param args:  Argument list as string.
  *
- * @Remarks:     This macro is used by UCUNIT_Check(). A message will
- *               only be written if verbose mode is set
- *               to UCUNIT_MODE_NORMAL and UCUNIT_MODE_VERBOSE.
+ * @Remarks:     This has been slightly adjusted to fit the specification
+ *               output format.
  *
  */
+#undef UCUNIT_WriteFailedMsg
 #ifdef  UCUNIT_MODE_SILENT
 #define UCUNIT_WriteFailedMsg(msg, args)                        \
         UCUNIT_WriteString(" F A I L E D");
