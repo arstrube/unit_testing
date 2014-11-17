@@ -88,11 +88,16 @@ static int ucunit_line = 0;           /* Used to detect empty specifications */
  * @Remarks:       Wraps UCUNIT_TestcaseBegin(name)
  *
  */
-#define IT(caption)                                                  \
-    {                                                                \
-        ucunit_line = __LINE__;                                      \
-        UCUNIT_TestcaseBegin(caption);                               \
-        {
+#define IT(caption)                                               \
+     {                                                                 \
+         ucunit_line = __LINE__;                                      \
+         do                                                           \
+         {                                                            \
+             UCUNIT_WriteString("   " caption);                      \
+             UCUNIT_WriteString(" -- ");                             \
+             ucunit_testcases_failed_checks = ucunit_checks_failed;  \
+         }                                                            \
+         while(0);
 
 /**
  * @Macro:       IT_END
@@ -104,14 +109,26 @@ static int ucunit_line = 0;           /* Used to detect empty specifications */
  * @Remarks:     wraps UCUNIT_TestcaseBegin(name)
  *
  */
-#define IT_END                                                       \
-        }                                                            \
+#define IT_END    \
+    do                                                               \
+    {                                                          \
         if(ucunit_line + 1 >= __LINE__) {                            \
             ucspec_testcases_todo++;                                 \
             UCUNIT_WriteString(" N O T   I M P L E M E N T E D\n");  \
         }                                                            \
-        else UCUNIT_TestcaseEnd();                                   \
-    }
+        else if( 0==(ucunit_testcases_failed_checks - ucunit_checks_failed) ) \
+        {                                                            \
+            UCUNIT_WriteString("OK\n");                              \
+            ucunit_testcases_passed++;                               \
+        }                                                            \
+        else                                                         \
+        {                                                            \
+            UCUNIT_WriteString("\n");                                \
+            ucunit_testcases_failed++;                               \
+        }                                                            \
+    }                                                                \
+    while(0);                                                        \
+}
 
 /*****************************************************************************/
 /* Support for "SHOULD"-style assertions                                     */
